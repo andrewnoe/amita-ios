@@ -1,0 +1,618 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		47012EEC22ADF719008E9AF9 /* taskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47012EEA22ADF719008E9AF9 /* taskCell.swift */; };
+		47012EED22ADF719008E9AF9 /* taskCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 47012EEB22ADF719008E9AF9 /* taskCell.xib */; };
+		47012EF122AE0660008E9AF9 /* patientCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47012EEF22AE0660008E9AF9 /* patientCell.swift */; };
+		47012EF222AE0660008E9AF9 /* patientCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 47012EF022AE0660008E9AF9 /* patientCell.xib */; };
+		47012EF722AE0B5A008E9AF9 /* documentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47012EF522AE0B5A008E9AF9 /* documentCell.swift */; };
+		47012EF822AE0B5A008E9AF9 /* documentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 47012EF622AE0B5A008E9AF9 /* documentCell.xib */; };
+		470CCEC522A1C09700E1DB01 /* DashboardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 470CCEC422A1C09700E1DB01 /* DashboardController.swift */; };
+		470CCEC722A1DD0D00E1DB01 /* PatientController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 470CCEC622A1DD0D00E1DB01 /* PatientController.swift */; };
+		471139BC22A6FC9E00E89A58 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 471139BB22A6FC9E00E89A58 /* GoogleService-Info.plist */; };
+		4746C00222A0E0860081ACD2 /* TasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4746C00122A0E0860081ACD2 /* TasksViewController.swift */; };
+		4749282B22C2CAE600D3E803 /* newPatientController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4749282A22C2CAE600D3E803 /* newPatientController.swift */; };
+		474BBDFC22A0AC59000410AB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474BBDFB22A0AC59000410AB /* AppDelegate.swift */; };
+		474BBE0322A0AC59000410AB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 474BBE0122A0AC59000410AB /* Main.storyboard */; };
+		474BBE0522A0AC59000410AB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 474BBE0422A0AC59000410AB /* Assets.xcassets */; };
+		474BBE0822A0AC59000410AB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 474BBE0622A0AC59000410AB /* LaunchScreen.storyboard */; };
+		47566E2E22A70963005553E6 /* LogInController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47566E2D22A70963005553E6 /* LogInController.swift */; };
+		47678B6322BDBDB300622DA6 /* documentEditorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47678B6222BDBDB300622DA6 /* documentEditorController.swift */; };
+		47678B6522BDC02B00622DA6 /* patientEditorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47678B6422BDC02B00622DA6 /* patientEditorController.swift */; };
+		47678B6722BEF11E00622DA6 /* taskDetailedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47678B6622BEF11E00622DA6 /* taskDetailedViewController.swift */; };
+		4778541B22BC247E00E4C7B4 /* How to Marble a Cake - Recipe, Technique, Tutorial.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 4778541A22BC247E00E4C7B4 /* How to Marble a Cake - Recipe, Technique, Tutorial.pdf */; };
+		4778541D22BC248700E4C7B4 /* Workbook_Week_1.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 4778541C22BC248700E4C7B4 /* Workbook_Week_1.pdf */; };
+		47984F4A22A71FB6009FBA69 /* DocumentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47984F4922A71FB6009FBA69 /* DocumentController.swift */; };
+		4798597C22B0402200736210 /* docIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4798597B22B0402200736210 /* docIcon.png */; };
+		47BB055C22EF8422004333F0 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 47BB055B22EF8422004333F0 /* Settings.bundle */; };
+		47BB055E22F39A19004333F0 /* TeamController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47BB055D22F39A19004333F0 /* TeamController.swift */; };
+		47C3767022B76126005B10AD /* trash_can_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 47C3766F22B76126005B10AD /* trash_can_icon.png */; };
+		47C3767322B761C3005B10AD /* pencil_edit_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 47C3767122B761C3005B10AD /* pencil_edit_icon.png */; };
+		47C3767422B761C3005B10AD /* addMember.png in Resources */ = {isa = PBXBuildFile; fileRef = 47C3767222B761C3005B10AD /* addMember.png */; };
+		47C3767622B761EF005B10AD /* completedIcon2.png in Resources */ = {isa = PBXBuildFile; fileRef = 47C3767522B761EF005B10AD /* completedIcon2.png */; };
+		47C3767822B763DF005B10AD /* new_critical_RED.png in Resources */ = {isa = PBXBuildFile; fileRef = 47C3767722B763DF005B10AD /* new_critical_RED.png */; };
+		47C3767B22B76440005B10AD /* new_critical_ORANGE.png in Resources */ = {isa = PBXBuildFile; fileRef = 47C3767922B76440005B10AD /* new_critical_ORANGE.png */; };
+		47C3767C22B76440005B10AD /* NEW_STAR.png in Resources */ = {isa = PBXBuildFile; fileRef = 47C3767A22B76440005B10AD /* NEW_STAR.png */; };
+		47EC901422B4ED2B009F5F94 /* taskCellSelect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47EC901222B4ED2B009F5F94 /* taskCellSelect.swift */; };
+		47EC901522B4ED2B009F5F94 /* taskCellSelect.xib in Resources */ = {isa = PBXBuildFile; fileRef = 47EC901322B4ED2B009F5F94 /* taskCellSelect.xib */; };
+		47F31A4722BB0960003D1BAE /* newTaskController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F31A4622BB0960003D1BAE /* newTaskController.swift */; };
+		81708509293B16C924C8A878 /* libPods-MEDITASKiOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FE40D1E95883B61FEBB779AC /* libPods-MEDITASKiOS.a */; };
+		ED1E72D722C42211000B657C /* individualDocumentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1E72D622C42211000B657C /* individualDocumentViewController.swift */; };
+		ED1E72D922C422E4000B657C /* newDocumentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1E72D822C422E4000B657C /* newDocumentController.swift */; };
+		ED33C3C622FA74FF00800F6D /* CreateTaskChooserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED33C3C522FA74FF00800F6D /* CreateTaskChooserController.swift */; };
+		ED33C3D322FDE14E00800F6D /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED33C3D222FDE14E00800F6D /* TabBarController.swift */; };
+		ED56DCF222CD4D1400EF77C9 /* TaskDetailsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED56DCF122CD4D1400EF77C9 /* TaskDetailsController.swift */; };
+		ED56DD0D22E94C6900EF77C9 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED56DD0C22E94C6900EF77C9 /* MenuViewController.swift */; };
+		ED56DD0F22E95A9C00EF77C9 /* SlideInTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED56DD0E22E95A9C00EF77C9 /* SlideInTransition.swift */; };
+		ED56DD1322EA4DC200EF77C9 /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED56DD1222EA4DC200EF77C9 /* SearchController.swift */; };
+		ED56DD1B22EB820D00EF77C9 /* CalendarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED56DD1A22EB820D00EF77C9 /* CalendarController.swift */; };
+		EDE0133422C552B9007D052D /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDE0133322C552B9007D052D /* CloudKit.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		32D9D217387198C2F10E6C66 /* Pods-MEDITASKiOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MEDITASKiOS.debug.xcconfig"; path = "Target Support Files/Pods-MEDITASKiOS/Pods-MEDITASKiOS.debug.xcconfig"; sourceTree = "<group>"; };
+		47012EEA22ADF719008E9AF9 /* taskCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = taskCell.swift; sourceTree = "<group>"; };
+		47012EEB22ADF719008E9AF9 /* taskCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = taskCell.xib; sourceTree = "<group>"; };
+		47012EEF22AE0660008E9AF9 /* patientCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = patientCell.swift; sourceTree = "<group>"; };
+		47012EF022AE0660008E9AF9 /* patientCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = patientCell.xib; sourceTree = "<group>"; };
+		47012EF522AE0B5A008E9AF9 /* documentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = documentCell.swift; sourceTree = "<group>"; };
+		47012EF622AE0B5A008E9AF9 /* documentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = documentCell.xib; sourceTree = "<group>"; };
+		470CCEC422A1C09700E1DB01 /* DashboardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardController.swift; sourceTree = "<group>"; };
+		470CCEC622A1DD0D00E1DB01 /* PatientController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientController.swift; sourceTree = "<group>"; };
+		471139BB22A6FC9E00E89A58 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		473B9BF522BAC8930081347A /* MEDITASKiOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MEDITASKiOS.entitlements; sourceTree = "<group>"; };
+		4746C00122A0E0860081ACD2 /* TasksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksViewController.swift; sourceTree = "<group>"; };
+		4749282A22C2CAE600D3E803 /* newPatientController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = newPatientController.swift; sourceTree = "<group>"; };
+		474BBDF822A0AC59000410AB /* MEDITASKiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MEDITASKiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		474BBDFB22A0AC59000410AB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		474BBE0222A0AC59000410AB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		474BBE0422A0AC59000410AB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		474BBE0722A0AC59000410AB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		474BBE0922A0AC59000410AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		47566E2D22A70963005553E6 /* LogInController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInController.swift; sourceTree = "<group>"; };
+		47678B6222BDBDB300622DA6 /* documentEditorController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = documentEditorController.swift; sourceTree = "<group>"; };
+		47678B6422BDC02B00622DA6 /* patientEditorController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = patientEditorController.swift; sourceTree = "<group>"; };
+		47678B6622BEF11E00622DA6 /* taskDetailedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = taskDetailedViewController.swift; sourceTree = "<group>"; };
+		4778541A22BC247E00E4C7B4 /* How to Marble a Cake - Recipe, Technique, Tutorial.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "How to Marble a Cake - Recipe, Technique, Tutorial.pdf"; sourceTree = "<group>"; };
+		4778541C22BC248700E4C7B4 /* Workbook_Week_1.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Workbook_Week_1.pdf; sourceTree = "<group>"; };
+		47984F4922A71FB6009FBA69 /* DocumentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentController.swift; sourceTree = "<group>"; };
+		4798597B22B0402200736210 /* docIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = docIcon.png; sourceTree = "<group>"; };
+		47BB055B22EF8422004333F0 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		47BB055D22F39A19004333F0 /* TeamController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamController.swift; sourceTree = "<group>"; };
+		47C3766F22B76126005B10AD /* trash_can_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = trash_can_icon.png; sourceTree = "<group>"; };
+		47C3767122B761C3005B10AD /* pencil_edit_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pencil_edit_icon.png; sourceTree = "<group>"; };
+		47C3767222B761C3005B10AD /* addMember.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = addMember.png; sourceTree = "<group>"; };
+		47C3767522B761EF005B10AD /* completedIcon2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = completedIcon2.png; sourceTree = "<group>"; };
+		47C3767722B763DF005B10AD /* new_critical_RED.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = new_critical_RED.png; sourceTree = "<group>"; };
+		47C3767922B76440005B10AD /* new_critical_ORANGE.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = new_critical_ORANGE.png; sourceTree = "<group>"; };
+		47C3767A22B76440005B10AD /* NEW_STAR.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NEW_STAR.png; sourceTree = "<group>"; };
+		47EC901222B4ED2B009F5F94 /* taskCellSelect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = taskCellSelect.swift; sourceTree = "<group>"; };
+		47EC901322B4ED2B009F5F94 /* taskCellSelect.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = taskCellSelect.xib; sourceTree = "<group>"; };
+		47F31A4622BB0960003D1BAE /* newTaskController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = newTaskController.swift; sourceTree = "<group>"; };
+		746EA071BF06BD9D12EB2832 /* Pods-MEDITASKiOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MEDITASKiOS.release.xcconfig"; path = "Target Support Files/Pods-MEDITASKiOS/Pods-MEDITASKiOS.release.xcconfig"; sourceTree = "<group>"; };
+		ED1E72D622C42211000B657C /* individualDocumentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = individualDocumentViewController.swift; sourceTree = "<group>"; };
+		ED1E72D822C422E4000B657C /* newDocumentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = newDocumentController.swift; sourceTree = "<group>"; };
+		ED33C3C522FA74FF00800F6D /* CreateTaskChooserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTaskChooserController.swift; sourceTree = "<group>"; };
+		ED33C3D222FDE14E00800F6D /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		ED56DCF122CD4D1400EF77C9 /* TaskDetailsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailsController.swift; sourceTree = "<group>"; };
+		ED56DD0C22E94C6900EF77C9 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		ED56DD0E22E95A9C00EF77C9 /* SlideInTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideInTransition.swift; sourceTree = "<group>"; };
+		ED56DD1222EA4DC200EF77C9 /* SearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
+		ED56DD1A22EB820D00EF77C9 /* CalendarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarController.swift; sourceTree = "<group>"; };
+		EDE0133322C552B9007D052D /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		FE40D1E95883B61FEBB779AC /* libPods-MEDITASKiOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MEDITASKiOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		474BBDF522A0AC59000410AB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				81708509293B16C924C8A878 /* libPods-MEDITASKiOS.a in Frameworks */,
+				EDE0133422C552B9007D052D /* CloudKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0F53362455D23FB85EE4704F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				32D9D217387198C2F10E6C66 /* Pods-MEDITASKiOS.debug.xcconfig */,
+				746EA071BF06BD9D12EB2832 /* Pods-MEDITASKiOS.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		47012EE922ADE7CE008E9AF9 /* tasks */ = {
+			isa = PBXGroup;
+			children = (
+				4746C00122A0E0860081ACD2 /* TasksViewController.swift */,
+				47012EEA22ADF719008E9AF9 /* taskCell.swift */,
+				47012EEB22ADF719008E9AF9 /* taskCell.xib */,
+				ED56DCF122CD4D1400EF77C9 /* TaskDetailsController.swift */,
+				47EC901222B4ED2B009F5F94 /* taskCellSelect.swift */,
+				47EC901322B4ED2B009F5F94 /* taskCellSelect.xib */,
+				47F31A4622BB0960003D1BAE /* newTaskController.swift */,
+				47678B6622BEF11E00622DA6 /* taskDetailedViewController.swift */,
+				ED33C3C522FA74FF00800F6D /* CreateTaskChooserController.swift */,
+			);
+			path = tasks;
+			sourceTree = "<group>";
+		};
+		47012EEE22AE0649008E9AF9 /* patients */ = {
+			isa = PBXGroup;
+			children = (
+				470CCEC622A1DD0D00E1DB01 /* PatientController.swift */,
+				47012EEF22AE0660008E9AF9 /* patientCell.swift */,
+				47012EF022AE0660008E9AF9 /* patientCell.xib */,
+				47678B6422BDC02B00622DA6 /* patientEditorController.swift */,
+				4749282A22C2CAE600D3E803 /* newPatientController.swift */,
+			);
+			path = patients;
+			sourceTree = "<group>";
+		};
+		47012EF922AE0B61008E9AF9 /* document */ = {
+			isa = PBXGroup;
+			children = (
+				47984F4922A71FB6009FBA69 /* DocumentController.swift */,
+				47012EF522AE0B5A008E9AF9 /* documentCell.swift */,
+				47012EF622AE0B5A008E9AF9 /* documentCell.xib */,
+				47678B6222BDBDB300622DA6 /* documentEditorController.swift */,
+				ED1E72D622C42211000B657C /* individualDocumentViewController.swift */,
+				ED1E72D822C422E4000B657C /* newDocumentController.swift */,
+			);
+			path = document;
+			sourceTree = "<group>";
+		};
+		474BBDEF22A0AC59000410AB = {
+			isa = PBXGroup;
+			children = (
+				4778541922BC247100E4C7B4 /* pdfs */,
+				4798597A22B03D8C00736210 /* images */,
+				474BBDFA22A0AC59000410AB /* MEDITASKiOS */,
+				474BBDF922A0AC59000410AB /* Products */,
+				0F53362455D23FB85EE4704F /* Pods */,
+				8F23F12F13E21296D72DB127 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		474BBDF922A0AC59000410AB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				474BBDF822A0AC59000410AB /* MEDITASKiOS.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		474BBDFA22A0AC59000410AB /* MEDITASKiOS */ = {
+			isa = PBXGroup;
+			children = (
+				473B9BF522BAC8930081347A /* MEDITASKiOS.entitlements */,
+				474BBE0922A0AC59000410AB /* Info.plist */,
+				474BBE0422A0AC59000410AB /* Assets.xcassets */,
+				474BBDFB22A0AC59000410AB /* AppDelegate.swift */,
+				47012EE922ADE7CE008E9AF9 /* tasks */,
+				47012EEE22AE0649008E9AF9 /* patients */,
+				47012EF922AE0B61008E9AF9 /* document */,
+				47C9D34922B59AF200609AB0 /* Settings */,
+				470CCEC422A1C09700E1DB01 /* DashboardController.swift */,
+				474BBE0122A0AC59000410AB /* Main.storyboard */,
+				474BBE0622A0AC59000410AB /* LaunchScreen.storyboard */,
+				471139BB22A6FC9E00E89A58 /* GoogleService-Info.plist */,
+			);
+			path = MEDITASKiOS;
+			sourceTree = "<group>";
+		};
+		4778541922BC247100E4C7B4 /* pdfs */ = {
+			isa = PBXGroup;
+			children = (
+				4778541C22BC248700E4C7B4 /* Workbook_Week_1.pdf */,
+				4778541A22BC247E00E4C7B4 /* How to Marble a Cake - Recipe, Technique, Tutorial.pdf */,
+			);
+			path = pdfs;
+			sourceTree = "<group>";
+		};
+		4798597A22B03D8C00736210 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				47C3767922B76440005B10AD /* new_critical_ORANGE.png */,
+				47C3767A22B76440005B10AD /* NEW_STAR.png */,
+				47C3767722B763DF005B10AD /* new_critical_RED.png */,
+				47C3767522B761EF005B10AD /* completedIcon2.png */,
+				47C3767222B761C3005B10AD /* addMember.png */,
+				47C3767122B761C3005B10AD /* pencil_edit_icon.png */,
+				47C3766F22B76126005B10AD /* trash_can_icon.png */,
+				4798597B22B0402200736210 /* docIcon.png */,
+			);
+			path = images;
+			sourceTree = "<group>";
+		};
+		47C9D34922B59AF200609AB0 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				47566E2D22A70963005553E6 /* LogInController.swift */,
+				47BB055D22F39A19004333F0 /* TeamController.swift */,
+				ED56DD0C22E94C6900EF77C9 /* MenuViewController.swift */,
+				ED56DD0E22E95A9C00EF77C9 /* SlideInTransition.swift */,
+				ED56DD1222EA4DC200EF77C9 /* SearchController.swift */,
+				ED56DD1A22EB820D00EF77C9 /* CalendarController.swift */,
+				47BB055B22EF8422004333F0 /* Settings.bundle */,
+				ED33C3D222FDE14E00800F6D /* TabBarController.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		8F23F12F13E21296D72DB127 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EDE0133322C552B9007D052D /* CloudKit.framework */,
+				FE40D1E95883B61FEBB779AC /* libPods-MEDITASKiOS.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		474BBDF722A0AC59000410AB /* MEDITASKiOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 474BBE2222A0AC59000410AB /* Build configuration list for PBXNativeTarget "MEDITASKiOS" */;
+			buildPhases = (
+				CC3AF2E350F9E80181ECC9DB /* [CP] Check Pods Manifest.lock */,
+				474BBDF422A0AC59000410AB /* Sources */,
+				474BBDF522A0AC59000410AB /* Frameworks */,
+				474BBDF622A0AC59000410AB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MEDITASKiOS;
+			productName = MEDITASKiOS;
+			productReference = 474BBDF822A0AC59000410AB /* MEDITASKiOS.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		474BBDF022A0AC59000410AB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1020;
+				LastUpgradeCheck = 1020;
+				ORGANIZATIONNAME = MohammedRaheem;
+				TargetAttributes = {
+					474BBDF722A0AC59000410AB = {
+						CreatedOnToolsVersion = 10.2.1;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
+					};
+				};
+			};
+			buildConfigurationList = 474BBDF322A0AC59000410AB /* Build configuration list for PBXProject "MEDITASKiOS" */;
+			compatibilityVersion = "Xcode 10.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 474BBDEF22A0AC59000410AB;
+			productRefGroup = 474BBDF922A0AC59000410AB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				474BBDF722A0AC59000410AB /* MEDITASKiOS */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		474BBDF622A0AC59000410AB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				47C3767322B761C3005B10AD /* pencil_edit_icon.png in Resources */,
+				47C3767622B761EF005B10AD /* completedIcon2.png in Resources */,
+				47C3767C22B76440005B10AD /* NEW_STAR.png in Resources */,
+				47C3767422B761C3005B10AD /* addMember.png in Resources */,
+				474BBE0822A0AC59000410AB /* LaunchScreen.storyboard in Resources */,
+				471139BC22A6FC9E00E89A58 /* GoogleService-Info.plist in Resources */,
+				47C3767B22B76440005B10AD /* new_critical_ORANGE.png in Resources */,
+				4798597C22B0402200736210 /* docIcon.png in Resources */,
+				47012EF822AE0B5A008E9AF9 /* documentCell.xib in Resources */,
+				47C3767022B76126005B10AD /* trash_can_icon.png in Resources */,
+				4778541D22BC248700E4C7B4 /* Workbook_Week_1.pdf in Resources */,
+				47012EED22ADF719008E9AF9 /* taskCell.xib in Resources */,
+				4778541B22BC247E00E4C7B4 /* How to Marble a Cake - Recipe, Technique, Tutorial.pdf in Resources */,
+				47C3767822B763DF005B10AD /* new_critical_RED.png in Resources */,
+				474BBE0522A0AC59000410AB /* Assets.xcassets in Resources */,
+				474BBE0322A0AC59000410AB /* Main.storyboard in Resources */,
+				47BB055C22EF8422004333F0 /* Settings.bundle in Resources */,
+				47012EF222AE0660008E9AF9 /* patientCell.xib in Resources */,
+				47EC901522B4ED2B009F5F94 /* taskCellSelect.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		CC3AF2E350F9E80181ECC9DB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MEDITASKiOS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		474BBDF422A0AC59000410AB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				474BBDFC22A0AC59000410AB /* AppDelegate.swift in Sources */,
+				47BB055E22F39A19004333F0 /* TeamController.swift in Sources */,
+				ED56DD1B22EB820D00EF77C9 /* CalendarController.swift in Sources */,
+				ED56DD0D22E94C6900EF77C9 /* MenuViewController.swift in Sources */,
+				47678B6522BDC02B00622DA6 /* patientEditorController.swift in Sources */,
+				47012EF122AE0660008E9AF9 /* patientCell.swift in Sources */,
+				470CCEC522A1C09700E1DB01 /* DashboardController.swift in Sources */,
+				47012EF722AE0B5A008E9AF9 /* documentCell.swift in Sources */,
+				47EC901422B4ED2B009F5F94 /* taskCellSelect.swift in Sources */,
+				ED1E72D922C422E4000B657C /* newDocumentController.swift in Sources */,
+				ED56DCF222CD4D1400EF77C9 /* TaskDetailsController.swift in Sources */,
+				47984F4A22A71FB6009FBA69 /* DocumentController.swift in Sources */,
+				47012EEC22ADF719008E9AF9 /* taskCell.swift in Sources */,
+				ED1E72D722C42211000B657C /* individualDocumentViewController.swift in Sources */,
+				47566E2E22A70963005553E6 /* LogInController.swift in Sources */,
+				47F31A4722BB0960003D1BAE /* newTaskController.swift in Sources */,
+				ED56DD0F22E95A9C00EF77C9 /* SlideInTransition.swift in Sources */,
+				ED56DD1322EA4DC200EF77C9 /* SearchController.swift in Sources */,
+				ED33C3D322FDE14E00800F6D /* TabBarController.swift in Sources */,
+				47678B6322BDBDB300622DA6 /* documentEditorController.swift in Sources */,
+				ED33C3C622FA74FF00800F6D /* CreateTaskChooserController.swift in Sources */,
+				47678B6722BEF11E00622DA6 /* taskDetailedViewController.swift in Sources */,
+				4746C00222A0E0860081ACD2 /* TasksViewController.swift in Sources */,
+				470CCEC722A1DD0D00E1DB01 /* PatientController.swift in Sources */,
+				4749282B22C2CAE600D3E803 /* newPatientController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		474BBE0122A0AC59000410AB /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				474BBE0222A0AC59000410AB /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		474BBE0622A0AC59000410AB /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				474BBE0722A0AC59000410AB /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		474BBE2022A0AC59000410AB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		474BBE2122A0AC59000410AB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		474BBE2322A0AC59000410AB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 32D9D217387198C2F10E6C66 /* Pods-MEDITASKiOS.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = MEDITASKiOS/MEDITASKiOS.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = EHFVBW549K;
+				INFOPLIST_FILE = MEDITASKiOS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = habibi.MEDITASKiOS;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		474BBE2422A0AC59000410AB /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 746EA071BF06BD9D12EB2832 /* Pods-MEDITASKiOS.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = MEDITASKiOS/MEDITASKiOS.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = EHFVBW549K;
+				INFOPLIST_FILE = MEDITASKiOS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = habibi.MEDITASKiOS;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		474BBDF322A0AC59000410AB /* Build configuration list for PBXProject "MEDITASKiOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				474BBE2022A0AC59000410AB /* Debug */,
+				474BBE2122A0AC59000410AB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		474BBE2222A0AC59000410AB /* Build configuration list for PBXNativeTarget "MEDITASKiOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				474BBE2322A0AC59000410AB /* Debug */,
+				474BBE2422A0AC59000410AB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 474BBDF022A0AC59000410AB /* Project object */;
+}

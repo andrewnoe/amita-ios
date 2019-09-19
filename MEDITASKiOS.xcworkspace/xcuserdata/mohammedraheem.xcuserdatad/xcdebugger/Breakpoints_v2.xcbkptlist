@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   type = "0"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MEDITASKiOS/tasks/newTaskController.swift"
+            timestampString = "587076842.5808131"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "182"
+            endingLineNumber = "182"
+            landmarkName = "pickerView(_:didSelectRow:inComponent:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MEDITASKiOS/tasks/TasksViewController.swift"
+            timestampString = "587076842.581465"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "66"
+            endingLineNumber = "66"
+            landmarkName = "TasksViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MEDITASKiOS.TasksViewController.todaysDates.getter : Swift.Array&lt;Swift.String&gt;"
+                  moduleName = "MEDITASKiOS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mohammedraheem/Documents/XCodeProjects/MEDITASKiOS/MEDITASKiOS/tasks/TasksViewController.swift"
+                  timestampString = "587074999.250548"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "66"
+                  endingLineNumber = "66"
+                  offsetFromSymbolStart = "114">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MEDITASKiOS.TasksViewController.todaysDates.setter : Swift.Array&lt;Swift.String&gt;"
+                  moduleName = "MEDITASKiOS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mohammedraheem/Documents/XCodeProjects/MEDITASKiOS/MEDITASKiOS/tasks/TasksViewController.swift"
+                  timestampString = "587074999.251927"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "66"
+                  endingLineNumber = "66"
+                  offsetFromSymbolStart = "128">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MEDITASKiOS.TasksViewController.todaysDates.modify : Swift.Array&lt;Swift.String&gt;"
+                  moduleName = "MEDITASKiOS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mohammedraheem/Documents/XCodeProjects/MEDITASKiOS/MEDITASKiOS/tasks/TasksViewController.swift"
+                  timestampString = "587074999.253204"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "18">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MEDITASKiOS.TasksViewController.todaysDates.modify : Swift.Array&lt;Swift.String&gt; with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "MEDITASKiOS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mohammedraheem/Documents/XCodeProjects/MEDITASKiOS/MEDITASKiOS/tasks/TasksViewController.swift"
+                  timestampString = "587074999.254425"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "66"
+                  endingLineNumber = "66"
+                  offsetFromSymbolStart = "4">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MEDITASKiOS.TasksViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; MEDITASKiOS.TasksViewController"
+                  moduleName = "MEDITASKiOS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mohammedraheem/Documents/XCodeProjects/MEDITASKiOS/MEDITASKiOS/tasks/TasksViewController.swift"
+                  timestampString = "587074999.255626"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "66"
+                  endingLineNumber = "66"
+                  offsetFromSymbolStart = "1714">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MEDITASKiOS.TasksViewController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;MEDITASKiOS.TasksViewController&gt;"
+                  moduleName = "MEDITASKiOS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mohammedraheem/Documents/XCodeProjects/MEDITASKiOS/MEDITASKiOS/tasks/TasksViewController.swift"
+                  timestampString = "587074999.256862"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "66"
+                  endingLineNumber = "66"
+                  offsetFromSymbolStart = "1628">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
