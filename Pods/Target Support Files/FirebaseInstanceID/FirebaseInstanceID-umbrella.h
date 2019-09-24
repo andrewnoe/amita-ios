@@ -10,7 +10,6 @@
 #endif
 #endif
 
-#import "FirebaseInstanceID 2.h"
 #import "FirebaseInstanceID.h"
 #import "FIRInstanceID.h"
 

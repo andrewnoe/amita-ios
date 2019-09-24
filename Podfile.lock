@@ -99,7 +99,7 @@ DEPENDENCIES:
   - MessageKit
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  trunk:
     - Firebase
     - FirebaseAnalytics
     - FirebaseAuth
@@ -141,6 +141,6 @@ SPEC CHECKSUMS:
   MessageKit: e892a9ca49ebe6d82684d3a93ad84021fa23e2c6
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
 
-PODFILE CHECKSUM: 222736dc21ea9ea38f6a18e8df84fc03fcda10ba
+PODFILE CHECKSUM: 1e442735085751d1e10914e167a66e567529d929
 
-COCOAPODS: 1.7.5
+COCOAPODS: 1.8.0

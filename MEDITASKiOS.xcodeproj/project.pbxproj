@@ -43,7 +43,20 @@
 		47EC901522B4ED2B009F5F94 /* taskCellSelect.xib in Resources */ = {isa = PBXBuildFile; fileRef = 47EC901322B4ED2B009F5F94 /* taskCellSelect.xib */; };
 		47F31A4722BB0960003D1BAE /* newTaskController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F31A4622BB0960003D1BAE /* newTaskController.swift */; };
 		A0DDB6DE2339A45600CEAB12 /* TaskChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DDB6DD2339A45600CEAB12 /* TaskChatViewController.swift */; };
-		AFD2575642A27BA0415F7ABA /* libPods-MEDITASKiOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EC9075F97BDE6F44B29E2583 /* libPods-MEDITASKiOS.a */; };
+		A0DDB6E9233A885B00CEAB12 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DDB6E8233A885B00CEAB12 /* Constants.swift */; };
+		A0DDB6EB233ABC1900CEAB12 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DDB6EA233ABC1900CEAB12 /* ChatViewController.swift */; };
+		A0DDB6EF233ABC5F00CEAB12 /* MockSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DDB6EC233ABC5D00CEAB12 /* MockSocket.swift */; };
+		A0DDB6F0233ABC5F00CEAB12 /* MockUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DDB6ED233ABC5E00CEAB12 /* MockUser.swift */; };
+		A0DDB6F1233ABC5F00CEAB12 /* MockMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DDB6EE233ABC5F00CEAB12 /* MockMessage.swift */; };
+		A0DDB6F3233ABC7000CEAB12 /* BasicAudioController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DDB6F2233ABC7000CEAB12 /* BasicAudioController.swift */; };
+		A0DDB6F6233ABC8B00CEAB12 /* SampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DDB6F4233ABC8A00CEAB12 /* SampleData.swift */; };
+		A0DDB6F7233ABC8B00CEAB12 /* Lorem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DDB6F5233ABC8B00CEAB12 /* Lorem.swift */; };
+		A0DDB6F9233ABCC900CEAB12 /* Settings+UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DDB6F8233ABCC800CEAB12 /* Settings+UserDefaults.swift */; };
+		A0DDB6FC233ABD5E00CEAB12 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DDB6FA233ABD5D00CEAB12 /* UIViewController+Extensions.swift */; };
+		A0DDB6FD233ABD5E00CEAB12 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DDB6FB233ABD5E00CEAB12 /* UIColor+Extensions.swift */; };
+		A0DDB702233ADEF800CEAB12 /* sound1.m4a in Resources */ = {isa = PBXBuildFile; fileRef = A0DDB6FF233ADD3500CEAB12 /* sound1.m4a */; };
+		A0DDB703233ADEFB00CEAB12 /* sound2.m4a in Resources */ = {isa = PBXBuildFile; fileRef = A0DDB6FE233ADD3500CEAB12 /* sound2.m4a */; };
+		EC2B0F06812C0A492A1C5E14 /* libPods-MEDITASKiOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EC1218263AAA24CA03285EC /* libPods-MEDITASKiOS.a */; };
 		ED1E72D722C42211000B657C /* individualDocumentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1E72D622C42211000B657C /* individualDocumentViewController.swift */; };
 		ED1E72D922C422E4000B657C /* newDocumentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1E72D822C422E4000B657C /* newDocumentController.swift */; };
 		ED33C3C622FA74FF00800F6D /* CreateTaskChooserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED33C3C522FA74FF00800F6D /* CreateTaskChooserController.swift */; };
@@ -58,6 +71,7 @@
 
 /* Begin PBXFileReference section */
 		32D9D217387198C2F10E6C66 /* Pods-MEDITASKiOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MEDITASKiOS.debug.xcconfig"; path = "Target Support Files/Pods-MEDITASKiOS/Pods-MEDITASKiOS.debug.xcconfig"; sourceTree = "<group>"; };
+		3EC1218263AAA24CA03285EC /* libPods-MEDITASKiOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MEDITASKiOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		47012EEA22ADF719008E9AF9 /* taskCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = taskCell.swift; sourceTree = "<group>"; };
 		47012EEB22ADF719008E9AF9 /* taskCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = taskCell.xib; sourceTree = "<group>"; };
 		47012EEF22AE0660008E9AF9 /* patientCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = patientCell.swift; sourceTree = "<group>"; };
@@ -98,7 +112,19 @@
 		47F31A4622BB0960003D1BAE /* newTaskController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = newTaskController.swift; sourceTree = "<group>"; };
 		746EA071BF06BD9D12EB2832 /* Pods-MEDITASKiOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MEDITASKiOS.release.xcconfig"; path = "Target Support Files/Pods-MEDITASKiOS/Pods-MEDITASKiOS.release.xcconfig"; sourceTree = "<group>"; };
 		A0DDB6DD2339A45600CEAB12 /* TaskChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskChatViewController.swift; sourceTree = "<group>"; };
-		EC9075F97BDE6F44B29E2583 /* libPods-MEDITASKiOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MEDITASKiOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A0DDB6E8233A885B00CEAB12 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		A0DDB6EA233ABC1900CEAB12 /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		A0DDB6EC233ABC5D00CEAB12 /* MockSocket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockSocket.swift; sourceTree = "<group>"; };
+		A0DDB6ED233ABC5E00CEAB12 /* MockUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockUser.swift; sourceTree = "<group>"; };
+		A0DDB6EE233ABC5F00CEAB12 /* MockMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockMessage.swift; sourceTree = "<group>"; };
+		A0DDB6F2233ABC7000CEAB12 /* BasicAudioController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicAudioController.swift; sourceTree = "<group>"; };
+		A0DDB6F4233ABC8A00CEAB12 /* SampleData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SampleData.swift; sourceTree = "<group>"; };
+		A0DDB6F5233ABC8B00CEAB12 /* Lorem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lorem.swift; sourceTree = "<group>"; };
+		A0DDB6F8233ABCC800CEAB12 /* Settings+UserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Settings+UserDefaults.swift"; sourceTree = "<group>"; };
+		A0DDB6FA233ABD5D00CEAB12 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
+		A0DDB6FB233ABD5E00CEAB12 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
+		A0DDB6FE233ADD3500CEAB12 /* sound2.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = sound2.m4a; sourceTree = "<group>"; };
+		A0DDB6FF233ADD3500CEAB12 /* sound1.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = sound1.m4a; sourceTree = "<group>"; };
 		ED1E72D622C42211000B657C /* individualDocumentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = individualDocumentViewController.swift; sourceTree = "<group>"; };
 		ED1E72D822C422E4000B657C /* newDocumentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = newDocumentController.swift; sourceTree = "<group>"; };
 		ED33C3C522FA74FF00800F6D /* CreateTaskChooserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTaskChooserController.swift; sourceTree = "<group>"; };
@@ -117,7 +143,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EDE0133422C552B9007D052D /* CloudKit.framework in Frameworks */,
-				AFD2575642A27BA0415F7ABA /* libPods-MEDITASKiOS.a in Frameworks */,
+				EC2B0F06812C0A492A1C5E14 /* libPods-MEDITASKiOS.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -177,6 +203,7 @@
 		474BBDEF22A0AC59000410AB = {
 			isa = PBXGroup;
 			children = (
+				A0DDB6E8233A885B00CEAB12 /* Constants.swift */,
 				4778541922BC247100E4C7B4 /* pdfs */,
 				4798597A22B03D8C00736210 /* images */,
 				474BBDFA22A0AC59000410AB /* MEDITASKiOS */,
@@ -197,6 +224,7 @@
 		474BBDFA22A0AC59000410AB /* MEDITASKiOS */ = {
 			isa = PBXGroup;
 			children = (
+				A0DDB701233ADEBB00CEAB12 /* Sounds */,
 				A0DDB6DC2339A42D00CEAB12 /* chat */,
 				473B9BF522BAC8930081347A /* MEDITASKiOS.entitlements */,
 				474BBE0922A0AC59000410AB /* Info.plist */,
@@ -257,7 +285,7 @@
 			isa = PBXGroup;
 			children = (
 				EDE0133322C552B9007D052D /* CloudKit.framework */,
-				EC9075F97BDE6F44B29E2583 /* libPods-MEDITASKiOS.a */,
+				3EC1218263AAA24CA03285EC /* libPods-MEDITASKiOS.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -265,9 +293,28 @@
 		A0DDB6DC2339A42D00CEAB12 /* chat */ = {
 			isa = PBXGroup;
 			children = (
+				A0DDB6FB233ABD5E00CEAB12 /* UIColor+Extensions.swift */,
+				A0DDB6FA233ABD5D00CEAB12 /* UIViewController+Extensions.swift */,
+				A0DDB6F8233ABCC800CEAB12 /* Settings+UserDefaults.swift */,
+				A0DDB6F5233ABC8B00CEAB12 /* Lorem.swift */,
+				A0DDB6F4233ABC8A00CEAB12 /* SampleData.swift */,
+				A0DDB6F2233ABC7000CEAB12 /* BasicAudioController.swift */,
+				A0DDB6EE233ABC5F00CEAB12 /* MockMessage.swift */,
+				A0DDB6EC233ABC5D00CEAB12 /* MockSocket.swift */,
+				A0DDB6ED233ABC5E00CEAB12 /* MockUser.swift */,
+				A0DDB6EA233ABC1900CEAB12 /* ChatViewController.swift */,
 				A0DDB6DD2339A45600CEAB12 /* TaskChatViewController.swift */,
 			);
 			path = chat;
+			sourceTree = "<group>";
+		};
+		A0DDB701233ADEBB00CEAB12 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				A0DDB6FF233ADD3500CEAB12 /* sound1.m4a */,
+				A0DDB6FE233ADD3500CEAB12 /* sound2.m4a */,
+			);
+			path = Sounds;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -281,7 +328,7 @@
 				474BBDF422A0AC59000410AB /* Sources */,
 				474BBDF522A0AC59000410AB /* Frameworks */,
 				474BBDF622A0AC59000410AB /* Resources */,
-				84E1C4B0A1D36B60ECCB81DD /* [CP] Copy Pods Resources */,
+				D81E90661022C12FCFB86C46 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -341,12 +388,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0DDB702233ADEF800CEAB12 /* sound1.m4a in Resources */,
 				47C3767322B761C3005B10AD /* pencil_edit_icon.png in Resources */,
 				47C3767622B761EF005B10AD /* completedIcon2.png in Resources */,
 				47C3767C22B76440005B10AD /* NEW_STAR.png in Resources */,
 				47C3767422B761C3005B10AD /* addMember.png in Resources */,
 				474BBE0822A0AC59000410AB /* LaunchScreen.storyboard in Resources */,
 				471139BC22A6FC9E00E89A58 /* GoogleService-Info.plist in Resources */,
+				A0DDB703233ADEFB00CEAB12 /* sound2.m4a in Resources */,
 				47C3767B22B76440005B10AD /* new_critical_ORANGE.png in Resources */,
 				4798597C22B0402200736210 /* docIcon.png in Resources */,
 				47012EF822AE0B5A008E9AF9 /* documentCell.xib in Resources */,
@@ -366,23 +415,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		84E1C4B0A1D36B60ECCB81DD /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-MEDITASKiOS/Pods-MEDITASKiOS-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-MEDITASKiOS/Pods-MEDITASKiOS-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MEDITASKiOS/Pods-MEDITASKiOS-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		CC3AF2E350F9E80181ECC9DB /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -405,6 +437,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		D81E90661022C12FCFB86C46 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MEDITASKiOS/Pods-MEDITASKiOS-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MEDITASKiOS/Pods-MEDITASKiOS-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MEDITASKiOS/Pods-MEDITASKiOS-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -413,8 +462,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				474BBDFC22A0AC59000410AB /* AppDelegate.swift in Sources */,
+				A0DDB6FD233ABD5E00CEAB12 /* UIColor+Extensions.swift in Sources */,
 				47BB055E22F39A19004333F0 /* TeamController.swift in Sources */,
 				ED56DD1B22EB820D00EF77C9 /* CalendarController.swift in Sources */,
+				A0DDB6F1233ABC5F00CEAB12 /* MockMessage.swift in Sources */,
+				A0DDB6FC233ABD5E00CEAB12 /* UIViewController+Extensions.swift in Sources */,
 				A0DDB6DE2339A45600CEAB12 /* TaskChatViewController.swift in Sources */,
 				ED56DD0D22E94C6900EF77C9 /* MenuViewController.swift in Sources */,
 				47678B6522BDC02B00622DA6 /* patientEditorController.swift in Sources */,
@@ -422,11 +474,15 @@
 				470CCEC522A1C09700E1DB01 /* DashboardController.swift in Sources */,
 				47012EF722AE0B5A008E9AF9 /* documentCell.swift in Sources */,
 				47EC901422B4ED2B009F5F94 /* taskCellSelect.swift in Sources */,
+				A0DDB6F0233ABC5F00CEAB12 /* MockUser.swift in Sources */,
+				A0DDB6EB233ABC1900CEAB12 /* ChatViewController.swift in Sources */,
+				A0DDB6F3233ABC7000CEAB12 /* BasicAudioController.swift in Sources */,
 				ED1E72D922C422E4000B657C /* newDocumentController.swift in Sources */,
 				ED56DCF222CD4D1400EF77C9 /* TaskDetailsController.swift in Sources */,
 				47984F4A22A71FB6009FBA69 /* DocumentController.swift in Sources */,
 				47012EEC22ADF719008E9AF9 /* taskCell.swift in Sources */,
 				ED1E72D722C42211000B657C /* individualDocumentViewController.swift in Sources */,
+				A0DDB6F6233ABC8B00CEAB12 /* SampleData.swift in Sources */,
 				47566E2E22A70963005553E6 /* LogInController.swift in Sources */,
 				47F31A4722BB0960003D1BAE /* newTaskController.swift in Sources */,
 				ED56DD0F22E95A9C00EF77C9 /* SlideInTransition.swift in Sources */,
@@ -434,10 +490,14 @@
 				ED33C3D322FDE14E00800F6D /* TabBarController.swift in Sources */,
 				47678B6322BDBDB300622DA6 /* documentEditorController.swift in Sources */,
 				ED33C3C622FA74FF00800F6D /* CreateTaskChooserController.swift in Sources */,
+				A0DDB6F9233ABCC900CEAB12 /* Settings+UserDefaults.swift in Sources */,
+				A0DDB6F7233ABC8B00CEAB12 /* Lorem.swift in Sources */,
 				47678B6722BEF11E00622DA6 /* taskDetailedViewController.swift in Sources */,
 				4746C00222A0E0860081ACD2 /* TasksViewController.swift in Sources */,
+				A0DDB6EF233ABC5F00CEAB12 /* MockSocket.swift in Sources */,
 				470CCEC722A1DD0D00E1DB01 /* PatientController.swift in Sources */,
 				4749282B22C2CAE600D3E803 /* newPatientController.swift in Sources */,
+				A0DDB6E9233A885B00CEAB12 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -514,13 +574,14 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -569,12 +630,13 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 4.2;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -586,16 +648,17 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = MEDITASKiOS/MEDITASKiOS.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = EHFVBW549K;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = MEDITASKiOS/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = habibi.MEDITASKiOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -607,16 +670,17 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = MEDITASKiOS/MEDITASKiOS.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = EHFVBW549K;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = MEDITASKiOS/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = habibi.MEDITASKiOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
