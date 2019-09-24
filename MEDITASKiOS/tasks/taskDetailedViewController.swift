@@ -32,9 +32,20 @@ class taskDetailedViewController: UIViewController {
     @IBOutlet weak var showTime: UITextField!
     @IBOutlet weak var showDescription: UITextView!
     
+    @IBOutlet weak var detailStackView: UIStackView!
+    @IBOutlet weak var chatStackView: UIStackView!
+    @IBOutlet weak var chatHistoryView: UITableView!
+
     var priorities = ["Critical","Urgent","Routine"]
     var myPatients = [String]()
     
+    @IBAction func clickChatButton(_ sender: Any) {
+        if chatStackView.isHidden == true {
+            chatStackView.isHidden = false
+        } else {
+            chatStackView.isHidden = true
+        }
+    }
     
     @IBOutlet weak var navBar: UINavigationItem!
     override func viewDidLoad() {
@@ -62,6 +73,8 @@ class taskDetailedViewController: UIViewController {
         self.showDescription.isUserInteractionEnabled = false
         self.showDescription.backgroundColor = UIColor.black
         // Do any additional setup after loading the view.
+        
+        chatStackView.isHidden = true
     }
     
     @IBAction func deleteTask(_ sender: Any) {
