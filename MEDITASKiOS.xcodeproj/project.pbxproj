@@ -42,6 +42,7 @@
 		47EC901422B4ED2B009F5F94 /* taskCellSelect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47EC901222B4ED2B009F5F94 /* taskCellSelect.swift */; };
 		47EC901522B4ED2B009F5F94 /* taskCellSelect.xib in Resources */ = {isa = PBXBuildFile; fileRef = 47EC901322B4ED2B009F5F94 /* taskCellSelect.xib */; };
 		47F31A4722BB0960003D1BAE /* newTaskController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F31A4622BB0960003D1BAE /* newTaskController.swift */; };
+		A0DDB6DE2339A45600CEAB12 /* TaskChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DDB6DD2339A45600CEAB12 /* TaskChatViewController.swift */; };
 		AFD2575642A27BA0415F7ABA /* libPods-MEDITASKiOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EC9075F97BDE6F44B29E2583 /* libPods-MEDITASKiOS.a */; };
 		ED1E72D722C42211000B657C /* individualDocumentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1E72D622C42211000B657C /* individualDocumentViewController.swift */; };
 		ED1E72D922C422E4000B657C /* newDocumentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1E72D822C422E4000B657C /* newDocumentController.swift */; };
@@ -96,6 +97,7 @@
 		47EC901322B4ED2B009F5F94 /* taskCellSelect.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = taskCellSelect.xib; sourceTree = "<group>"; };
 		47F31A4622BB0960003D1BAE /* newTaskController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = newTaskController.swift; sourceTree = "<group>"; };
 		746EA071BF06BD9D12EB2832 /* Pods-MEDITASKiOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MEDITASKiOS.release.xcconfig"; path = "Target Support Files/Pods-MEDITASKiOS/Pods-MEDITASKiOS.release.xcconfig"; sourceTree = "<group>"; };
+		A0DDB6DD2339A45600CEAB12 /* TaskChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskChatViewController.swift; sourceTree = "<group>"; };
 		EC9075F97BDE6F44B29E2583 /* libPods-MEDITASKiOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MEDITASKiOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED1E72D622C42211000B657C /* individualDocumentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = individualDocumentViewController.swift; sourceTree = "<group>"; };
 		ED1E72D822C422E4000B657C /* newDocumentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = newDocumentController.swift; sourceTree = "<group>"; };
@@ -195,6 +197,7 @@
 		474BBDFA22A0AC59000410AB /* MEDITASKiOS */ = {
 			isa = PBXGroup;
 			children = (
+				A0DDB6DC2339A42D00CEAB12 /* chat */,
 				473B9BF522BAC8930081347A /* MEDITASKiOS.entitlements */,
 				474BBE0922A0AC59000410AB /* Info.plist */,
 				474BBE0422A0AC59000410AB /* Assets.xcassets */,
@@ -257,6 +260,14 @@
 				EC9075F97BDE6F44B29E2583 /* libPods-MEDITASKiOS.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A0DDB6DC2339A42D00CEAB12 /* chat */ = {
+			isa = PBXGroup;
+			children = (
+				A0DDB6DD2339A45600CEAB12 /* TaskChatViewController.swift */,
+			);
+			path = chat;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -404,6 +415,7 @@
 				474BBDFC22A0AC59000410AB /* AppDelegate.swift in Sources */,
 				47BB055E22F39A19004333F0 /* TeamController.swift in Sources */,
 				ED56DD1B22EB820D00EF77C9 /* CalendarController.swift in Sources */,
+				A0DDB6DE2339A45600CEAB12 /* TaskChatViewController.swift in Sources */,
 				ED56DD0D22E94C6900EF77C9 /* MenuViewController.swift in Sources */,
 				47678B6522BDC02B00622DA6 /* patientEditorController.swift in Sources */,
 				47012EF122AE0660008E9AF9 /* patientCell.swift in Sources */,

@@ -1340,6 +1340,14 @@
                                                 <rect key="frame" x="8" y="53" width="70" height="70"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uh0-GP-qvX">
+                                                <rect key="frame" x="226" y="212" width="45" height="45"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" title="Button" image="chat"/>
+                                                <connections>
+                                                    <segue destination="bZj-Fm-qy5" kind="show" id="mgk-Wr-qrI"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -1511,6 +1519,21 @@
             </objects>
             <point key="canvasLocation" x="4639.1999999999998" y="755.9113300492611"/>
         </scene>
+        <!--Task Chat View Controller-->
+        <scene sceneID="dQV-1P-JaW">
+            <objects>
+                <viewController id="bZj-Fm-qy5" customClass="TaskChatViewController" customModule="MEDITASKiOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8vD-f4-ocD">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="641"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="UNY-fu-kcH"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="imz-ny-5Yt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2998" y="2218"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="QUF-1P-CAo">
             <objects>
@@ -1536,7 +1559,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SBj-rr-PxS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2710" y="2550"/>
+            <point key="canvasLocation" x="2311" y="2697"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="5xy-PC-VkN">
@@ -1759,6 +1782,7 @@
         <image name="addMember.png" width="182.53521728515625" height="182.53521728515625"/>
         <image name="am_labs_button" width="777" height="133"/>
         <image name="arrow_icon" width="31" height="31"/>
+        <image name="chat" width="512" height="512"/>
         <image name="consent_button" width="776" height="133"/>
         <image name="documents" width="30.5" height="30"/>
         <image name="empty_task_button" width="776" height="133"/>
