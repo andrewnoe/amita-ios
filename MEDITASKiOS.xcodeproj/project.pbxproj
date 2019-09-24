@@ -42,7 +42,7 @@
 		47EC901422B4ED2B009F5F94 /* taskCellSelect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47EC901222B4ED2B009F5F94 /* taskCellSelect.swift */; };
 		47EC901522B4ED2B009F5F94 /* taskCellSelect.xib in Resources */ = {isa = PBXBuildFile; fileRef = 47EC901322B4ED2B009F5F94 /* taskCellSelect.xib */; };
 		47F31A4722BB0960003D1BAE /* newTaskController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F31A4622BB0960003D1BAE /* newTaskController.swift */; };
-		81708509293B16C924C8A878 /* libPods-MEDITASKiOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FE40D1E95883B61FEBB779AC /* libPods-MEDITASKiOS.a */; };
+		AFD2575642A27BA0415F7ABA /* libPods-MEDITASKiOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EC9075F97BDE6F44B29E2583 /* libPods-MEDITASKiOS.a */; };
 		ED1E72D722C42211000B657C /* individualDocumentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1E72D622C42211000B657C /* individualDocumentViewController.swift */; };
 		ED1E72D922C422E4000B657C /* newDocumentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1E72D822C422E4000B657C /* newDocumentController.swift */; };
 		ED33C3C622FA74FF00800F6D /* CreateTaskChooserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED33C3C522FA74FF00800F6D /* CreateTaskChooserController.swift */; };
@@ -96,6 +96,7 @@
 		47EC901322B4ED2B009F5F94 /* taskCellSelect.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = taskCellSelect.xib; sourceTree = "<group>"; };
 		47F31A4622BB0960003D1BAE /* newTaskController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = newTaskController.swift; sourceTree = "<group>"; };
 		746EA071BF06BD9D12EB2832 /* Pods-MEDITASKiOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MEDITASKiOS.release.xcconfig"; path = "Target Support Files/Pods-MEDITASKiOS/Pods-MEDITASKiOS.release.xcconfig"; sourceTree = "<group>"; };
+		EC9075F97BDE6F44B29E2583 /* libPods-MEDITASKiOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MEDITASKiOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED1E72D622C42211000B657C /* individualDocumentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = individualDocumentViewController.swift; sourceTree = "<group>"; };
 		ED1E72D822C422E4000B657C /* newDocumentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = newDocumentController.swift; sourceTree = "<group>"; };
 		ED33C3C522FA74FF00800F6D /* CreateTaskChooserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTaskChooserController.swift; sourceTree = "<group>"; };
@@ -106,7 +107,6 @@
 		ED56DD1222EA4DC200EF77C9 /* SearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
 		ED56DD1A22EB820D00EF77C9 /* CalendarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarController.swift; sourceTree = "<group>"; };
 		EDE0133322C552B9007D052D /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
-		FE40D1E95883B61FEBB779AC /* libPods-MEDITASKiOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MEDITASKiOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,8 +114,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				81708509293B16C924C8A878 /* libPods-MEDITASKiOS.a in Frameworks */,
 				EDE0133422C552B9007D052D /* CloudKit.framework in Frameworks */,
+				AFD2575642A27BA0415F7ABA /* libPods-MEDITASKiOS.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -254,7 +254,7 @@
 			isa = PBXGroup;
 			children = (
 				EDE0133322C552B9007D052D /* CloudKit.framework */,
-				FE40D1E95883B61FEBB779AC /* libPods-MEDITASKiOS.a */,
+				EC9075F97BDE6F44B29E2583 /* libPods-MEDITASKiOS.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -270,6 +270,7 @@
 				474BBDF422A0AC59000410AB /* Sources */,
 				474BBDF522A0AC59000410AB /* Frameworks */,
 				474BBDF622A0AC59000410AB /* Resources */,
+				84E1C4B0A1D36B60ECCB81DD /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -354,6 +355,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		84E1C4B0A1D36B60ECCB81DD /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MEDITASKiOS/Pods-MEDITASKiOS-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MEDITASKiOS/Pods-MEDITASKiOS-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MEDITASKiOS/Pods-MEDITASKiOS-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		CC3AF2E350F9E80181ECC9DB /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
