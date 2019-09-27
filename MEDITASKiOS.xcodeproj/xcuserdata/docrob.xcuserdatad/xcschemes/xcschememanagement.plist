@@ -7,7 +7,11 @@
 		<key>MEDITASKiOS.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
+<<<<<<< HEAD
 			<integer>21</integer>
+=======
+			<integer>0</integer>
+>>>>>>> 15c8e60841a646b03c823993acf7710b3795ddf1
 		</dict>
 	</dict>
 </dict>
