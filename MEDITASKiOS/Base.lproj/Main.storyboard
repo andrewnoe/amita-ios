@@ -1312,21 +1312,14 @@
                                                 <rect key="frame" x="8" y="53" width="70" height="70"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
-<<<<<<< HEAD
+
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uh0-GP-qvX">
                                                 <rect key="frame" x="226" y="212" width="45" height="45"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" title="Button" image="chat"/>
                                                 <connections>
                                                     <segue destination="bZj-Fm-qy5" kind="show" id="mgk-Wr-qrI"/>
-=======
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="czK-nB-PKu">
-                                                <rect key="frame" x="226" y="212" width="45" height="45"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" title="Chat Button" image="chat"/>
-                                                <connections>
-                                                    <action selector="clickChatButton:" destination="NMM-QT-O1w" eventType="touchUpInside" id="NIR-SW-duq"/>
->>>>>>> 15c8e60841a646b03c823993acf7710b3795ddf1
+
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -1833,10 +1826,7 @@
         <image name="trash_can_icon.png" width="260" height="256"/>
     </resources>
     <inferredMetricsTieBreakers>
-<<<<<<< HEAD
         <segue reference="CLy-cT-c9l"/>
-=======
-        <segue reference="Oi6-Cj-Zea"/>
->>>>>>> 15c8e60841a646b03c823993acf7710b3795ddf1
+        <!-- <segue reference="Oi6-Cj-Zea"/> -->
     </inferredMetricsTieBreakers>
 </document>

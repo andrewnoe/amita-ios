@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Firebase
 
 final internal class ChatGateway {
     static let shared = ChatGateway()
@@ -23,23 +24,57 @@ final internal class ChatGateway {
         
     }
     
-    func getMessages(count: Int, completion: ([MockMessage]) -> Void) {
+    func getMessages(count: Int, completion: @escaping ([MockMessage]) -> Void) {
         var messages: [MockMessage] = []
         // Disable Custom Messages
         UserDefaults.standard.set(false, forKey: "Custom Messages")
-        for _ in 0..<count {
-            // this should be id from firebase
-            let uniqueID = UUID().uuidString
-            // this is user info from firebase message
-            let user = senders.random()!
-            // this is timestamp from firebase
-            let date = dateAddingRandomTime()
-            // this is message from firebase
-            let msgText = "Hello world!"
-            let message = MockMessage(text: msgText, user: user, messageId: uniqueID, date: date)
-            messages.append(message)
+        
+        // TODO: grab messages from firebase for the given task
+        let refChat = Database.database().reference().child("Chats")
+        
+        refChat.observeSingleEvent(of: DataEventType.value) { (snapshot) in
+            for t in snapshot.children.allObjects as![DataSnapshot]{
+                let chatObject = t.value as? [String: AnyObject]
+                
+                if let chatMsg = chatObject?["chat_msg"] as? String {
+                    
+                    //print(chatMsg)
+
+                    // this should be id from firebase
+                    let uniqueID = UUID().uuidString
+                    // this is user info from firebase message
+                    let user = SampleData.shared.senders.random()!
+                    // this is timestamp from firebase
+                    let date = SampleData.shared.dateAddingRandomTime()
+                    // this is message from firebase
+                    let message = MockMessage(text: chatMsg, user: user, messageId: uniqueID, date: date)
+                    
+                    print(message)
+                    
+                    messages.append(message)
+
+                }
+                
+            }
+            
+            completion(messages)
+
         }
-        completion(messages)
+ 
+        /*
+         for _ in 0..<count {
+         let uniqueID = UUID().uuidString
+         let user = senders.random()!
+         let date = dateAddingRandomTime()
+         let randomSentence = Lorem.sentence()
+         let message = MockMessage(text: randomSentence, user: user, messageId: uniqueID, date: date)
+
+            print(message)
+
+            messages.append(message)
+         }
+*/
+        
     }
  
     func dateAddingRandomTime() -> Date {
