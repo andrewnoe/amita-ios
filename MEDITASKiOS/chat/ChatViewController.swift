@@ -52,7 +52,7 @@ class ChatViewController: MessagesViewController, MessagesDataSource {
         configureMessageCollectionView()
         configureMessageInputBar()
         loadFirstMessages()
-        title = "MessageKit"
+        title = "Task Chat"
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -73,7 +73,9 @@ class ChatViewController: MessagesViewController, MessagesDataSource {
     func loadFirstMessages() {
         DispatchQueue.global(qos: .userInitiated).async {
             let count = UserDefaults.standard.mockMessagesCount()
-            SampleData.shared.getMessages(count: count) { messages in
+            
+            //SampleData.shared.getMessages(count: count) { messages in
+            ChatGateway.shared.getMessages(count: count) { messages in
                 DispatchQueue.main.async {
                     self.messageList = messages
                     self.messagesCollectionView.reloadData()
