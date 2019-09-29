@@ -12,6 +12,10 @@ import Firebase
 final internal class ChatGateway {
     static let shared = ChatGateway()
     
+    let dateFormatterFromFB = DateFormatter()
+    
+    let dispatchGroup = DispatchGroup()
+
     let system = MockUser(senderId: "000000", displayName: "System")
     let nathan = MockUser(senderId: "000001", displayName: "Nathan Tannar")
     let steven = MockUser(senderId: "000002", displayName: "Steven Deutsch")
@@ -21,7 +25,7 @@ final internal class ChatGateway {
     var now = Date()
 
     private init() {
-        
+        dateFormatterFromFB.dateFormat = "yyyy-MM-dd HH:mm:ss"
     }
     
     func getMessages(count: Int, completion: @escaping ([MockMessage]) -> Void) {
@@ -31,49 +35,101 @@ final internal class ChatGateway {
         
         // TODO: grab messages from firebase for the given task
         let refChat = Database.database().reference().child("Chats")
+        let refUsers = Database.database().reference().child("User")
         
         refChat.observeSingleEvent(of: DataEventType.value) { (snapshot) in
-            for t in snapshot.children.allObjects as![DataSnapshot]{
+            
+            var counter = 0
+            
+            for t in snapshot.children.allObjects as![DataSnapshot] {
+        
+                print("ENTERED")
+                //self.dispatchGroup.enter()
+
                 let chatObject = t.value as? [String: AnyObject]
                 
-                if let chatMsg = chatObject?["chat_msg"] as? String {
-                    
-                    //print(chatMsg)
-
-                    // this should be id from firebase
-                    let uniqueID = UUID().uuidString
-                    // this is user info from firebase message
-                    let user = SampleData.shared.senders.random()!
-                    // this is timestamp from firebase
-                    let date = SampleData.shared.dateAddingRandomTime()
-                    // this is message from firebase
-                    let message = MockMessage(text: chatMsg, user: user, messageId: uniqueID, date: date)
-                    
-                    print(message)
-                    
-                    messages.append(message)
-
-                }
+                let senderId = chatObject!["sender_id"] as! String
                 
+                print("*** \(senderId)")
+                
+                let querySender = refUsers.queryOrderedByKey().queryEqual(toValue: senderId)
+                querySender.observe(.value, with: { (senderSnapshot) in
+                    
+
+                    for childSnapshot in senderSnapshot.children.allObjects as? [DataSnapshot] ?? [] {
+                        guard let dictionary = childSnapshot.value as? [String: Any]
+                            else {
+                                print("*** CRAP")
+                                return
+                                
+                        }
+                        //user.name =
+                    
+                    // for childSnapshot in senderSnapshot.children {
+                    //for childSnapshot in senderSnapshot.children.allObjects as![DataSnapshot] {
+                        
+                        //let senderObject = childSnapshot.value as? [String: String]
+                        var firstName = dictionary["fName"] as? String
+                        var lastName = dictionary["lName"] as? String
+/*
+                        if senderObject?["fName"] != nil {
+                            firstName = senderObject!["fName"]!
+                        }
+                        if senderObject?["lName"] != nil {
+                            lastName = senderObject!["lName"]!
+                        }
+                         Snap (genetigner_art@gmail_com) {
+                         admin = 0;
+                         email = "genetigner.art@gmail.com";
+                         fName = Gene;
+                         lName = Tigner;
+                         }
+*/
+                       // print(childSnapshot.value)
+                        print("\(chatObject?["chat_msg"])")
+                        
+                        if let chatMsg = chatObject?["chat_msg"] as? String {
+                            // this should be id from firebase
+                            let id = chatObject!["id"] as! String
+                            
+                            // this is user info from firebase message
+                            let userName =  firstName! + " " + lastName!
+                            let user = MockUser(senderId: "000000", displayName: userName)
+                            //let user = SampleData.shared.senders.random()!
+                            
+                            // this is timestamp from firebase
+                            let added = self.dateFormatterFromFB.date(from: chatObject?["added"] as! String)
+                            //SampleData.shared.dateAddingRandomTime()
+                            // this is message from firebase
+                            let message = MockMessage(text: chatMsg, user: user, messageId: id, date: added!)
+                    
+                            print(message)
+                            
+                            messages.append(message)
+
+                            counter = counter + 1
+                            
+                            if (counter == snapshot.childrenCount) {
+                                completion(messages)
+                            }
+                        }
+
+                    }
+                    print("LEFT 2")
+                    //self.dispatchGroup.leave()
+
+                })
+        
+
             }
-            
-            completion(messages)
+            /*
+            self.dispatchGroup.notify(queue: .main) {
+                print("COMPLETED")
+                completion(messages)
+            }
+ */
 
         }
- 
-        /*
-         for _ in 0..<count {
-         let uniqueID = UUID().uuidString
-         let user = senders.random()!
-         let date = dateAddingRandomTime()
-         let randomSentence = Lorem.sentence()
-         let message = MockMessage(text: randomSentence, user: user, messageId: uniqueID, date: date)
-
-            print(message)
-
-            messages.append(message)
-         }
-*/
         
     }
  

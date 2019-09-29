@@ -1312,14 +1312,12 @@
                                                 <rect key="frame" x="8" y="53" width="70" height="70"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
-
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uh0-GP-qvX">
                                                 <rect key="frame" x="226" y="212" width="45" height="45"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" title="Button" image="chat"/>
                                                 <connections>
                                                     <segue destination="bZj-Fm-qy5" kind="show" id="mgk-Wr-qrI"/>
-
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -1826,7 +1824,6 @@
         <image name="trash_can_icon.png" width="260" height="256"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="CLy-cT-c9l"/>
-        <!-- <segue reference="Oi6-Cj-Zea"/> -->
+        <segue reference="Ih1-OD-bIG"/>
     </inferredMetricsTieBreakers>
 </document>
