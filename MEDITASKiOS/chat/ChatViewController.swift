@@ -42,6 +42,8 @@ class ChatViewController: MessagesViewController, MessagesDataSource {
     let refChat = Database.database().reference().child("Chats")
     let refUsers = Database.database().reference().child("User")
 
+    var currentUser = MockUser(senderId: Auth.auth().currentUser!.uid, displayName: "")
+
     let dateFormatterFromFB = DateFormatter()
 
     let refreshControl = UIRefreshControl()
@@ -64,6 +66,27 @@ class ChatViewController: MessagesViewController, MessagesDataSource {
         configureMessageInputBar()
         loadFirstMessages()
         title = "Task Chat"
+        
+        // get user name from user's uid
+        // ok for this to be asynch since user most likely won't immediately send a chat msg
+        let querySender = self.refUsers.queryOrdered(byChild: "uid").queryEqual(toValue: Auth.auth().currentUser!.uid)
+        querySender.observeSingleEvent(of: .value, with: { (sendersSnapshot) in
+            
+            for senderSnapshot in sendersSnapshot.children.allObjects as? [DataSnapshot] ?? [] {
+                
+                guard let senderInfo = senderSnapshot.value as? [String: Any]
+                    else {
+                        print("*** CRAP")
+                        return
+                }
+                let firstName = senderInfo["fName"] as? String
+                let lastName = senderInfo["lName"] as? String
+                let userName =  firstName! + " " + lastName!
+                
+                self.currentUser = MockUser(senderId: Auth.auth().currentUser!.uid, displayName: userName)
+            }
+        })
+
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -83,49 +106,20 @@ class ChatViewController: MessagesViewController, MessagesDataSource {
     
     func loadFirstMessages() {
         DispatchQueue.global(qos: .userInitiated).async {
-            // let count = UserDefaults.standard.mockMessagesCount()
-            
-            //SampleData.shared.getMessages(count: count) { messages in
-            /*
-            ChatGateway.shared.getMessages(count: count) { messages in
-                DispatchQueue.main.async {
-                    self.messageList = messages
-                    self.messagesCollectionView.reloadData()
-                    self.messagesCollectionView.scrollToBottom()
-                }
-            }
-            */
-            
             self.refChat.observe(DataEventType.value, with: { (snapshot) in
                 var counter = 0
                 for item in snapshot.children.allObjects as! [DataSnapshot] {
                 //for item in snapshot.children {
                     
-                    //let dataChange = snapshot.value as? [String:AnyObject]
-                    //let snapshotValue = snapshot.value as! [String: AnyObject]
-                    //print(item)
-
                     let chatInfo = item.value as? [String:AnyObject]
                     let chatId = chatInfo?["id"] as! String
                     let chatMsg:String = chatInfo?["chat_msg"] as! String
                     let added = self.dateFormatterFromFB.date(from: chatInfo?["added"] as! String)
-                    let senderId = chatInfo!["sender_id"] as! String
+                    let senderUid = chatInfo!["sender_uid"] as! String
                     
-                    print("sender id \(senderId)")
-                    
-                    //print(chatInfo!["chat_msg"])
-                    //print(item.value(forKey: "chat_msg"))
-                    
-//                    refUsers.child((item as AnyObject).key).observeSingleEvent(of: .value, with: { (snap) in
-                    //.queryEqual(toValue: senderId)
-                    //let querySender = self.refUsers.queryOrdered(byChild: "email").queryEqual(toValue: "genetigner.art@gmail.com" )
-                    let querySender = self.refUsers.queryOrderedByKey().queryEqual(toValue: senderId)
+                    let querySender = self.refUsers.queryOrdered(byChild: "uid").queryEqual(toValue: senderUid)
                     querySender.observeSingleEvent(of: .value, with: { (sendersSnapshot) in
 
-                        //.allObjects as! [DataSnapshot]
-                        //print("sendersSnapshot: \(sendersSnapshot)")
-                        
-                        //for senderSnapshot in sendersSnapshot.children.allObjects as! [DataSnapshot] {
                         for senderSnapshot in sendersSnapshot.children.allObjects as? [DataSnapshot] ?? [] {
                             
                             guard let senderInfo = senderSnapshot.value as? [String: Any]
@@ -134,44 +128,13 @@ class ChatViewController: MessagesViewController, MessagesDataSource {
                                     return
                             }
                             
-                            //print(senderSnapshot)
-                            
-                            //print("sender snapshot \(senderSnapshot)")
-                        
-                            //let senderInfo = senderSnapshot.value
-                            //let senderInfo = senderSnapshot.value as? [String:AnyObject]
-                            print(senderInfo)
+                            //print(senderInfo)
                         
                             let firstName = senderInfo["fName"] as? String
                             let lastName = senderInfo["lName"] as? String
-
-                            /*
-                            var firstName = ""
-                            if (senderInfo?["fName"] != nil) {
-                                firstName = senderInfo?["fName"] as! String
-                            }
-                            var lastName = ""
-                            if (senderInfo?["lName"] != nil) {
-                                lastName = senderInfo?["lName"] as! String
-                            }
- */
-                            
                             let userName =  firstName! + " " + lastName!
-                            let user = MockUser(senderId: "000000", displayName: userName)
-                            
-                            // let image = Image(snapshot: snap)
-                            // print(image)
-                            // imgArray.append(image)
-                            // let chatMsg = "test!"
-                            //let uniqueID = UUID().uuidString
-                            // this is user info from firebase message
-                            // let user = SampleData.shared.senders.random()!
-                        
-                            // this is timestamp from firebase
-                            //let date = SampleData.shared.dateAddingRandomTime()
-                            // this is message from firebase
-                            
-                            
+                            let user = MockUser(senderId: senderUid, displayName: userName)
+
                             let message = MockMessage(text: chatMsg, user: user, messageId: chatId, date: added!)
 
                         
@@ -179,8 +142,6 @@ class ChatViewController: MessagesViewController, MessagesDataSource {
 
                             counter = counter + 1
                             if (counter == snapshot.childrenCount) {
-                                // completion(result:imgArray, error:nil)
-                                // self.messageList = messages
                                 self.messagesCollectionView.reloadData()
                                 self.messagesCollectionView.scrollToBottom()
                             }
@@ -256,7 +217,8 @@ class ChatViewController: MessagesViewController, MessagesDataSource {
     // MARK: - MessagesDataSource
     
     func currentSender() -> SenderType {
-        return SampleData.shared.currentSender
+        return currentUser;
+        //return SampleData.shared.currentSender
     }
     
     func numberOfSections(in messagesCollectionView: MessagesCollectionView) -> Int {
@@ -438,7 +400,7 @@ extension ChatViewController: InputBarAccessoryViewDelegate {
 
     private func insertMessages(_ data: [Any]) {
         for component in data {
-            let user = SampleData.shared.currentSender
+            let user = self.currentUser //SampleData.shared.currentSender
             if let str = component as? String {
                 let message = MockMessage(text: str, user: user, messageId: UUID().uuidString, date: Date())
                 insertMessage(message)
