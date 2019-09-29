@@ -11,7 +11,7 @@ import MessageKit
 // import InputBarAccessoryView
 import MapKit
 
-import Firebase
+//import Firebase
 //import MessageKit
 //import FirebaseFirestore
 // import Photos

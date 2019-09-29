@@ -106,7 +106,8 @@ class ChatViewController: MessagesViewController, MessagesDataSource {
     
     func loadFirstMessages() {
         DispatchQueue.global(qos: .userInitiated).async {
-            self.refChat.observe(DataEventType.value, with: { (snapshot) in
+            let queryChat = self.refChat.queryOrdered(byChild: "added")
+            queryChat.observe(DataEventType.value, with: { (snapshot) in
                 var counter = 0
                 for item in snapshot.children.allObjects as! [DataSnapshot] {
                 //for item in snapshot.children {
