@@ -37,6 +37,7 @@ class ChatViewController: MessagesViewController, MessagesDataSource {
     /// The `BasicAudioController` controll the AVAudioPlayer state (play, pause, stop) and udpate audio cell UI accordingly.
     open lazy var audioController = BasicAudioController(messageCollectionView: messagesCollectionView)
 
+    var taskId:String = ""
     var messageList: [MockMessage] = []
     
     let refChat = Database.database().reference().child("Chats")
@@ -65,7 +66,7 @@ class ChatViewController: MessagesViewController, MessagesDataSource {
         configureMessageCollectionView()
         configureMessageInputBar()
         loadFirstMessages()
-        title = "Task Chat"
+        title = "Chat for " + self.taskId
         
         // get user name from user's uid
         // ok for this to be asynch since user most likely won't immediately send a chat msg
@@ -106,14 +107,15 @@ class ChatViewController: MessagesViewController, MessagesDataSource {
     
     func loadFirstMessages() {
         DispatchQueue.global(qos: .userInitiated).async {
-            let queryChat = self.refChat.queryOrdered(byChild: "added")
+            let queryChat = self.refChat.child(self.taskId).queryOrdered(byChild: "added")
+            //queryOrderedByKey().queryEqual(toValue: ).queryOrdered(byChild: "added")
             queryChat.observe(DataEventType.value, with: { (snapshot) in
                 var counter = 0
                 for item in snapshot.children.allObjects as! [DataSnapshot] {
                 //for item in snapshot.children {
                     
                     let chatInfo = item.value as? [String:AnyObject]
-                    let chatId = chatInfo?["id"] as! String
+                    let chatId = "0" //chatInfo?["id"] as! String
                     let chatMsg:String = chatInfo?["chat_msg"] as! String
                     let added = self.dateFormatterFromFB.date(from: chatInfo?["added"] as! String)
                     let senderUid = chatInfo!["sender_uid"] as! String
@@ -138,7 +140,6 @@ class ChatViewController: MessagesViewController, MessagesDataSource {
 
                             let message = MockMessage(text: chatMsg, user: user, messageId: chatId, date: added!)
 
-                        
                             self.messageList.append(message)
 
                             counter = counter + 1

@@ -192,5 +192,12 @@ class taskDetailedViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "taskChatSegue"){
+            let toTaskChatView = segue.destination as! TaskChatViewController
+            toTaskChatView.taskId = self.catchTaskID
+            //print("*** \(self.catchTaskID)")
+        }
+    }
+    
 }

@@ -1317,7 +1317,7 @@
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" title="Button" image="chat"/>
                                                 <connections>
-                                                    <segue destination="bZj-Fm-qy5" kind="show" id="mgk-Wr-qrI"/>
+                                                    <segue destination="bZj-Fm-qy5" kind="show" identifier="taskChatSegue" id="mgk-Wr-qrI"/>
                                                 </connections>
                                             </button>
                                         </subviews>
