@@ -26,9 +26,11 @@ class LogInController: UIViewController {
         EmailLogIn.autocorrectionType = .no
         EmailLogIn.layer.cornerRadius = EmailLogIn.frame.size.height/2
         EmailLogIn.clipsToBounds = true
+        EmailLogIn.text = "genetigner.art@gmail.com"
         PasswordLogIn.autocorrectionType = .no
         PasswordLogIn.layer.cornerRadius = EmailLogIn.frame.size.height/2
         PasswordLogIn.clipsToBounds = true
+        PasswordLogIn.text = "qwertyuiop"
         //ref.child
         let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
         let versiontext = "Beta "
