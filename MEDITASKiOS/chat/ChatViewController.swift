@@ -55,13 +55,6 @@ class ChatViewController: MessagesViewController, MessagesDataSource {
     let dispatchGroup = DispatchGroup()
     
     let formatter = ChatGateway.shared.dateFormatterFromFB
-        /*
-        DateFormatter = {
-        let formatter = DateFormatter()
-        formatter.dateStyle = .medium
-        return formatter
-    }()
- */
     
     override func viewDidLoad() {
         super.viewDidLoad()
