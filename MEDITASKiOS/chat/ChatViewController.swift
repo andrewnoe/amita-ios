@@ -49,6 +49,8 @@ class ChatViewController: MessagesViewController, MessagesDataSource {
 
     let refreshControl = UIRefreshControl()
     
+    var displayedMessages : [String:MockMessage] = [:]
+    
     let formatter = ChatGateway.shared.dateFormatterFromFB
         /*
         DateFormatter = {
@@ -114,41 +116,54 @@ class ChatViewController: MessagesViewController, MessagesDataSource {
                 for item in snapshot.children.allObjects as! [DataSnapshot] {
                 //for item in snapshot.children {
                     
-                    let chatInfo = item.value as? [String:AnyObject]
-                    let chatId = "0" //chatInfo?["id"] as! String
-                    let chatMsg:String = chatInfo?["chat_msg"] as! String
-                    let added = self.dateFormatterFromFB.date(from: chatInfo?["added"] as! String)
-                    let senderUid = chatInfo!["sender_uid"] as! String
+                    // if already in displayedMessages then skip
+                    /*
+                    if displayedMessages.contains(where: <#T##((key: String, value: MockMessage)) throws -> Bool#>)
+                    item.key
+ */
+                    if let val = self.displayedMessages[item.key] {
+                        // now val is not nil and the Optional has been unwrapped, so use it
+                    } else {
                     
-                    let querySender = self.refUsers.queryOrdered(byChild: "uid").queryEqual(toValue: senderUid)
-                    querySender.observeSingleEvent(of: .value, with: { (sendersSnapshot) in
+                        let chatInfo = item.value as? [String:AnyObject]
+                        let chatId = item.key
+                        let chatMsg:String = chatInfo?["chat_msg"] as! String
+                        let addDate = Date(timeIntervalSince1970: chatInfo?["added"] as! Double / 1000)
+                        let added = self.dateFormatterFromFB.string(from: addDate)
+                        let senderUid = chatInfo!["sender_uid"] as! String
+                    
+                        let querySender = self.refUsers.queryOrdered(byChild: "uid").queryEqual(toValue: senderUid)
+                        querySender.observeSingleEvent(of: .value, with: { (sendersSnapshot) in
 
-                        for senderSnapshot in sendersSnapshot.children.allObjects as? [DataSnapshot] ?? [] {
+                            for senderSnapshot in sendersSnapshot.children.allObjects as? [DataSnapshot] ?? [] {
                             
-                            guard let senderInfo = senderSnapshot.value as? [String: Any]
-                                else {
-                                    print("*** CRAP")
-                                    return
-                            }
+                                guard let senderInfo = senderSnapshot.value as? [String: Any]
+                                    else {
+                                        print("*** CRAP")
+                                        return
+                                }
                             
-                            //print(senderInfo)
+                                //print(senderInfo)
                         
-                            let firstName = senderInfo["fName"] as? String
-                            let lastName = senderInfo["lName"] as? String
-                            let userName =  firstName! + " " + lastName!
-                            let user = MockUser(senderId: senderUid, displayName: userName)
+                                let firstName = senderInfo["fName"] as? String
+                                let lastName = senderInfo["lName"] as? String
+                                let userName =  firstName! + " " + lastName!
+                                let user = MockUser(senderId: senderUid, displayName: userName)
 
-                            let message = MockMessage(text: chatMsg, user: user, messageId: chatId, date: added!)
+                                let message = MockMessage(text: chatMsg, user: user, messageId: chatId, date: addDate)
 
-                            self.messageList.append(message)
+                                self.messageList.append(message)
 
-                            counter = counter + 1
-                            if (counter == snapshot.childrenCount) {
-                                self.messagesCollectionView.reloadData()
-                                self.messagesCollectionView.scrollToBottom()
+                                self.displayedMessages[chatId] = message
+
+                                counter = counter + 1
+                                if (counter == snapshot.childrenCount) {
+                                    self.messagesCollectionView.reloadData()
+                                    self.messagesCollectionView.scrollToBottom()
+                                }
                             }
-                        }
-                    })
+                        })
+                    }
                 }
             })
 
@@ -390,7 +405,17 @@ extension ChatViewController: InputBarAccessoryViewDelegate {
         messageInputBar.inputTextView.placeholder = "Sending..."
         DispatchQueue.global(qos: .default).async {
             // fake send request task
-            sleep(1)
+            // sleep(1)
+            for component in components {
+                if let str = component as? String {
+                    guard let newKey = self.refChat.child(self.taskId).childByAutoId().key else { return }
+                    let newMessageMap = ["sender_uid": self.currentUser.senderId,
+                        "chat_msg": str,
+                        "added": [".sv": "timestamp"]] as [String : Any]
+                    let childUpdates = ["/\(self.taskId)/\(newKey)": newMessageMap]
+                    self.refChat.updateChildValues(childUpdates)
+                }
+            }
             DispatchQueue.main.async { [weak self] in
                 self?.messageInputBar.sendButton.stopAnimating()
                 self?.messageInputBar.inputTextView.placeholder = "Aa"
