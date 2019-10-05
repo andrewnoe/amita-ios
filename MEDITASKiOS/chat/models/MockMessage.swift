@@ -96,12 +96,14 @@ internal struct MockMessage: MessageType {
     var kind: MessageKind
 
     var user: MockUser
-
+    var found: Bool
+    
     private init(kind: MessageKind, user: MockUser, messageId: String, date: Date) {
         self.kind = kind
         self.user = user
         self.messageId = messageId
         self.sentDate = date
+        self.found = false
     }
     
     init(custom: Any?, user: MockUser, messageId: String, date: Date) {

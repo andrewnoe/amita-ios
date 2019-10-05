@@ -86,7 +86,7 @@ final internal class ChatGateway {
                          }
 */
                        // print(childSnapshot.value)
-                        print("\(chatObject?["chat_msg"])")
+                        //print("\(chatObject?["chat_msg"])")
                         
                         if let chatMsg = chatObject?["chat_msg"] as? String {
                             // this should be id from firebase
@@ -115,7 +115,7 @@ final internal class ChatGateway {
                         }
 
                     }
-                    print("LEFT 2")
+                    // print("LEFT 2")
                     //self.dispatchGroup.leave()
 
                 })

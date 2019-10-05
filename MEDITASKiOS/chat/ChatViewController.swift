@@ -119,30 +119,61 @@ class ChatViewController: MessagesViewController, MessagesDataSource {
     }
     
     func loadFirstMessages() {
-        DispatchQueue.global(qos: .userInitiated).async {
+        //DispatchQueue.global(qos: .userInitiated).async {
+        // init all stored chat msg with NOT FOUND
+        // any stored chat msg after load that still are NOT FOUND must be removed from view
+        //for (msgKey, msgItem) in displayedMessages {
+            //msgItem.found = false
+        //}
+        for i in 0 ..< messageList.count {
+            //if (self.displayedMessages[msg.messageId]?.found == false) {
+                messageList[i].found = false
+            //}
+        }
             let queryChat = self.refChat.child(self.taskId).queryOrdered(byChild: "added")
             queryChat.observe(DataEventType.value, with: { (snapshot) in
                 var counter = 0
                 for item in snapshot.children.allObjects as! [DataSnapshot] {
                     if let val = self.displayedMessages[item.key] {
-                        // now val is not nil and the Optional has been unwrapped, so use it
+                        // message is already displayed so skip it
+                        print("*** FOUND \(val)")
+                        self.displayedMessages[item.key]?.found = true
                     } else {
                     
                         let chatInfo = item.value as? [String:AnyObject]
+
+                        print("*** NOT FOUND \(chatInfo)")
+
                         let chatId = item.key
                         let chatMsg:String = chatInfo?["chat_msg"] as! String
                         
                         let addDate = Date(timeIntervalSince1970: chatInfo?["added"] as! Double / 1000)
-                        let added = self.dateFormatterFromFB.string(from: addDate)
                         let senderUid = chatInfo!["sender_uid"] as! String
                     
                         let user = self.senderMap[senderUid]
                         var message = MockMessage(text: chatMsg, user: user!, messageId: chatId, date: addDate)
-
+                        message.found = true
+                        
                         self.insertMessage(message)
 
                         counter = counter + 1
                         if (counter == snapshot.childrenCount) {
+                            for (msgId, msg) in self.displayedMessages {
+                                if (!msg.found) {
+                                    print("*** TRYING TO DELETE \(msg)")
+                                }
+                            }
+                            /*
+                            for i in 0 ..< self.messageList.count {
+                                let i2 = self.messageList.count - 1 - i
+                                if (self.messageList[i2].found == false) {
+                                    
+                                    print("*** TRYING TO DELETE \(self.messageList[i2])")
+                                    self.messageList.remove(at: i2)
+                                    self.displayedMessages.removeValue(forKey: self.messageList[i2].messageId)
+                                }
+                            }
+ */
                             self.messagesCollectionView.reloadData()
                             self.messagesCollectionView.scrollToBottom()
                         }
@@ -150,7 +181,7 @@ class ChatViewController: MessagesViewController, MessagesDataSource {
                 }
             })
 
-        }
+        //}
     }
     
     @objc
@@ -192,7 +223,7 @@ class ChatViewController: MessagesViewController, MessagesDataSource {
     
     func insertMessage(_ message: MockMessage) {
         messageList.append(message)
-        
+
         displayedMessages[message.messageId] = message
         
         // Reload last section to update header/footer labels and insert a new one
