@@ -22,10 +22,8 @@ class TabBarController: UITabBarController {
         //tabBar.items?[0].title = "Tasks"
      //   tabBar.items?[1].title = "Patients"
 
-        // Do any additional setup after loading the view.
-        
-        // maybe this is where we should hook up notifications?
         fetchNotifications()
+        
     }
     
     func fetchNotifications() {

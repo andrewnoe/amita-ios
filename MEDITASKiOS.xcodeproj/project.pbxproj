@@ -45,6 +45,7 @@
 		A08D589D233EAE3A0068AE52 /* ChatGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08D589C233EAE3A0068AE52 /* ChatGateway.swift */; };
 		A08D58A023483C4E0068AE52 /* NotifyGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08D589F23483C4E0068AE52 /* NotifyGateway.swift */; };
 		A08D58A323483CED0068AE52 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08D58A223483CED0068AE52 /* Notification.swift */; };
+		A0D3A1B4234FFB0D00E21551 /* NotifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D3A1B3234FFB0D00E21551 /* NotifyViewController.swift */; };
 		A0DDB6DE2339A45600CEAB12 /* TaskChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DDB6DD2339A45600CEAB12 /* TaskChatViewController.swift */; };
 		A0DDB6E9233A885B00CEAB12 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DDB6E8233A885B00CEAB12 /* Constants.swift */; };
 		A0DDB6EB233ABC1900CEAB12 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DDB6EA233ABC1900CEAB12 /* ChatViewController.swift */; };
@@ -117,6 +118,7 @@
 		A08D589C233EAE3A0068AE52 /* ChatGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatGateway.swift; sourceTree = "<group>"; };
 		A08D589F23483C4E0068AE52 /* NotifyGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotifyGateway.swift; sourceTree = "<group>"; };
 		A08D58A223483CED0068AE52 /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
+		A0D3A1B3234FFB0D00E21551 /* NotifyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotifyViewController.swift; sourceTree = "<group>"; };
 		A0DDB6DD2339A45600CEAB12 /* TaskChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskChatViewController.swift; sourceTree = "<group>"; };
 		A0DDB6E8233A885B00CEAB12 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		A0DDB6EA233ABC1900CEAB12 /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
@@ -322,6 +324,7 @@
 			children = (
 				A08D58A123483CDF0068AE52 /* models */,
 				A08D589F23483C4E0068AE52 /* NotifyGateway.swift */,
+				A0D3A1B3234FFB0D00E21551 /* NotifyViewController.swift */,
 			);
 			path = notify;
 			sourceTree = "<group>";
@@ -514,6 +517,7 @@
 				47678B6522BDC02B00622DA6 /* patientEditorController.swift in Sources */,
 				47012EF122AE0660008E9AF9 /* patientCell.swift in Sources */,
 				470CCEC522A1C09700E1DB01 /* DashboardController.swift in Sources */,
+				A0D3A1B4234FFB0D00E21551 /* NotifyViewController.swift in Sources */,
 				47012EF722AE0B5A008E9AF9 /* documentCell.swift in Sources */,
 				47EC901422B4ED2B009F5F94 /* taskCellSelect.swift in Sources */,
 				A0DDB6F0233ABC5F00CEAB12 /* MockUser.swift in Sources */,
