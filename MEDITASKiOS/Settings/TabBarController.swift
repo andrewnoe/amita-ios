@@ -15,6 +15,8 @@ class TabBarController: UITabBarController {
     let currentUId = Auth.auth().currentUser!.uid
     //var currentUser = MockUser(senderId: Auth.auth().currentUser!.uid, displayName: "")
 
+    var originalImage: UIImage = UIImage()
+    
     var notifyList: [Notification] = []
 
     override func viewDidLoad() {
@@ -22,8 +24,9 @@ class TabBarController: UITabBarController {
         //tabBar.items?[0].title = "Tasks"
      //   tabBar.items?[1].title = "Patients"
 
-        fetchNotifications()
+        originalImage = tabBar.items![3].image!
         
+        fetchNotifications()
     }
     
     func fetchNotifications() {
@@ -47,6 +50,11 @@ class TabBarController: UITabBarController {
                 counter += 1
                 if (counter == snapshot.childrenCount) {
                     print("*** count of notifications \(self.notifyList.count)")
+                    //print("*** \(self.tabBar.items![3].title)")
+
+                    //UIImage(named: self.tabBar.items![3].image)!
+                    self.tabBar.items![3].image = self.textToImage(drawText: String(self.notifyList.count), inImage: self.originalImage, atPoint: CGPoint(x: 8, y: 0))
+
                     
                     // update GUI list or something
                 }
@@ -54,6 +62,29 @@ class TabBarController: UITabBarController {
         })
     }
 
+    //
+    func textToImage(drawText text: String, inImage image: UIImage, atPoint point: CGPoint) -> UIImage {
+        let textColor = UIColor.white
+        let textFont = UIFont(name: "Helvetica Bold", size: 24)!
+        
+        let scale = UIScreen.main.scale
+        UIGraphicsBeginImageContextWithOptions(image.size, false, scale)
+        
+        let textFontAttributes = [
+            NSAttributedString.Key.font: textFont,
+            NSAttributedString.Key.foregroundColor: textColor,
+            ] as [NSAttributedString.Key : Any]
+        image.draw(in: CGRect(origin: CGPoint.zero, size: image.size))
+        
+        let rect = CGRect(origin: point, size: image.size)
+        text.draw(in: rect, withAttributes: textFontAttributes)
+        
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return newImage!
+    }
+    
     /*
     // MARK: - Navigation
 
