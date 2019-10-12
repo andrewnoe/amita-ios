@@ -13,6 +13,5 @@ internal struct Notification {
     var msg: String
     var added: Int
     var read: Bool
-    
-    
+
 }

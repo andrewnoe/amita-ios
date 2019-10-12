@@ -15,8 +15,6 @@ class TabBarController: UITabBarController {
     let currentUId = Auth.auth().currentUser!.uid
     //var currentUser = MockUser(senderId: Auth.auth().currentUser!.uid, displayName: "")
 
-    var originalImage: UIImage = UIImage()
-    
     var notifyList: [Notification] = []
 
     override func viewDidLoad() {
@@ -24,8 +22,6 @@ class TabBarController: UITabBarController {
         //tabBar.items?[0].title = "Tasks"
      //   tabBar.items?[1].title = "Patients"
 
-        originalImage = tabBar.items![3].image!
-        
         fetchNotifications()
     }
     
@@ -49,50 +45,26 @@ class TabBarController: UITabBarController {
                 
                 counter += 1
                 if (counter == snapshot.childrenCount) {
-                    print("*** count of notifications \(self.notifyList.count)")
-                    //print("*** \(self.tabBar.items![3].title)")
-
-                    //UIImage(named: self.tabBar.items![3].image)!
-                    self.tabBar.items![3].image = self.textToImage(drawText: String(self.notifyList.count), inImage: self.originalImage, atPoint: CGPoint(x: 8, y: 0))
-
+                    self.tabBar.items![3].badgeValue = String(self.notifyList.count)
                     
-                    // update GUI list or something
+                    //var tabBarController = segue.destination as UITabBarController
+                    let destinationViewController = self.viewControllers?[3] as! NotifyViewController // or whatever tab index you're trying to access
+                    destinationViewController.notifyList = self.notifyList
                 }
             }
         })
     }
-
-    //
-    func textToImage(drawText text: String, inImage image: UIImage, atPoint point: CGPoint) -> UIImage {
-        let textColor = UIColor.white
-        let textFont = UIFont(name: "Helvetica Bold", size: 24)!
-        
-        let scale = UIScreen.main.scale
-        UIGraphicsBeginImageContextWithOptions(image.size, false, scale)
-        
-        let textFontAttributes = [
-            NSAttributedString.Key.font: textFont,
-            NSAttributedString.Key.foregroundColor: textColor,
-            ] as [NSAttributedString.Key : Any]
-        image.draw(in: CGRect(origin: CGPoint.zero, size: image.size))
-        
-        let rect = CGRect(origin: point, size: image.size)
-        text.draw(in: rect, withAttributes: textFontAttributes)
-        
-        let newImage = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        
-        return newImage!
-    }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+/*
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        print("\(segue.identifier)")
+        //if segue.identifier == "segueIdInStoryboard" {
+            if let DVC = segue.destination as? NotifyViewController {
+                DVC.notifyList = notifyList
+            }
+            //else {
+              //  print("Data NOT Passed! destination vc is not set to firstVC")
+            //}
+        //} else { print("Id doesnt match with Storyboard segue Id") }
     }
-    */
-
+*/
 }

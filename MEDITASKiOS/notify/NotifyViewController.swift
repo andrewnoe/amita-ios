@@ -9,5 +9,12 @@
 import Foundation
 import UIKit
 
-class NotifyVIEWController: UIViewController  {
+class NotifyViewController: UINavigationController  {
+    var notifyList: [Notification] = []
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        print("*** \(notifyList.count)")
+    }
 }

@@ -25,6 +25,7 @@ class PatientController: UIViewController, UITableViewDataSource, UITableViewDel
     var passDOB: String!
     var passDesc: String!
     var passHistory: String!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -54,7 +55,7 @@ class PatientController: UIViewController, UITableViewDataSource, UITableViewDel
                     var getDesc = String()
                     var getHist = String()
                     var getEMR = String()
-                    guard let fName = patientObject?["fName"] else{ continue }
+                    guard let fName = patientObject?["fName"] else { continue }
                     
                     if patientObject?["lName"] != nil{
                         lName = "\(patientObject!["lName"] ?? "n/a" as AnyObject)"
