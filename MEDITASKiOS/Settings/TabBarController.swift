@@ -49,7 +49,10 @@ class TabBarController: UITabBarController {
                     
                     //var tabBarController = segue.destination as UITabBarController
                     let destinationViewController = self.viewControllers?[3] as! NotifyViewController // or whatever tab index you're trying to access
-                    destinationViewController.notifyList = self.notifyList
+                    //destinationViewController.notifyList = self.notifyList
+                    
+                    let dvc:NotifyTableController = destinationViewController.viewControllers[0] as! NotifyTableController
+                    dvc.notifyList = self.notifyList
                 }
             }
         })

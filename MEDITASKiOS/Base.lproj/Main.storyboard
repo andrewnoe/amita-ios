@@ -1826,12 +1826,12 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NBu-Bq-hag" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3879" y="-14"/>
+            <point key="canvasLocation" x="3732" y="-27"/>
         </scene>
         <!--Notify-->
         <scene sceneID="jFt-Ug-fvQ">
             <objects>
-                <tableViewController id="CZg-QV-Wm8" sceneMemberID="viewController">
+                <tableViewController id="CZg-QV-Wm8" customClass="NotifyTableController" customModule="MEDITASKiOS" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Tvb-Tl-Os8">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="641"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1859,7 +1859,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r5S-1Q-DUy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5206" y="-27"/>
+            <point key="canvasLocation" x="4886" y="-27"/>
         </scene>
     </scenes>
     <resources>
