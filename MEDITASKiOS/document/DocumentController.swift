@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import QuickLook
 class DocumentController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     
@@ -19,30 +20,57 @@ class DocumentController: UIViewController, UITableViewDataSource, UITableViewDe
         
     }
     @IBOutlet weak var docsTable: UITableView!
- 
+    let vc: openedDocumentControllerViewController? = openedDocumentControllerViewController()
+
+    //let openedDocController = openedDocumentControllerViewController()
     var documentArray = [String]()
     var refDocs: DatabaseReference!
-
-    override func viewDidLoad() {
+    var tappedurl = URL(string: "")
+    func loadDocData(arr:Array<String>){
+        documentArray = arr;
+        print(documentArray)
+      //  print(docsTable)
+        print(docsTable)
+        self.docsTable.reloadData()
+        
+    }
+    
+    func getDocData(){
+        var getDocArr = [String]()
+        let storage = Storage.storage()
+        let storageRef = storage.reference().child("docs/")
+        storageRef.listAll { (result, error) in
+            for item in result.items {
+                getDocArr.append(item.name)
+            }
+            self.loadDocData(arr: getDocArr)
+        }
+    
+    }
+   
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        print("docView did load")
         super.viewDidLoad()
         self.navigationItem.title = currentTeam.name
+        // Create a reference to the file you want to download
+        
+        var getDocArr = [String]()
+        
+        let storage = Storage.storage()
+        let storageRef = storage.reference().child("docs/")
+        
+        
+        
         let nib = UINib(nibName: "documentCell", bundle: nil)
+        getDocData()
         docsTable.register(nib, forCellReuseIdentifier: "eachDocCell")
-        
-        refDocs = Database.database().reference().child("Documents")
-        refDocs.observe(DataEventType.value) { (snapshot) in
-            if snapshot.childrenCount > 0 {
-                self.documentArray.removeAll()
-                
-                for docs in snapshot.children.allObjects as![DataSnapshot]{
-                    let docObject = docs.value as? [String: AnyObject]
-                    let dName = docObject?["dName"]
-                    self.documentArray.append(dName as? String ?? "help")
-                }
-            }
-            self.docsTable.reloadData()
-        }
-        
+    }
+    
+    func setURL(url:URL){
+        tappedurl = url
+        self.vc!.openurl = tappedurl
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -57,8 +85,26 @@ class DocumentController: UIViewController, UITableViewDataSource, UITableViewDe
         cell.customInit(title: passName)
         return cell
     }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.performSegue(withIdentifier: "docsSegue", sender: self)
+        //self.performSegue(withIdentifier: "docsSegue", sender: self)
+        let storage = Storage.storage()
+        let storageRef = storage.reference().child("docs/")
+        let tapped = (tableView.cellForRow(at: indexPath)! as? documentCell)?.documentTitle.text
+        let fileref = storageRef.child(tapped!)
+        print(tapped)
+        // Fetch the download URL
+        fileref.downloadURL { thisurl, error in
+            if let error = error {
+                print("err")
+            } else {
+                print(thisurl as! URL)
+                self.setURL(url: thisurl!)
+                let nav = UINavigationController(rootViewController: self.vc!)
+                self.navigationController?.pushViewController(self.vc!, animated: true)
+               // self.vc?.viewDidLoad()
+            }
+        }
     }
    
 }
@@ -66,7 +112,6 @@ extension DocumentController: UIDocumentPickerDelegate{
     
     func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentAt url: URL) {
         let fileName = url.lastPathComponent
-        
         let vc = storyboard?.instantiateViewController(withIdentifier: "newDocumentController") as! newDocumentController
         vc.currfileName = fileName
         vc.currURL = url
@@ -80,4 +125,5 @@ extension DocumentController: UIDocumentPickerDelegate{
         
         
     }
+ 
 }

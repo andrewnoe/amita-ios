@@ -92,6 +92,7 @@ class TasksViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("taskview did load")
         myUID = (Auth.auth().currentUser?.email?.replacingOccurrences(of: ".", with: "_"))!
         getTeamDict()
        

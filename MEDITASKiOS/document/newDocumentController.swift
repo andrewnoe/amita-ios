@@ -16,7 +16,6 @@ class newDocumentController: UIViewController {
     var currfileName:String = ""
     var currURL = URL(string: "")
     @IBOutlet weak var UploadButton: UIBarButtonItem!
-    
     @IBOutlet weak var CanceButton: UIBarButtonItem!
     @IBOutlet weak var documentStatusLabel: UILabel!
     @IBOutlet weak var progressView: UIProgressView!
@@ -28,7 +27,10 @@ class newDocumentController: UIViewController {
         
     }
     @IBAction func cancel(_ sender: UIBarButtonItem) {
+        let vc = storyboard?.instantiateViewController(withIdentifier: "documentController") as! DocumentController
         dismiss(animated: true, completion: nil)
+        //present(vc, animated: true)
+        
     }
     
     @IBAction func upload(_ sender: UIBarButtonItem) {
@@ -69,7 +71,6 @@ class newDocumentController: UIViewController {
                     break
                 }
             }
-            
     }
         uploadTask.observe(.progress, handler: { [weak self](snapshot) in
             guard let progress = snapshot.progress?.fractionCompleted else { return }
@@ -77,9 +78,6 @@ class newDocumentController: UIViewController {
             self?.progressView.progress = Float(progress*100)
         }
         )
-        
-       
-        
 }
     
     

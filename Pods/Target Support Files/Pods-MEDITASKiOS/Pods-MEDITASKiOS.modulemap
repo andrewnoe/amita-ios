@@ -1,4 +1,4 @@
-module Pods_MEDITASKiOS {
+framework module Pods_MEDITASKiOS {
   umbrella header "Pods-MEDITASKiOS-umbrella.h"
 
   export *
