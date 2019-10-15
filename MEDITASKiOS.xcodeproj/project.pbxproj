@@ -43,6 +43,10 @@
 		47EC901522B4ED2B009F5F94 /* taskCellSelect.xib in Resources */ = {isa = PBXBuildFile; fileRef = 47EC901322B4ED2B009F5F94 /* taskCellSelect.xib */; };
 		47F31A4722BB0960003D1BAE /* newTaskController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F31A4622BB0960003D1BAE /* newTaskController.swift */; };
 		A08D589D233EAE3A0068AE52 /* ChatGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08D589C233EAE3A0068AE52 /* ChatGateway.swift */; };
+		A08D58A323483CED0068AE52 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08D58A223483CED0068AE52 /* Notification.swift */; };
+		A0D3A1B4234FFB0D00E21551 /* NotifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D3A1B3234FFB0D00E21551 /* NotifyViewController.swift */; };
+		A0D3A1B82351722500E21551 /* NotifyTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D3A1B72351722500E21551 /* NotifyTableViewController.swift */; };
+		A0D3A1BA23554CD100E21551 /* NotificationStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D3A1B923554CD100E21551 /* NotificationStore.swift */; };
 		A0DDB6DE2339A45600CEAB12 /* TaskChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DDB6DD2339A45600CEAB12 /* TaskChatViewController.swift */; };
 		A0DDB6E9233A885B00CEAB12 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DDB6E8233A885B00CEAB12 /* Constants.swift */; };
 		A0DDB6EB233ABC1900CEAB12 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DDB6EA233ABC1900CEAB12 /* ChatViewController.swift */; };
@@ -113,6 +117,10 @@
 		47F31A4622BB0960003D1BAE /* newTaskController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = newTaskController.swift; sourceTree = "<group>"; };
 		746EA071BF06BD9D12EB2832 /* Pods-MEDITASKiOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MEDITASKiOS.release.xcconfig"; path = "Target Support Files/Pods-MEDITASKiOS/Pods-MEDITASKiOS.release.xcconfig"; sourceTree = "<group>"; };
 		A08D589C233EAE3A0068AE52 /* ChatGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatGateway.swift; sourceTree = "<group>"; };
+		A08D58A223483CED0068AE52 /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
+		A0D3A1B3234FFB0D00E21551 /* NotifyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotifyViewController.swift; sourceTree = "<group>"; };
+		A0D3A1B72351722500E21551 /* NotifyTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotifyTableViewController.swift; sourceTree = "<group>"; };
+		A0D3A1B923554CD100E21551 /* NotificationStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationStore.swift; sourceTree = "<group>"; };
 		A0DDB6DD2339A45600CEAB12 /* TaskChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskChatViewController.swift; sourceTree = "<group>"; };
 		A0DDB6E8233A885B00CEAB12 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		A0DDB6EA233ABC1900CEAB12 /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
@@ -226,6 +234,7 @@
 		474BBDFA22A0AC59000410AB /* MEDITASKiOS */ = {
 			isa = PBXGroup;
 			children = (
+				A08D589E234839D00068AE52 /* notify */,
 				A039AB57233B1C6B000D81CB /* Extensions */,
 				A0DDB701233ADEBB00CEAB12 /* Sounds */,
 				A0DDB6DC2339A42D00CEAB12 /* chat */,
@@ -308,6 +317,25 @@
 				A0DDB6EE233ABC5F00CEAB12 /* MockMessage.swift */,
 				A0DDB6EC233ABC5D00CEAB12 /* MockSocket.swift */,
 				A0DDB6ED233ABC5E00CEAB12 /* MockUser.swift */,
+			);
+			path = models;
+			sourceTree = "<group>";
+		};
+		A08D589E234839D00068AE52 /* notify */ = {
+			isa = PBXGroup;
+			children = (
+				A08D58A123483CDF0068AE52 /* models */,
+				A0D3A1B3234FFB0D00E21551 /* NotifyViewController.swift */,
+				A0D3A1B72351722500E21551 /* NotifyTableViewController.swift */,
+			);
+			path = notify;
+			sourceTree = "<group>";
+		};
+		A08D58A123483CDF0068AE52 /* models */ = {
+			isa = PBXGroup;
+			children = (
+				A08D58A223483CED0068AE52 /* Notification.swift */,
+				A0D3A1B923554CD100E21551 /* NotificationStore.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -491,6 +519,7 @@
 				47678B6522BDC02B00622DA6 /* patientEditorController.swift in Sources */,
 				47012EF122AE0660008E9AF9 /* patientCell.swift in Sources */,
 				470CCEC522A1C09700E1DB01 /* DashboardController.swift in Sources */,
+				A0D3A1B4234FFB0D00E21551 /* NotifyViewController.swift in Sources */,
 				47012EF722AE0B5A008E9AF9 /* documentCell.swift in Sources */,
 				47EC901422B4ED2B009F5F94 /* taskCellSelect.swift in Sources */,
 				A0DDB6F0233ABC5F00CEAB12 /* MockUser.swift in Sources */,
@@ -509,13 +538,16 @@
 				ED33C3D322FDE14E00800F6D /* TabBarController.swift in Sources */,
 				47678B6322BDBDB300622DA6 /* documentEditorController.swift in Sources */,
 				ED33C3C622FA74FF00800F6D /* CreateTaskChooserController.swift in Sources */,
+				A0D3A1BA23554CD100E21551 /* NotificationStore.swift in Sources */,
 				A0DDB6F9233ABCC900CEAB12 /* Settings+UserDefaults.swift in Sources */,
 				A0DDB6F7233ABC8B00CEAB12 /* Lorem.swift in Sources */,
 				47678B6722BEF11E00622DA6 /* taskDetailedViewController.swift in Sources */,
 				4746C00222A0E0860081ACD2 /* TasksViewController.swift in Sources */,
 				A0DDB6EF233ABC5F00CEAB12 /* MockSocket.swift in Sources */,
 				470CCEC722A1DD0D00E1DB01 /* PatientController.swift in Sources */,
+				A08D58A323483CED0068AE52 /* Notification.swift in Sources */,
 				4749282B22C2CAE600D3E803 /* newPatientController.swift in Sources */,
+				A0D3A1B82351722500E21551 /* NotifyTableViewController.swift in Sources */,
 				A08D589D233EAE3A0068AE52 /* ChatGateway.swift in Sources */,
 				A0DDB6E9233A885B00CEAB12 /* Constants.swift in Sources */,
 			);

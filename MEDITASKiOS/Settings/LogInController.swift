@@ -65,7 +65,7 @@ class LogInController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         //session is saved in USER
         if Auth.auth().currentUser != nil {
-            self.performSegue(withIdentifier: "mainSegue", sender: self)
+            //self.performSegue(withIdentifier: "mainSegue", sender: self)
         }
         
     }
