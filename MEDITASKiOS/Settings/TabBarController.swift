@@ -17,18 +17,23 @@ class TabBarController: UITabBarController {
 
     //var notifyList: [Notification] = []
     var notificationStore: NotificationStore!
+    var dvc : NotifyTableViewController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         //tabBar.items?[0].title = "Tasks"
      //   tabBar.items?[1].title = "Patients"
         notificationStore = NotificationStore()
+        let destinationViewController = viewControllers?[3] as! NotifyViewController // or whatever tab index you're trying to access
+        dvc = (destinationViewController.viewControllers[0] as! NotifyTableViewController)
+        dvc.notificationStore = self.notificationStore
         fetchNotifications()
     }
     
     func fetchNotifications() {
         let queryNotify = self.refNotify.child(currentUId).queryOrdered(byChild: "added")
         queryNotify.observe(DataEventType.value, with: { (snapshot) in
+            self.tabBar.items![3].badgeValue = nil
             self.notificationStore.removeAll()
             var counter = 0
             for notification in snapshot.children.allObjects as! [DataSnapshot] {
@@ -49,12 +54,7 @@ class TabBarController: UITabBarController {
                     self.tabBar.items![3].badgeValue = String(self.notificationStore.getCount())
                     
                     //var tabBarController = segue.destination as UITabBarController
-                    let destinationViewController = self.viewControllers?[3] as! NotifyViewController // or whatever tab index you're trying to access
-                    //destinationViewController.notifyList = self.notifyList
-                    
-                    let dvc:NotifyTableViewController = destinationViewController.viewControllers[0] as! NotifyTableViewController
-                    dvc.notificationStore = self.notificationStore
-                    dvc.tableView.reloadData()
+                    self.dvc.tableView.reloadData()
                 }
             }
         })
