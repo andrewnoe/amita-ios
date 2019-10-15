@@ -19,8 +19,10 @@ class NotifyTableViewController : UITableViewController {
 
    
     @IBAction func addTestNotification(_ sender: Any) {
-        var newMessageMap: [String:Any] = [:]
+        // var newMessageMap: [String:Any] = [:]
         DispatchQueue.global(qos: .default).async {
+            NotifyGateway.shared.addNotification(forUserId: self.currentUId, message: "Test Notification")
+            /*
             guard let newKey = self.refNotify.child(self.currentUId).childByAutoId().key else {
                 return
             }
@@ -29,6 +31,7 @@ class NotifyTableViewController : UITableViewController {
                              "added": [".sv": "timestamp"]] as [String : Any]
             let childUpdates = ["/\(self.currentUId)/\(newKey)": newMessageMap]
             self.refNotify.updateChildValues(childUpdates)
+ */
         }
     }
     

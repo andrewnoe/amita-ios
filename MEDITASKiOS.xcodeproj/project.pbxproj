@@ -42,6 +42,7 @@
 		47EC901422B4ED2B009F5F94 /* taskCellSelect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47EC901222B4ED2B009F5F94 /* taskCellSelect.swift */; };
 		47EC901522B4ED2B009F5F94 /* taskCellSelect.xib in Resources */ = {isa = PBXBuildFile; fileRef = 47EC901322B4ED2B009F5F94 /* taskCellSelect.xib */; };
 		47F31A4722BB0960003D1BAE /* newTaskController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F31A4622BB0960003D1BAE /* newTaskController.swift */; };
+		A0834B0823565A2A007A92B4 /* NotifyGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0834B0723565A2A007A92B4 /* NotifyGateway.swift */; };
 		A08D589D233EAE3A0068AE52 /* ChatGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08D589C233EAE3A0068AE52 /* ChatGateway.swift */; };
 		A08D58A323483CED0068AE52 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08D58A223483CED0068AE52 /* Notification.swift */; };
 		A0D3A1B4234FFB0D00E21551 /* NotifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D3A1B3234FFB0D00E21551 /* NotifyViewController.swift */; };
@@ -116,6 +117,7 @@
 		47EC901322B4ED2B009F5F94 /* taskCellSelect.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = taskCellSelect.xib; sourceTree = "<group>"; };
 		47F31A4622BB0960003D1BAE /* newTaskController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = newTaskController.swift; sourceTree = "<group>"; };
 		746EA071BF06BD9D12EB2832 /* Pods-MEDITASKiOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MEDITASKiOS.release.xcconfig"; path = "Target Support Files/Pods-MEDITASKiOS/Pods-MEDITASKiOS.release.xcconfig"; sourceTree = "<group>"; };
+		A0834B0723565A2A007A92B4 /* NotifyGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotifyGateway.swift; sourceTree = "<group>"; };
 		A08D589C233EAE3A0068AE52 /* ChatGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatGateway.swift; sourceTree = "<group>"; };
 		A08D58A223483CED0068AE52 /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		A0D3A1B3234FFB0D00E21551 /* NotifyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotifyViewController.swift; sourceTree = "<group>"; };
@@ -327,6 +329,7 @@
 				A08D58A123483CDF0068AE52 /* models */,
 				A0D3A1B3234FFB0D00E21551 /* NotifyViewController.swift */,
 				A0D3A1B72351722500E21551 /* NotifyTableViewController.swift */,
+				A0834B0723565A2A007A92B4 /* NotifyGateway.swift */,
 			);
 			path = notify;
 			sourceTree = "<group>";
@@ -516,6 +519,7 @@
 				A0DDB6FC233ABD5E00CEAB12 /* UIViewController+Extensions.swift in Sources */,
 				A0DDB6DE2339A45600CEAB12 /* TaskChatViewController.swift in Sources */,
 				ED56DD0D22E94C6900EF77C9 /* MenuViewController.swift in Sources */,
+				A0834B0823565A2A007A92B4 /* NotifyGateway.swift in Sources */,
 				47678B6522BDC02B00622DA6 /* patientEditorController.swift in Sources */,
 				47012EF122AE0660008E9AF9 /* patientCell.swift in Sources */,
 				470CCEC522A1C09700E1DB01 /* DashboardController.swift in Sources */,
