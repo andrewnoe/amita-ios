@@ -8,10 +8,18 @@
 
 import Foundation
 
-internal struct Notification {
+internal class Notification: NSObject {
     var notifyId: String
     var msg: String
     var added: Int
     var read: Bool
 
+    init(notifyId: String, msg: String, added: Int, read: Bool) {
+        self.notifyId = notifyId
+        self.msg = msg
+        self.added = added
+        self.read = read
+        
+        super.init()
+    }
 }

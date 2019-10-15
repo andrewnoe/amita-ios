@@ -16,5 +16,6 @@ class NotifyViewController: UINavigationController  {
         super.viewDidLoad()
         
         //print("*** \(notifyList.count)")
+        self.setEditing(true, animated: true)
     }
 }

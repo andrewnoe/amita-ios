@@ -1831,7 +1831,7 @@
         <!--Notify-->
         <scene sceneID="jFt-Ug-fvQ">
             <objects>
-                <tableViewController id="CZg-QV-Wm8" customClass="NotifyTableController" customModule="MEDITASKiOS" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="CZg-QV-Wm8" customClass="NotifyTableViewController" customModule="MEDITASKiOS" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Tvb-Tl-Os8">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="641"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1840,7 +1840,7 @@
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="notifyTableCell" id="I7H-FB-Anm">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="I7H-FB-Anm" id="VJq-ph-utC">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="I7H-FB-Anm" id="VJq-ph-utC" customClass="NotifyTableViewCell" customModule="MEDITASKiOS">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
@@ -1855,11 +1855,16 @@
                         <barButtonItem key="leftBarButtonItem" title="Item" image="menu" id="auk-d5-aYC">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Test" id="nZ7-J5-6IB">
+                            <connections>
+                                <action selector="addTestNotification:" destination="CZg-QV-Wm8" id="i6h-qg-EBg"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r5S-1Q-DUy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4886" y="-27"/>
+            <point key="canvasLocation" x="4885.6000000000004" y="-27.339901477832512"/>
         </scene>
     </scenes>
     <resources>

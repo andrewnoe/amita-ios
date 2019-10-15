@@ -45,7 +45,8 @@
 		A08D589D233EAE3A0068AE52 /* ChatGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08D589C233EAE3A0068AE52 /* ChatGateway.swift */; };
 		A08D58A323483CED0068AE52 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08D58A223483CED0068AE52 /* Notification.swift */; };
 		A0D3A1B4234FFB0D00E21551 /* NotifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D3A1B3234FFB0D00E21551 /* NotifyViewController.swift */; };
-		A0D3A1B82351722500E21551 /* NotifyTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D3A1B72351722500E21551 /* NotifyTableController.swift */; };
+		A0D3A1B82351722500E21551 /* NotifyTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D3A1B72351722500E21551 /* NotifyTableViewController.swift */; };
+		A0D3A1BA23554CD100E21551 /* NotificationStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D3A1B923554CD100E21551 /* NotificationStore.swift */; };
 		A0DDB6DE2339A45600CEAB12 /* TaskChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DDB6DD2339A45600CEAB12 /* TaskChatViewController.swift */; };
 		A0DDB6E9233A885B00CEAB12 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DDB6E8233A885B00CEAB12 /* Constants.swift */; };
 		A0DDB6EB233ABC1900CEAB12 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DDB6EA233ABC1900CEAB12 /* ChatViewController.swift */; };
@@ -118,7 +119,8 @@
 		A08D589C233EAE3A0068AE52 /* ChatGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatGateway.swift; sourceTree = "<group>"; };
 		A08D58A223483CED0068AE52 /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		A0D3A1B3234FFB0D00E21551 /* NotifyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotifyViewController.swift; sourceTree = "<group>"; };
-		A0D3A1B72351722500E21551 /* NotifyTableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotifyTableController.swift; sourceTree = "<group>"; };
+		A0D3A1B72351722500E21551 /* NotifyTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotifyTableViewController.swift; sourceTree = "<group>"; };
+		A0D3A1B923554CD100E21551 /* NotificationStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationStore.swift; sourceTree = "<group>"; };
 		A0DDB6DD2339A45600CEAB12 /* TaskChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskChatViewController.swift; sourceTree = "<group>"; };
 		A0DDB6E8233A885B00CEAB12 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		A0DDB6EA233ABC1900CEAB12 /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
@@ -324,7 +326,7 @@
 			children = (
 				A08D58A123483CDF0068AE52 /* models */,
 				A0D3A1B3234FFB0D00E21551 /* NotifyViewController.swift */,
-				A0D3A1B72351722500E21551 /* NotifyTableController.swift */,
+				A0D3A1B72351722500E21551 /* NotifyTableViewController.swift */,
 			);
 			path = notify;
 			sourceTree = "<group>";
@@ -333,6 +335,7 @@
 			isa = PBXGroup;
 			children = (
 				A08D58A223483CED0068AE52 /* Notification.swift */,
+				A0D3A1B923554CD100E21551 /* NotificationStore.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -535,6 +538,7 @@
 				ED33C3D322FDE14E00800F6D /* TabBarController.swift in Sources */,
 				47678B6322BDBDB300622DA6 /* documentEditorController.swift in Sources */,
 				ED33C3C622FA74FF00800F6D /* CreateTaskChooserController.swift in Sources */,
+				A0D3A1BA23554CD100E21551 /* NotificationStore.swift in Sources */,
 				A0DDB6F9233ABCC900CEAB12 /* Settings+UserDefaults.swift in Sources */,
 				A0DDB6F7233ABC8B00CEAB12 /* Lorem.swift in Sources */,
 				47678B6722BEF11E00622DA6 /* taskDetailedViewController.swift in Sources */,
@@ -543,7 +547,7 @@
 				470CCEC722A1DD0D00E1DB01 /* PatientController.swift in Sources */,
 				A08D58A323483CED0068AE52 /* Notification.swift in Sources */,
 				4749282B22C2CAE600D3E803 /* newPatientController.swift in Sources */,
-				A0D3A1B82351722500E21551 /* NotifyTableController.swift in Sources */,
+				A0D3A1B82351722500E21551 /* NotifyTableViewController.swift in Sources */,
 				A08D589D233EAE3A0068AE52 /* ChatGateway.swift in Sources */,
 				A0DDB6E9233A885B00CEAB12 /* Constants.swift in Sources */,
 			);

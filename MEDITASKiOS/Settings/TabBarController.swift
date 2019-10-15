@@ -15,20 +15,21 @@ class TabBarController: UITabBarController {
     let currentUId = Auth.auth().currentUser!.uid
     //var currentUser = MockUser(senderId: Auth.auth().currentUser!.uid, displayName: "")
 
-    var notifyList: [Notification] = []
-
+    //var notifyList: [Notification] = []
+    var notificationStore: NotificationStore!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         //tabBar.items?[0].title = "Tasks"
      //   tabBar.items?[1].title = "Patients"
-
+        notificationStore = NotificationStore()
         fetchNotifications()
     }
     
     func fetchNotifications() {
         let queryNotify = self.refNotify.child(currentUId).queryOrdered(byChild: "added")
         queryNotify.observe(DataEventType.value, with: { (snapshot) in
-            self.notifyList.removeAll()
+            self.notificationStore.removeAll()
             var counter = 0
             for notification in snapshot.children.allObjects as! [DataSnapshot] {
                 guard let notificationInfo = notification.value as? [String: Any]
@@ -41,18 +42,19 @@ class TabBarController: UITabBarController {
                 let added:Int = notificationInfo["added"] as! Int
                 let read:Bool = notificationInfo["read"] as! Bool
                 let notification = Notification(notifyId: notification.key, msg: msg!, added: added, read: read)
-                self.notifyList.append(notification)
+                self.notificationStore.addNotification(notification: notification)
                 
                 counter += 1
                 if (counter == snapshot.childrenCount) {
-                    self.tabBar.items![3].badgeValue = String(self.notifyList.count)
+                    self.tabBar.items![3].badgeValue = String(self.notificationStore.getCount())
                     
                     //var tabBarController = segue.destination as UITabBarController
                     let destinationViewController = self.viewControllers?[3] as! NotifyViewController // or whatever tab index you're trying to access
                     //destinationViewController.notifyList = self.notifyList
                     
-                    let dvc:NotifyTableController = destinationViewController.viewControllers[0] as! NotifyTableController
-                    dvc.notifyList = self.notifyList
+                    let dvc:NotifyTableViewController = destinationViewController.viewControllers[0] as! NotifyTableViewController
+                    dvc.notificationStore = self.notificationStore
+                    dvc.tableView.reloadData()
                 }
             }
         })
