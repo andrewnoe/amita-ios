@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 class PatientController: UIViewController, UITableViewDataSource, UITableViewDelegate  {
-
+    
     @IBOutlet weak var patientTable: UITableView!
     let  cellTitle =  "Cell  Title"
     //CellTitle will change "Hello Patients"
@@ -19,12 +19,17 @@ class PatientController: UIViewController, UITableViewDataSource, UITableViewDel
     var sampleHistory = [String]()
     var samplePatID = [String]()
     var sampleEMR = [String]()
+    var sampleKey = [String]()
+    var sampleStatus = [String]()
+    
     var refPatients: DatabaseReference!
     var passName: String!
     var passEmr: String!
     var passDOB: String!
     var passDesc: String!
     var passHistory: String!
+    var passKey: String!
+    var passStatus: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,20 +47,25 @@ class PatientController: UIViewController, UITableViewDataSource, UITableViewDel
                 self.sampleHistory.removeAll()
                 self.samplePatID.removeAll()
                 self.sampleEMR.removeAll()
+                self.sampleKey.removeAll()
+                self.sampleStatus.removeAll()
+                
                 for patients in snapshot.children.allObjects as![DataSnapshot]{
                     /*
-                    let patientObject = patients.value as? [String: AnyObject]
-                    let lName = patientObject?["lName"] as! String
-                    let fName = patientObject?["fName"] as! String
-                    let getDOB = patientObject?["DOB"] as! String
-                    */
+                     let patientObject = patients.value as? [String: AnyObject]
+                     let lName = patientObject?["lName"] as! String
+                     let fName = patientObject?["fName"] as! String
+                     let getDOB = patientObject?["DOB"] as! String
+                     */
                     let patientObject = patients.value as? [String: AnyObject]
                     var lName = String()
                     var getDOB = String()
                     var getDesc = String()
                     var getHist = String()
                     var getEMR = String()
-                    guard let fName = patientObject?["fName"] else { continue }
+                    var getKey = String()
+                    var getStatus = String()
+                    guard let fName = patientObject?["fName"] else{ continue }
                     
                     if patientObject?["lName"] != nil{
                         lName = "\(patientObject!["lName"] ?? "n/a" as AnyObject)"
@@ -84,6 +94,17 @@ class PatientController: UIViewController, UITableViewDataSource, UITableViewDel
                     } else {
                         getEMR = "n/a"
                     }
+                    if patientObject?["key"] != nil{
+                        getKey = patients.key
+                    } else {
+                        getKey = patients.key
+                    }
+                    if patientObject?["status"] != nil{
+                        getStatus = "\(patientObject!["status"] ?? "n/a" as AnyObject)"
+                    } else {
+                        getStatus = "Unknown"
+                    }
+                    
                     
                     let mix = lName + ", " + (fName as! String)
                     
@@ -92,6 +113,8 @@ class PatientController: UIViewController, UITableViewDataSource, UITableViewDel
                     self.sampleDesc.append(getDesc)
                     self.sampleEMR.append(getEMR)
                     self.sampleHistory.append(getHist)
+                    self.sampleKey.append(getKey)
+                    self.sampleStatus.append(getStatus)
                 }
             }
             self.patientTable.reloadData()
@@ -109,9 +132,11 @@ class PatientController: UIViewController, UITableViewDataSource, UITableViewDel
         let passInfo = sampleDOB[indexPath.row]
         let passDescirp = sampleDesc[indexPath.row]
         let passID = sampleEMR[indexPath.row]
-        
+        let passKey = sampleKey[indexPath.row]
+        let passStatus = sampleStatus[indexPath.row]
         let passHist = sampleHistory[indexPath.row]
-        cell.customInit(title: passName, dobVal: passInfo,patientID: passID, description: passDescirp, history: passHist)
+        
+        cell.customInit(title: passName, dobVal: passInfo,patientID: passID, description: passDescirp, history: passHist, key: passKey, status: passStatus)
         return cell
     }
     
@@ -123,6 +148,8 @@ class PatientController: UIViewController, UITableViewDataSource, UITableViewDel
         passDOB = selectedCell.patientDOB.text
         passDesc = selectedCell.patientDesc
         passEmr = selectedCell.patientID
+        passKey = selectedCell.patientKey
+        passStatus = selectedCell.patientStatus
         
         passHistory = selectedCell.patientHistory
         self.performSegue(withIdentifier: "patientSegue", sender: self)
@@ -132,12 +159,14 @@ class PatientController: UIViewController, UITableViewDataSource, UITableViewDel
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "patientSegue"){
-            let toDocView = segue.destination as! patientEditorController
+            let toDocView = segue.destination as! patientDetailController
             toDocView.catchName = passName
             toDocView.catchDOB = passDOB
             toDocView.catchDesc = passDesc
             toDocView.catchHist = passHistory
             toDocView.catchEMR = passEmr
+            toDocView.catchKey = passKey
+            toDocView.catchStatus = passStatus
         }
     }
     @IBAction func newPatient(_ sender: Any) {

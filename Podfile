@@ -7,6 +7,7 @@ target 'MEDITASKiOS' do
   pod 'MessageKit'
   pod 'Firebase/Auth'
   pod 'Firebase/Storage'
+  pod 'Firebase/Database'
   #  pod 'Firebase/Firestore'
   pod 'Firebase/Core'
   

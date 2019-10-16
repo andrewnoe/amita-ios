@@ -62,6 +62,8 @@
 		A0DDB6FD233ABD5E00CEAB12 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DDB6FB233ABD5E00CEAB12 /* UIColor+Extensions.swift */; };
 		A0DDB702233ADEF800CEAB12 /* sound1.m4a in Resources */ = {isa = PBXBuildFile; fileRef = A0DDB6FF233ADD3500CEAB12 /* sound1.m4a */; };
 		A0DDB703233ADEFB00CEAB12 /* sound2.m4a in Resources */ = {isa = PBXBuildFile; fileRef = A0DDB6FE233ADD3500CEAB12 /* sound2.m4a */; };
+		A0FD25A02356A83D00B952C7 /* patientDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0FD259F2356A83D00B952C7 /* patientDetailController.swift */; };
+		A0FD25A22356AB1A00B952C7 /* openedDocumentControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0FD25A12356AB1A00B952C7 /* openedDocumentControllerViewController.swift */; };
 		EC2B0F06812C0A492A1C5E14 /* libPods-MEDITASKiOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EC1218263AAA24CA03285EC /* libPods-MEDITASKiOS.a */; };
 		ED1E72D722C42211000B657C /* individualDocumentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1E72D622C42211000B657C /* individualDocumentViewController.swift */; };
 		ED1E72D922C422E4000B657C /* newDocumentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1E72D822C422E4000B657C /* newDocumentController.swift */; };
@@ -137,6 +139,8 @@
 		A0DDB6FB233ABD5E00CEAB12 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		A0DDB6FE233ADD3500CEAB12 /* sound2.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = sound2.m4a; sourceTree = "<group>"; };
 		A0DDB6FF233ADD3500CEAB12 /* sound1.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = sound1.m4a; sourceTree = "<group>"; };
+		A0FD259F2356A83D00B952C7 /* patientDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = patientDetailController.swift; sourceTree = "<group>"; };
+		A0FD25A12356AB1A00B952C7 /* openedDocumentControllerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = openedDocumentControllerViewController.swift; sourceTree = "<group>"; };
 		ED1E72D622C42211000B657C /* individualDocumentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = individualDocumentViewController.swift; sourceTree = "<group>"; };
 		ED1E72D822C422E4000B657C /* newDocumentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = newDocumentController.swift; sourceTree = "<group>"; };
 		ED33C3C522FA74FF00800F6D /* CreateTaskChooserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTaskChooserController.swift; sourceTree = "<group>"; };
@@ -190,6 +194,7 @@
 		47012EEE22AE0649008E9AF9 /* patients */ = {
 			isa = PBXGroup;
 			children = (
+				A0FD259F2356A83D00B952C7 /* patientDetailController.swift */,
 				470CCEC622A1DD0D00E1DB01 /* PatientController.swift */,
 				47012EEF22AE0660008E9AF9 /* patientCell.swift */,
 				47012EF022AE0660008E9AF9 /* patientCell.xib */,
@@ -202,6 +207,7 @@
 		47012EF922AE0B61008E9AF9 /* document */ = {
 			isa = PBXGroup;
 			children = (
+				A0FD25A12356AB1A00B952C7 /* openedDocumentControllerViewController.swift */,
 				47984F4922A71FB6009FBA69 /* DocumentController.swift */,
 				47012EF522AE0B5A008E9AF9 /* documentCell.swift */,
 				47012EF622AE0B5A008E9AF9 /* documentCell.xib */,
@@ -524,6 +530,7 @@
 				47012EF122AE0660008E9AF9 /* patientCell.swift in Sources */,
 				470CCEC522A1C09700E1DB01 /* DashboardController.swift in Sources */,
 				A0D3A1B4234FFB0D00E21551 /* NotifyViewController.swift in Sources */,
+				A0FD25A22356AB1A00B952C7 /* openedDocumentControllerViewController.swift in Sources */,
 				47012EF722AE0B5A008E9AF9 /* documentCell.swift in Sources */,
 				47EC901422B4ED2B009F5F94 /* taskCellSelect.swift in Sources */,
 				A0DDB6F0233ABC5F00CEAB12 /* MockUser.swift in Sources */,
@@ -543,6 +550,7 @@
 				47678B6322BDBDB300622DA6 /* documentEditorController.swift in Sources */,
 				ED33C3C622FA74FF00800F6D /* CreateTaskChooserController.swift in Sources */,
 				A0D3A1BA23554CD100E21551 /* NotificationStore.swift in Sources */,
+				A0FD25A02356A83D00B952C7 /* patientDetailController.swift in Sources */,
 				A0DDB6F9233ABCC900CEAB12 /* Settings+UserDefaults.swift in Sources */,
 				A0DDB6F7233ABC8B00CEAB12 /* Lorem.swift in Sources */,
 				47678B6722BEF11E00622DA6 /* taskDetailedViewController.swift in Sources */,
