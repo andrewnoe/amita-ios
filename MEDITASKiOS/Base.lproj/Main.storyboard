@@ -484,23 +484,23 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ngZ-7U-QZH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-116" y="-986.45320197044339"/>
+            <point key="canvasLocation" x="-609" y="-1545"/>
         </scene>
         <!--Create Task-->
         <scene sceneID="jou-7r-her">
             <objects>
                 <viewController storyboardIdentifier="newTaskController" id="cdU-m6-pOk" customClass="newTaskController" customModule="MEDITASKiOS" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="UaJ-Sv-bQL">
+                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="UaJ-Sv-bQL">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="1200"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="avj-TP-mwr">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="avj-TP-mwr">
                                 <rect key="frame" x="151" y="1291" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cfg-dq-e9M">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cfg-dq-e9M">
                                 <rect key="frame" x="0.0" y="82" width="375" height="1118"/>
                             </scrollView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YhP-7F-yjf">
@@ -689,7 +689,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AuF-aA-qvL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1431.2" y="-964.28571428571433"/>
+            <point key="canvasLocation" x="2918" y="-1439"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="NWU-uz-PTv">
@@ -838,7 +838,7 @@
                         <segue destination="E5a-js-w3c" kind="relationship" relationship="viewControllers" id="SB5-9b-Fa3"/>
                         <segue destination="tqb-vK-urj" kind="relationship" relationship="viewControllers" id="0zh-g4-o46"/>
                         <segue destination="7OS-9u-5dc" kind="relationship" relationship="viewControllers" id="R80-a0-jEf"/>
-                        <segue destination="ynS-eS-fzd" kind="relationship" relationship="viewControllers" id="hLZ-OT-6A7"/>
+                        <segue destination="GbQ-f8-WAM" kind="relationship" relationship="viewControllers" id="a0P-Zk-w3F"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
@@ -1578,69 +1578,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3YH-lH-QBh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1058.4000000000001" y="-986.45320197044339"/>
-        </scene>
-        <!--Notify-->
-        <scene sceneID="5D6-79-0sJ">
-            <objects>
-                <navigationController title="Notify" id="ynS-eS-fzd" userLabel="Notify" customClass="NotifyViewController" customModule="MEDITASKiOS" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Notify" image="dashboard" id="Nx5-YL-I6a" userLabel="Notify"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" translucent="NO" id="wuh-k7-vFc">
-                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" red="0.15686274510000001" green="0.15686274510000001" blue="0.15686274510000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                        <color key="barTintColor" red="0.1176470588" green="0.1176470588" blue="0.1176470588" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                        <textAttributes key="titleTextAttributes">
-                            <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
-                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <offsetWrapper key="textShadowOffset" horizontal="-200" vertical="0.0"/>
-                        </textAttributes>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="CZg-QV-Wm8" kind="relationship" relationship="rootViewController" id="gGY-x2-7a1"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="NBu-Bq-hag" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3732" y="-27"/>
-        </scene>
-        <!--Notify-->
-        <scene sceneID="jFt-Ug-fvQ">
-            <objects>
-                <tableViewController id="CZg-QV-Wm8" customClass="NotifyTableViewController" customModule="MEDITASKiOS" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Tvb-Tl-Os8">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="641"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="notifyTableCell" id="I7H-FB-Anm">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="I7H-FB-Anm" id="VJq-ph-utC" customClass="NotifyTableViewCell" customModule="MEDITASKiOS">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="CZg-QV-Wm8" id="pZQ-1U-MCg"/>
-                            <outlet property="delegate" destination="CZg-QV-Wm8" id="IrL-9E-RbY"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Notify" id="AkY-Ql-2Zc" userLabel="Notify">
-                        <barButtonItem key="leftBarButtonItem" title="Item" image="menu" id="auk-d5-aYC">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Test" id="nZ7-J5-6IB">
-                            <connections>
-                                <action selector="addTestNotification:" destination="CZg-QV-Wm8" id="i6h-qg-EBg"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="r5S-1Q-DUy" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4885.6000000000004" y="-27.339901477832512"/>
+            <point key="canvasLocation" x="-1442" y="-1049"/>
         </scene>
         <!--Patient Detail Controller-->
         <scene sceneID="Nel-4T-tGt">
@@ -2022,6 +1960,40 @@
             </objects>
             <point key="canvasLocation" x="2713" y="1651"/>
         </scene>
+        <!--Notify-->
+        <scene sceneID="VXX-3g-79k">
+            <objects>
+                <navigationController title="Notify" id="GbQ-f8-WAM" userLabel="Notify" customClass="NotifyViewController" customModule="MEDITASKiOS" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Notify" image="dashboard" id="5Rd-VW-ZIB" userLabel="Notify"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" translucent="NO" id="RpI-En-GLY">
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="0.15686274510000001" green="0.15686274510000001" blue="0.15686274510000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="barTintColor" red="0.1176470588" green="0.1176470588" blue="0.1176470588" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <offsetWrapper key="textShadowOffset" horizontal="-200" vertical="0.0"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="gV6-r3-vqS" kind="relationship" relationship="rootViewController" id="akG-RH-Xgo"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kBK-i0-xW7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="542" y="-964"/>
+        </scene>
+        <!--Notify-->
+        <scene sceneID="k88-dx-CAd">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Notify" id="gV6-r3-vqS" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="byO-AO-wQk"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hgd-H6-jI9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1372" y="-900"/>
+        </scene>
     </scenes>
     <resources>
         <image name="LeftArrow" width="128" height="208"/>
@@ -2044,6 +2016,6 @@
         <image name="trash_can_icon.png" width="260" height="256"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="CLy-cT-c9l"/>
+        <segue reference="Ih1-OD-bIG"/>
     </inferredMetricsTieBreakers>
 </document>
