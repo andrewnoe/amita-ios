@@ -44,6 +44,8 @@
 		47F31A4722BB0960003D1BAE /* newTaskController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F31A4622BB0960003D1BAE /* newTaskController.swift */; };
 		A058C8F223590E2F00789A01 /* Notify.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A058C8F123590E2F00789A01 /* Notify.storyboard */; };
 		A058C8F4235944D000789A01 /* Chat.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A058C8F3235944D000789A01 /* Chat.storyboard */; };
+		A058C8F623594A4E00789A01 /* Task.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A058C8F523594A4E00789A01 /* Task.storyboard */; };
+		A058C8F823594ADD00789A01 /* Patient.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A058C8F723594ADD00789A01 /* Patient.storyboard */; };
 		A0834B0823565A2A007A92B4 /* NotifyGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0834B0723565A2A007A92B4 /* NotifyGateway.swift */; };
 		A08D58A323483CED0068AE52 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08D58A223483CED0068AE52 /* Notification.swift */; };
 		A0D3A1B4234FFB0D00E21551 /* NotifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D3A1B3234FFB0D00E21551 /* NotifyViewController.swift */; };
@@ -122,6 +124,8 @@
 		746EA071BF06BD9D12EB2832 /* Pods-MEDITASKiOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MEDITASKiOS.release.xcconfig"; path = "Target Support Files/Pods-MEDITASKiOS/Pods-MEDITASKiOS.release.xcconfig"; sourceTree = "<group>"; };
 		A058C8F123590E2F00789A01 /* Notify.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Notify.storyboard; sourceTree = "<group>"; };
 		A058C8F3235944D000789A01 /* Chat.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Chat.storyboard; sourceTree = "<group>"; };
+		A058C8F523594A4E00789A01 /* Task.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Task.storyboard; sourceTree = "<group>"; };
+		A058C8F723594ADD00789A01 /* Patient.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Patient.storyboard; sourceTree = "<group>"; };
 		A0834B0723565A2A007A92B4 /* NotifyGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotifyGateway.swift; sourceTree = "<group>"; };
 		A08D58A223483CED0068AE52 /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		A0D3A1B3234FFB0D00E21551 /* NotifyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotifyViewController.swift; sourceTree = "<group>"; };
@@ -189,6 +193,7 @@
 				47F31A4622BB0960003D1BAE /* newTaskController.swift */,
 				47678B6622BEF11E00622DA6 /* taskDetailedViewController.swift */,
 				ED33C3C522FA74FF00800F6D /* CreateTaskChooserController.swift */,
+				A058C8F523594A4E00789A01 /* Task.storyboard */,
 			);
 			path = tasks;
 			sourceTree = "<group>";
@@ -202,6 +207,7 @@
 				47012EF022AE0660008E9AF9 /* patientCell.xib */,
 				47678B6422BDC02B00622DA6 /* patientEditorController.swift */,
 				4749282A22C2CAE600D3E803 /* newPatientController.swift */,
+				A058C8F723594ADD00789A01 /* Patient.storyboard */,
 			);
 			path = patients;
 			sourceTree = "<group>";
@@ -448,6 +454,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A0DDB702233ADEF800CEAB12 /* sound1.m4a in Resources */,
+				A058C8F623594A4E00789A01 /* Task.storyboard in Resources */,
 				47C3767322B761C3005B10AD /* pencil_edit_icon.png in Resources */,
 				47C3767622B761EF005B10AD /* completedIcon2.png in Resources */,
 				47C3767C22B76440005B10AD /* NEW_STAR.png in Resources */,
@@ -457,6 +464,7 @@
 				471139BC22A6FC9E00E89A58 /* GoogleService-Info.plist in Resources */,
 				A0DDB703233ADEFB00CEAB12 /* sound2.m4a in Resources */,
 				47C3767B22B76440005B10AD /* new_critical_ORANGE.png in Resources */,
+				A058C8F823594ADD00789A01 /* Patient.storyboard in Resources */,
 				A058C8F4235944D000789A01 /* Chat.storyboard in Resources */,
 				4798597C22B0402200736210 /* docIcon.png in Resources */,
 				47012EF822AE0B5A008E9AF9 /* documentCell.xib in Resources */,
