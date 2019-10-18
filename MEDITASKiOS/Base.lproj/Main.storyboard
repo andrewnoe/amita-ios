@@ -490,17 +490,17 @@
         <scene sceneID="jou-7r-her">
             <objects>
                 <viewController storyboardIdentifier="newTaskController" id="cdU-m6-pOk" customClass="newTaskController" customModule="MEDITASKiOS" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="UaJ-Sv-bQL">
+                    <view key="view" contentMode="scaleToFill" id="UaJ-Sv-bQL">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="1200"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="avj-TP-mwr">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="avj-TP-mwr">
                                 <rect key="frame" x="151" y="1291" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cfg-dq-e9M">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cfg-dq-e9M">
                                 <rect key="frame" x="0.0" y="82" width="375" height="1118"/>
                             </scrollView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YhP-7F-yjf">
@@ -1094,7 +1094,7 @@
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" title="Button" image="chat"/>
                                                 <connections>
-                                                    <segue destination="bZj-Fm-qy5" kind="show" identifier="taskChatSegue" id="mgk-Wr-qrI"/>
+                                                    <segue destination="oCZ-0y-RQu" kind="show" identifier="taskChatSegue" id="P3O-RN-tqx"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -1325,21 +1325,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sa1-1x-ZU3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4639.1999999999998" y="755.9113300492611"/>
-        </scene>
-        <!--Task Chat View Controller-->
-        <scene sceneID="dQV-1P-JaW">
-            <objects>
-                <viewController id="bZj-Fm-qy5" customClass="TaskChatViewController" customModule="MEDITASKiOS" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8vD-f4-ocD">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="641"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="UNY-fu-kcH"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="imz-ny-5Yt" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3212" y="2806"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="QUF-1P-CAo">
@@ -1837,7 +1822,7 @@
             <objects>
                 <viewController id="Z6P-KR-iK6" customClass="newPatientController" customModule="MEDITASKiOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kSn-d3-y91">
-                        <rect key="frame" x="0.0" y="0.0" width="0.0" height="171"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="641"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0Yq-LY-Udq">
@@ -1945,7 +1930,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="0.0" height="0.0"/>
+                    <size key="freeformSize" width="375" height="812"/>
                     <connections>
                         <outlet property="inputDOB" destination="o1H-Z7-NqE" id="EUo-7Q-Syw"/>
                         <outlet property="inputDesc" destination="L72-ro-dzd" id="CC8-DY-1Ks"/>
@@ -1959,6 +1944,14 @@
                 <exit id="DH3-Wm-lfb" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2713" y="1651"/>
+        </scene>
+        <!--Chat-->
+        <scene sceneID="U3a-Bj-3sK">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Chat" id="oCZ-0y-RQu" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9CA-VH-6KK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2685" y="2063"/>
         </scene>
         <!--Notify-->
         <scene sceneID="VXX-3g-79k">

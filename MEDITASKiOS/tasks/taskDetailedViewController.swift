@@ -196,6 +196,7 @@ class taskDetailedViewController: UIViewController {
         if (segue.identifier == "taskChatSegue"){
             let toTaskChatView = segue.destination as! TaskChatViewController
             toTaskChatView.taskId = self.catchTaskID
+            toTaskChatView.taskTitle = self.catchTitle
             //print("*** \(self.catchTaskID)")
         }
     }

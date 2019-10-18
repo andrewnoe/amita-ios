@@ -38,6 +38,8 @@ class ChatViewController: MessagesViewController, MessagesDataSource {
     open lazy var audioController = BasicAudioController(messageCollectionView: messagesCollectionView)
 
     var taskId:String = ""
+    var taskTitle:String = ""
+    
     var messageList: [MockMessage] = []
     
     let refChat = Database.database().reference().child("Chats")
@@ -54,16 +56,14 @@ class ChatViewController: MessagesViewController, MessagesDataSource {
 
     let dispatchGroup = DispatchGroup()
     
-    let formatter = ChatGateway.shared.dateFormatterFromFB
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         dateFormatterFromFB.dateFormat = "yyyy-MM-dd HH:mm:ss"
-
+        
         configureMessageCollectionView()
         configureMessageInputBar()
-        title = "Chat for " + self.taskId
+        title = "Chat: " + self.taskTitle
         
         dispatchGroup.enter()
         fetchSenderInfo()
@@ -142,7 +142,7 @@ class ChatViewController: MessagesViewController, MessagesDataSource {
                     
                         let chatInfo = item.value as? [String:AnyObject]
 
-                        print("*** NOT FOUND \(chatInfo)")
+                        //print("*** NOT FOUND \(chatInfo)")
 
                         let chatId = item.key
                         let chatMsg:String = chatInfo?["chat_msg"] as! String
@@ -158,7 +158,7 @@ class ChatViewController: MessagesViewController, MessagesDataSource {
 
                         counter = counter + 1
                         if (counter == snapshot.childrenCount) {
-                            for (msgId, msg) in self.displayedMessages {
+                            for (_, msg) in self.displayedMessages {
                                 if (!msg.found) {
                                     print("*** TRYING TO DELETE \(msg)")
                                 }
@@ -282,7 +282,7 @@ class ChatViewController: MessagesViewController, MessagesDataSource {
     
     func messageBottomLabelAttributedText(for message: MessageType, at indexPath: IndexPath) -> NSAttributedString? {
         
-        let dateString = formatter.string(from: message.sentDate)
+        let dateString = dateFormatterFromFB.string(from: message.sentDate)
         return NSAttributedString(string: dateString, attributes: [NSAttributedString.Key.font: UIFont.preferredFont(forTextStyle: .caption2)])
     }
     
