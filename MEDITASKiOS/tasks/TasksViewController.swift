@@ -434,10 +434,7 @@ class TasksViewController: UIViewController, UITableViewDelegate, UITableViewDat
             toTaskView.catchPatient = passPatientID
             toTaskView.catchDate  = passDate
             toTaskView.catchTime = passTime
-            toTaskView.catchTaskID = passTaskID
-
-            
-            
+            toTaskView.catchTaskID = passTaskID            
         }
     }
     var lastContentOffset: CGFloat = 0
