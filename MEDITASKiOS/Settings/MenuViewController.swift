@@ -9,6 +9,7 @@
 import UIKit
 enum MenuType: Int{
     case teams
+    case join
     case logout
     case home
 }

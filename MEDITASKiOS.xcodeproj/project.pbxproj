@@ -46,6 +46,9 @@
 		A058C8F4235944D000789A01 /* Chat.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A058C8F3235944D000789A01 /* Chat.storyboard */; };
 		A058C8F623594A4E00789A01 /* Task.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A058C8F523594A4E00789A01 /* Task.storyboard */; };
 		A058C8F823594ADD00789A01 /* Patient.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A058C8F723594ADD00789A01 /* Patient.storyboard */; };
+		A0639D0E2386505500A773F9 /* JoinTeamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0639D0D2386505500A773F9 /* JoinTeamViewController.swift */; };
+		A0639D10238655C900A773F9 /* JoinTeamTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0639D0F238655C900A773F9 /* JoinTeamTableViewController.swift */; };
+		A0639D1223873C4800A773F9 /* Team.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0639D1123873C4800A773F9 /* Team.storyboard */; };
 		A0834B0823565A2A007A92B4 /* NotifyGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0834B0723565A2A007A92B4 /* NotifyGateway.swift */; };
 		A08D58A323483CED0068AE52 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08D58A223483CED0068AE52 /* Notification.swift */; };
 		A0D3A1B4234FFB0D00E21551 /* NotifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D3A1B3234FFB0D00E21551 /* NotifyViewController.swift */; };
@@ -126,6 +129,9 @@
 		A058C8F3235944D000789A01 /* Chat.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Chat.storyboard; sourceTree = "<group>"; };
 		A058C8F523594A4E00789A01 /* Task.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Task.storyboard; sourceTree = "<group>"; };
 		A058C8F723594ADD00789A01 /* Patient.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Patient.storyboard; sourceTree = "<group>"; };
+		A0639D0D2386505500A773F9 /* JoinTeamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinTeamViewController.swift; sourceTree = "<group>"; };
+		A0639D0F238655C900A773F9 /* JoinTeamTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinTeamTableViewController.swift; sourceTree = "<group>"; };
+		A0639D1123873C4800A773F9 /* Team.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Team.storyboard; sourceTree = "<group>"; };
 		A0834B0723565A2A007A92B4 /* NotifyGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotifyGateway.swift; sourceTree = "<group>"; };
 		A08D58A223483CED0068AE52 /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		A0D3A1B3234FFB0D00E21551 /* NotifyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotifyViewController.swift; sourceTree = "<group>"; };
@@ -250,6 +256,7 @@
 		474BBDFA22A0AC59000410AB /* MEDITASKiOS */ = {
 			isa = PBXGroup;
 			children = (
+				A0639D0A23864FF200A773F9 /* team */,
 				A08D589E234839D00068AE52 /* notify */,
 				A039AB57233B1C6B000D81CB /* Extensions */,
 				A0DDB701233ADEBB00CEAB12 /* Sounds */,
@@ -335,6 +342,16 @@
 				A0DDB6ED233ABC5E00CEAB12 /* MockUser.swift */,
 			);
 			path = models;
+			sourceTree = "<group>";
+		};
+		A0639D0A23864FF200A773F9 /* team */ = {
+			isa = PBXGroup;
+			children = (
+				A0639D0D2386505500A773F9 /* JoinTeamViewController.swift */,
+				A0639D0F238655C900A773F9 /* JoinTeamTableViewController.swift */,
+				A0639D1123873C4800A773F9 /* Team.storyboard */,
+			);
+			path = team;
 			sourceTree = "<group>";
 		};
 		A08D589E234839D00068AE52 /* notify */ = {
@@ -464,6 +481,7 @@
 				471139BC22A6FC9E00E89A58 /* GoogleService-Info.plist in Resources */,
 				A0DDB703233ADEFB00CEAB12 /* sound2.m4a in Resources */,
 				47C3767B22B76440005B10AD /* new_critical_ORANGE.png in Resources */,
+				A0639D1223873C4800A773F9 /* Team.storyboard in Resources */,
 				A058C8F823594ADD00789A01 /* Patient.storyboard in Resources */,
 				A058C8F4235944D000789A01 /* Chat.storyboard in Resources */,
 				4798597C22B0402200736210 /* docIcon.png in Resources */,
@@ -564,8 +582,10 @@
 				ED33C3C622FA74FF00800F6D /* CreateTaskChooserController.swift in Sources */,
 				A0D3A1BA23554CD100E21551 /* NotificationStore.swift in Sources */,
 				A0FD25A02356A83D00B952C7 /* patientDetailController.swift in Sources */,
+				A0639D10238655C900A773F9 /* JoinTeamTableViewController.swift in Sources */,
 				A0DDB6F9233ABCC900CEAB12 /* Settings+UserDefaults.swift in Sources */,
 				A0DDB6F7233ABC8B00CEAB12 /* Lorem.swift in Sources */,
+				A0639D0E2386505500A773F9 /* JoinTeamViewController.swift in Sources */,
 				47678B6722BEF11E00622DA6 /* taskDetailedViewController.swift in Sources */,
 				4746C00222A0E0860081ACD2 /* TasksViewController.swift in Sources */,
 				A0DDB6EF233ABC5F00CEAB12 /* MockSocket.swift in Sources */,
