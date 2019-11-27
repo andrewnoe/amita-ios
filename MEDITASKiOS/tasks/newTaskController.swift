@@ -215,16 +215,16 @@ class newTaskController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
             return
         }
         
-        let theTeam = currentTeam.name
+        let theTeam = "No Team"
         passMe?.setValue(["date":inputDate.text!,
                           "notify":"yes",
                           "patientID":inputPatient.text!,
                           "priority":inputPriority.text!,
-                          "teamID":currentTeam.id,
+                          "teamID":0,
                           "taskDescription":inputDesc.text!,
                           "taskID":passMe?.key!,
                           "taskTitle":inputTitle.text!,
-                          "teamName":currentTeam.name,
+                          "teamName":"No Team",
                           "time":inputTime.text!,
                           "taskOwner":myUID,
                           ])

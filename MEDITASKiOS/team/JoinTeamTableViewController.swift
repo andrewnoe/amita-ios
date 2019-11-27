@@ -11,24 +11,88 @@ import UIKit
 import Firebase
 
 class JoinTeamTableViewController : UITableViewController {
+    var teamStore : TeamStore!
     
-    var myarray: [String] = []
-    
+    let refTeam = Database.database().reference().child("Team")
     let currentUId = Auth.auth().currentUser!.uid
     
+    // need this outlet because we have to programmatically reload the table
+    // after the firebase fetch (it is asynchronously fetching)
+    @IBOutlet var teamTableView: UITableView!
+    
+    override func viewDidLoad() {
+        teamStore = TeamStore()
+        fetchTeams()
+    }
+
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return teamStore.getCount()
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "joinTeamTableCell", for: indexPath) as! TeamUserCellView
+        let team = teamStore.getTeam(index: indexPath.item)
+        cell.textLabel?.text = team.teamName
+        cell.dayShift.setOn(team.getTeamUser(index: 0).dayShift, animated: true)
+        cell.nightShift.setOn(team.getTeamUser(index: 0).nightShift, animated: true)
+        cell.teamId.text = team.teamId
+        
+        return cell
+    }
+    
+    func fetchTeams() {
+        let queryTeam = self.refTeam.queryOrdered(byChild: "teamName")
+        queryTeam.observe(DataEventType.value, with: { (snapshot) in
+            self.teamStore.removeAll()
+            for team in snapshot.children.allObjects as! [DataSnapshot] {
+                guard let teamInfo = team.value as? [String: Any]
+                    else {
+                        return
+                }
+                let teamName = teamInfo["teamName"] as? String
+                let team = Team(teamId: team.key, teamName: teamName!)
+                
+                // iterate over the userIDs to determine if we are included as a member
+                if let userDict = teamInfo["userIDs"] as? [String:AnyObject] {
+                    for (userId, teamOptions) in userDict {
+                        if(userId == self.currentUId) {
+                            if let optionsDict = teamOptions as? [String:Bool] {
+                                let teamUser = TeamUser(userId: userId
+                                    , dayShift: optionsDict["day_shift"]!
+                                    , nightShift: optionsDict["night_shift"]!
+                                    , filterOn: optionsDict["filter_on"]!)
+                                team.addTeamUser(teamUser: teamUser)
+                            }
+                        }
+                    }
+                }
+                
+                self.teamStore.addTeam(team: team)
+            }
+            // as soon as we are done fetching, tell the table to refresh
+            self.teamTableView.reloadData()
+        })
+    }
+
     @IBAction func cancelAction(_ sender: Any) {
         closeThisView();
     }
     
     @IBAction func saveAction(_ sender: Any) {
+        let cells = self.teamTableView.visibleCells as! Array<TeamUserCellView>
+        for cell in cells {
+            let teamId = cell.teamId.text
+            let dayShift = cell.dayShift.isOn
+            let nightShift = cell.nightShift.isOn
+            
+            var fieldName = "\(teamId ?? "0")/userIDs/\(currentUId)/day_shift"
+            self.refTeam.child(fieldName).setValue(dayShift)
+
+            fieldName = "\(teamId  ?? "0")/userIDs/\(currentUId)/night_shift"
+            self.refTeam.child(fieldName).setValue(nightShift)
+
+        }
         closeThisView();
-    }
-    
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        print("yo 0 /myarray.count");
-        
-        return myarray.count;
     }
     
     func closeThisView() {
@@ -36,29 +100,4 @@ class JoinTeamTableViewController : UITableViewController {
         
         dismiss(animated: true, completion: nil)
     }
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: "joinTeamTableCell", for: indexPath)
-        
-        //let notification = notificationStore.getNotification(index: indexPath.item)
-        print("yo 1");
-        
-        print("/myarray[indexPath.item]");
-        
-        cell.textLabel?.text = myarray[indexPath.item];
-        //cell.notificationId = notification.notifyId
-        //cell.notificationLabel.text = notifyList[indexPath.item].msg
-        return cell
-    }
-    
-    override func viewDidLoad() {
-        myarray = ["Team 1", "Team 2", "Team 3"];
-        
-        //joinTeamTable.beginUpdates()
-        //joinTeamTable.insertRowsAtIndexPaths([
-        //    NSIndexPath(forRow: myarray.count-1, inSection: 0)], withRowAnimation: .Automatic)
-        //joinTeamTable.endUpdates()
-    }
-    
 }

@@ -25,10 +25,14 @@ class MenuViewController: UITableViewController {
 
    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let menuType = MenuType(rawValue: indexPath.row) else { return }
-        dismiss(animated: true) { [weak self] in
-            print("Dismissing: \(menuType)")
-            self?.didTapMenuType?(menuType)
+        guard let menuType = MenuType(rawValue: indexPath.row) else {
+            return
+        }
+        if(menuType != MenuType.join) {
+            dismiss(animated: true) { [weak self] in
+                print("Dismissing: \(menuType)")
+                self?.didTapMenuType?(menuType)
+            }
         }
     }
     

@@ -34,7 +34,7 @@ class PatientController: UIViewController, UITableViewDataSource, UITableViewDel
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationItem.title = currentTeam.name
+        self.navigationItem.title = "No Team"
         let nib = UINib(nibName: "patientCell", bundle: nil)
         patientTable.register(nib, forCellReuseIdentifier: "eachPatientCell")
         

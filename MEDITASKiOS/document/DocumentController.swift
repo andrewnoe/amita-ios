@@ -53,7 +53,7 @@ class DocumentController: UIViewController, UITableViewDataSource, UITableViewDe
         super.viewDidAppear(animated)
         print("docView did load")
         super.viewDidLoad()
-        self.navigationItem.title = currentTeam.name
+        self.navigationItem.title = "No Team"
         // Create a reference to the file you want to download
         
         var getDocArr = [String]()
