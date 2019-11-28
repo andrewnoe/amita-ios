@@ -54,8 +54,10 @@ class JoinTeamTableViewController : UITableViewController {
                 
                 // iterate over the userIDs to determine if we are included as a member
                 if let userDict = teamInfo["userIDs"] as? [String:AnyObject] {
+                    var inTeam = false
                     for (userId, teamOptions) in userDict {
                         if(userId == self.currentUId) {
+                            inTeam = true
                             if let optionsDict = teamOptions as? [String:Bool] {
                                 let teamUser = TeamUser(userId: userId
                                     , dayShift: optionsDict["day_shift"]!
@@ -64,6 +66,16 @@ class JoinTeamTableViewController : UITableViewController {
                                 team.addTeamUser(teamUser: teamUser)
                             }
                         }
+                    }
+                    if(!inTeam) {
+                        // add me to team but set day, night, and filter to false
+                        self.refTeam.child(team.teamId).child("userIDs").child(self.currentUId).setValue(["filter_on": false, "day_shift": false, "night_shift": false])
+                        
+                        let teamUser = TeamUser(userId: self.currentUId
+                            , dayShift: false
+                            , nightShift: false
+                            , filterOn: false)
+                        team.addTeamUser(teamUser: teamUser)
                     }
                 }
                 
