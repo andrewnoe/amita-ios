@@ -17,6 +17,8 @@ class patientDetailController: UIViewController {
     var catchEMR: String!
     var catchKey: String!
     var catchStatus: String!
+    
+ 
     //passing the patientcell because I cant figure out how to pass the db ref
 
     var catchPatient: patientCell!
@@ -26,7 +28,7 @@ class patientDetailController: UIViewController {
     @IBOutlet weak var showDesc: UITextView!
     @IBOutlet weak var showHistory: UITextView!
     @IBOutlet weak var editButton: UIButton!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         let fullNameArr = catchName.components(separatedBy: ",")
@@ -71,4 +73,4 @@ class patientDetailController: UIViewController {
     }
     */
 
-}
+} 

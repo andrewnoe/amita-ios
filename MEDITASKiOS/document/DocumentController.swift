@@ -10,6 +10,17 @@ import UIKit
 import Firebase
 import QuickLook
 class DocumentController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    var filteredData: [String]?
+    var unfilteredData = [String]()
+    let searchController = UISearchController(searchResultsController: nil)
+    @IBOutlet weak var docsTable: UITableView!
+    
+    
+    @IBAction func didTapSearch(_ sender: Any) {
+        navigationItem.searchController = searchController
+        searchController.isActive = true
+        searchController.searchBar.isHidden = false
+    }
     
     
     @IBAction func didTapAdd(_ sender: UIBarButtonItem) {
@@ -19,7 +30,7 @@ class DocumentController: UIViewController, UITableViewDataSource, UITableViewDe
         present(documentPicker, animated: true, completion: nil)
         
     }
-    @IBOutlet weak var docsTable: UITableView!
+
     let vc: openedDocumentControllerViewController? = openedDocumentControllerViewController()
 
     //let openedDocController = openedDocumentControllerViewController()
@@ -31,6 +42,7 @@ class DocumentController: UIViewController, UITableViewDataSource, UITableViewDe
         print(documentArray)
       //  print(docsTable)
         print(docsTable)
+        unfilteredData = documentArray
         self.docsTable.reloadData()
         
     }
@@ -55,14 +67,23 @@ class DocumentController: UIViewController, UITableViewDataSource, UITableViewDe
         super.viewDidLoad()
         self.navigationItem.title = "No Team"
         // Create a reference to the file you want to download
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Search "
+        navigationItem.searchController = searchController
+        definesPresentationContext = true
+        navigationItem.hidesSearchBarWhenScrolling = true
+        self.navigationItem.searchController = nil
+        self.view.setNeedsLayout()
+        searchController.searchBar.isHidden = true
         
         var getDocArr = [String]()
         
         let storage = Storage.storage()
         let storageRef = storage.reference().child("docs/")
         
-        
-        
+        docsTable.delegate = self
+        docsTable.dataSource = self
         let nib = UINib(nibName: "documentCell", bundle: nil)
         getDocData()
         docsTable.register(nib, forCellReuseIdentifier: "eachDocCell")
@@ -126,4 +147,34 @@ extension DocumentController: UIDocumentPickerDelegate{
         
     }
  
+}
+extension DocumentController: UISearchResultsUpdating {
+func updateSearchResults(for searchController: UISearchController) {
+    if !searchController.isActive {
+        self.navigationItem.searchController = nil
+        self.view.setNeedsLayout()
+        searchController.searchBar.isHidden = true
+        
+    }
+    if let searchText = searchController.searchBar.text, !searchText.isEmpty {
+        filteredData = unfilteredData.filter { task in
+            return task.lowercased().contains(searchText.lowercased())
+            
+        }
+        
+        print(filteredData)
+        
+    } else {
+        filteredData = unfilteredData
+        
+    }
+    documentArray.removeAll()
+    for name in filteredData!{
+        documentArray.append(name as! String)
+        
+    }
+    // loadTaskData()
+    self.docsTable.reloadData()
+    }
+
 }

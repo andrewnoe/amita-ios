@@ -9,16 +9,31 @@
 import UIKit
 
 class SearchController: UIViewController {
+    //@IBOutlet weak var searchBar: UISearchBar!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        // searchBar.placeholder = "yeet"
+        let searchController = UISearchController(searchResultsController: nil)
+        // 1
+        searchController.searchResultsUpdater = self
+        // 2
+        searchController.obscuresBackgroundDuringPresentation = true
+        // 3
+        searchController.searchBar.placeholder = "Search "
+        // 4
+        navigationItem.searchController = searchController
+        // 5
+        definesPresentationContext = true
+        
+        
     }
     
     @IBAction func didCancel(_ sender: Any) {
         dismiss(animated: true)
     }
+    
     
     /*
     // MARK: - Navigation
@@ -30,4 +45,9 @@ class SearchController: UIViewController {
     }
     */
 
+}
+extension SearchController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        // TODO
+    }
 }

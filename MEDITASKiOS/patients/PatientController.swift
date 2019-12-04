@@ -22,6 +22,17 @@ class PatientController: UIViewController, UITableViewDataSource, UITableViewDel
     var sampleKey = [String]()
     var sampleStatus = [String]()
     
+    let searchController = UISearchController(searchResultsController: nil)
+    var filteredData: [String]?
+    var unfilteredData = [String]()
+    
+  
+    @IBAction func didTapSearch(_ sender: Any) {
+        navigationItem.searchController = searchController
+        searchController.isActive = true
+        searchController.searchBar.isHidden = false
+    }
+    
     var refPatients: DatabaseReference!
     var passName: String!
     var passEmr: String!
@@ -37,6 +48,16 @@ class PatientController: UIViewController, UITableViewDataSource, UITableViewDel
         self.navigationItem.title = "No Team"
         let nib = UINib(nibName: "patientCell", bundle: nil)
         patientTable.register(nib, forCellReuseIdentifier: "eachPatientCell")
+        
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Search "
+        navigationItem.searchController = searchController
+        definesPresentationContext = true
+        navigationItem.hidesSearchBarWhenScrolling = true
+        self.navigationItem.searchController = nil
+        self.view.setNeedsLayout()
+        searchController.searchBar.isHidden = true
         
         refPatients = Database.database().reference().child("Patient")
         refPatients.observe(DataEventType.value) { (snapshot) in
@@ -117,6 +138,8 @@ class PatientController: UIViewController, UITableViewDataSource, UITableViewDel
                     self.sampleStatus.append(getStatus)
                 }
             }
+            self.unfilteredData = self.samplePatients
+
             self.patientTable.reloadData()
         }
         
@@ -175,3 +198,33 @@ class PatientController: UIViewController, UITableViewDataSource, UITableViewDel
     }
     
 }
+extension PatientController:  UISearchResultsUpdating {
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        if !searchController.isActive {
+            self.navigationItem.searchController = nil
+            self.view.setNeedsLayout()
+            searchController.searchBar.isHidden = true
+            
+        }
+        if let searchText = searchController.searchBar.text, !searchText.isEmpty {
+            filteredData = unfilteredData.filter { patient in
+                return patient.lowercased().contains(searchText.lowercased())
+                
+            }
+            
+            print(filteredData)
+            
+        } else {
+            filteredData = unfilteredData
+            
+        }
+        self.samplePatients.removeAll()
+        for name in filteredData!{
+            self.samplePatients.append(name as! String)
+            
+        }
+        self.patientTable.reloadData()
+    }
+}
+

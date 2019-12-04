@@ -9,17 +9,18 @@
 import UIKit
 import Firebase
 
-
 /*
 struct team{
     var id: String
     var name: String
     var userIDs = [String]()
 }
- */
-// var myTeams = [team]()
+var myTeams = [team]()
 var myUID = ""
-// var currentTeam = team(id: "", name: "", userIDs: [])
+var currentTeam = team(id: "", name: "", userIDs: [])
+ */
+var myUID = ""
+
 /*
  this structure is for each cell
  is active will expand the tab on true
@@ -49,14 +50,13 @@ struct accordionCells{
 class TasksViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate {
     var refTasks: DatabaseReference!
     // var refTeams: DatabaseReference!
-    
+
     var teamStore : TeamStore!
     var currentTeam : Team!
-    
+
     let refTeam = Database.database().reference().child("Team")
     let currentUId = Auth.auth().currentUser!.uid
 
-    
     @IBOutlet weak var tableTasks: UITableView!
 
     @IBOutlet weak var calenderView: UIView!
@@ -85,9 +85,10 @@ class TasksViewController: UIViewController, UITableViewDelegate, UITableViewDat
     var myTasks = false
     // ----  SAMPLE DATA END  ---- //
     
-    
+    var isSearching = false
     var countMany = 0
-    
+    var filteredData: [String]?
+    var unfilteredData = [String]()
     var passTaskName : String!
     var passPriority : String!
     var passTaskDesc : String!
@@ -99,20 +100,42 @@ class TasksViewController: UIViewController, UITableViewDelegate, UITableViewDat
     var passNotify : String!
     
     var tableViewData = [accordionCells]()
-    
+     let searchController = UISearchController(searchResultsController: nil)
     override func viewDidLoad() {
         super.viewDidLoad()
         
         teamStore = TeamStore()
-        // print("taskview did load")
+
+        // tableTasks.delegate = self
+        // tableTasks.dataSource = self
         myUID = (Auth.auth().currentUser?.email?.replacingOccurrences(of: ".", with: "_"))!
         getTeamDict()
        
         //loadTaskData()
         let userID = (Auth.auth().currentUser!.email)!.replacingOccurrences(of: ".", with: "_")
-    }
+       
+      
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Search "
+        navigationItem.searchController = searchController
+        definesPresentationContext = true
+        navigationItem.hidesSearchBarWhenScrolling = true
+        
+        self.navigationItem.searchController = nil
+        self.view.setNeedsLayout()
+        searchController.searchBar.isHidden = true
 
-    func getTeamDict() {
+    }
+    
+    @IBAction func didTapSearch(_ sender: Any) {
+        print("asddasd")
+        navigationItem.searchController = searchController
+        searchController.isActive = true
+        searchController.searchBar.isHidden = false
+    }
+    
+    func getTeamDict(){
         let queryTeam = self.refTeam.queryOrdered(byChild: "teamName")
         queryTeam.observe(DataEventType.value, with: { (snapshot) in
             self.teamStore.removeAll()
@@ -157,37 +180,11 @@ class TasksViewController: UIViewController, UITableViewDelegate, UITableViewDat
             // as soon as we are done fetching, tell the table to refresh
             self.loadTaskData()
         })
-            /*
-        refTeams = Database.database().reference().child("Team")
-        
-        refTeams.observeSingleEvent(of: DataEventType.value) { (snapshot) in
-            for t in snapshot.children.allObjects as![DataSnapshot]{
-                let teamObject = t.value as? [String: AnyObject]
-                
-                if teamObject?["teamName"] != nil && teamObject?["teamID"] != nil && teamObject?["userIDs"] != nil {
-                    let UIDDict = teamObject?["userIDs"] as! NSDictionary
-                    let UIDArray = Array(UIDDict.allKeys)
-                    let newTeam = team(id: teamObject?["teamID"] as! String, name : teamObject?["teamName"] as! String, userIDs : UIDArray as! [String])
-                    for id in UIDArray{
-                        if id as! String == myUID{
-                            myTeams.append(newTeam)
-
-                        }
-                    
-                        
-                    }
-                }
-                
-                }
-            self.loadTaskData()
-            }
- */
     }
     
-    func loadTaskData()
-    {
+    func loadTaskData() {
         //if (currentTeam.name == ""){
-            //currentTeam = myTeams[0]
+        //currentTeam = myTeams[0]
         //}
         currentTeam = teamStore.getTeam(index: 0)
         self.navigationItem.title = currentTeam.teamName
@@ -291,7 +288,7 @@ class TasksViewController: UIViewController, UITableViewDelegate, UITableViewDat
                         taskID = "taskID not given"
                     }
                     if (taskObject?["teamID"] as? String != self.currentTeam.teamId){
-                            continue
+                        continue
                     }
                     
                     if taskObject?["taskMembers"] != nil {
@@ -314,11 +311,11 @@ class TasksViewController: UIViewController, UITableViewDelegate, UITableViewDat
                             }
                             
                             
-                        
-                    } else {
+                            
+                        } else {
+                        }
                     }
-                    }
-                   
+                    
                     
                     
                     if taskObject?["teamName"] != nil {
@@ -349,10 +346,11 @@ class TasksViewController: UIViewController, UITableViewDelegate, UITableViewDat
                 
             }
             
+            self.unfilteredData = self.tableViewData[0].sectionTaskTitle
             self.tableTasks.reloadData()
             
         }
-
+        
     }
     func numberOfSections(in tableView: UITableView) -> Int {
         return tableViewData.count
@@ -400,23 +398,8 @@ class TasksViewController: UIViewController, UITableViewDelegate, UITableViewDat
     func transitionToNew(_ menuType: MenuType) {
    
         switch menuType {
-/*
         case .teams:
-            let vc = storyboard?.instantiateViewController(withIdentifier: "TeamController") as! TeamController
-            let nav = UINavigationController(rootViewController: vc)
-            nav.navigationBar.barTintColor = UIColor(red: 30.0/255.0, green: 30.0/255.0, blue: 30.0/255.0, alpha: 1.0)
-            if #available(iOS 11.0, *) {
-                vc.navigationController?.navigationBar.prefersLargeTitles = true
-                nav.navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
-
-            } else {
-                // Fallback on earlier versions
-            }
-            nav.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
-            nav.title = "Select A Team"
-            present(nav, animated: true)
             break
- */
         case .logout:
             try! Auth.auth().signOut()
             exit(0)
@@ -497,39 +480,13 @@ class TasksViewController: UIViewController, UITableViewDelegate, UITableViewDat
             toTaskView.catchPatient = passPatientID
             toTaskView.catchDate  = passDate
             toTaskView.catchTime = passTime
-            toTaskView.catchTaskID = passTaskID            
-        }
-    }
-    var lastContentOffset: CGFloat = 0
-    
-    // this delegate is called when the scrollView (i.e your UITableView) will start scrolling
-    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
-        self.lastContentOffset = scrollView.contentOffset.y
-    }
+            toTaskView.catchTaskID = passTaskID
 
-    
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        if (self.lastContentOffset < scrollView.contentOffset.y) {
-            if tableTasksHeight.constant != 0{
-                self.calenderView.isHidden = true
-                self.segmentedControl.isHidden = true
-                self.tableTasksHeight.constant = 0
-            } else{
-                return
-            }
-        } else if (self.lastContentOffset > scrollView.contentOffset.y) {
-            if tableTasksHeight.constant != 140{
-                self.calenderView.isHidden = false
-                self.segmentedControl.isHidden = false
-                self.tableTasksHeight.constant = 140
-            } else{
-                return
-            }
-        } else {
-            // didn't move
         }
-    }}
-extension TasksViewController: UIViewControllerTransitioningDelegate {
+    }
+    
+ }
+extension TasksViewController: UIViewControllerTransitioningDelegate, UISearchResultsUpdating {
     func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         transition.isPresenting = true
         return transition
@@ -539,7 +496,35 @@ extension TasksViewController: UIViewControllerTransitioningDelegate {
         transition.isPresenting = false
         return transition
 }
-   
+    func updateSearchResults(for searchController: UISearchController) {
+        if !searchController.isActive {
+            self.navigationItem.searchController = nil
+            self.view.setNeedsLayout()
+            searchController.searchBar.isHidden = true
+           
+        }
+            isSearching = true
+            if let searchText = searchController.searchBar.text, !searchText.isEmpty {
+                filteredData = unfilteredData.filter { task in
+                    return task.lowercased().contains(searchText.lowercased())
+                  
+                }
+                
+                print(filteredData)
+                
+            } else {
+                filteredData = unfilteredData
+
+            }
+        self.tableViewData[0].sectionTaskTitle.removeAll()
+        for name in filteredData!{
+            self.tableViewData[0].sectionTaskTitle.append(name as! String)
+        
+        }
+           // loadTaskData()
+            self.tableTasks.reloadData()
+    }
+    
     
     
     
