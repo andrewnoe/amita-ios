@@ -16,11 +16,12 @@ class taskDetailedViewController: UIViewController {
     var catchTitle: String!
     var catchPriority: String!
     var catchDesc: String!
-
     var catchPatient: String!
     var catchDate: String!
     var catchTime: String!
     var catchTaskID: String!
+    var catchKey: String!
+    var catchRef: DatabaseReference!
     var refTasks: DatabaseReference!
     var refPatients: DatabaseReference!
     @IBOutlet weak var editButton: UIButton!
@@ -102,8 +103,7 @@ class taskDetailedViewController: UIViewController {
         
     }
     
-    
-    @IBAction func editInfo(_ sender: Any) {
+    /*@IBAction func editInfo(_ sender: Any) {
         
         if( editState == 0 ){
             let myGre = UIColor(red: 52, green: 52, blue: 52, alpha: 0.4)
@@ -180,18 +180,8 @@ class taskDetailedViewController: UIViewController {
             
             return
         }
-    }
+    }*/
     
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "taskChatSegue"){
             let toTaskChatView = segue.destination as! TaskChatViewController
@@ -199,6 +189,35 @@ class taskDetailedViewController: UIViewController {
             toTaskChatView.taskTitle = self.catchTitle
             //print("*** \(self.catchTaskID)")
         }
+        
+        if(segue.identifier == "taskEditSegue"){
+            let toTaskEditView = segue.destination as! taskEditViewController
+            toTaskEditView.catchDate = catchDate
+            toTaskEditView.catchDesc = catchDesc
+            toTaskEditView.catchTitle = catchTitle
+            toTaskEditView.catchTime = catchTime
+            toTaskEditView.catchTaskID = catchTaskID
+            toTaskEditView.catchUrgency = catchPriority
+        }
+        
+        if(segue.identifier == "taskMemberSegue"){
+            //send members
+        }
+        
     }
+    
+    /*func prepareEdit(for segue: UIStoryboardSegue, sender: Any?) {
+        //Currently app crashes on tapping edit button
+            print("*** IN PREPARE FUNC***")
+            let toTaskEditView = segue.destination as! taskEditViewController
+            toTaskEditView.catchDate = catchDate
+            toTaskEditView.catchDesc = catchDesc
+            toTaskEditView.catchTitle = catchTitle
+            toTaskEditView.catchTime = catchTime
+            toTaskEditView.catchKey = catchKey
+            toTaskEditView.catchUrgency = catchPriority
+        
+        
+    }*/
     
 }

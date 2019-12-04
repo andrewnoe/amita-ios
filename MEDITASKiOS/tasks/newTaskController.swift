@@ -44,7 +44,8 @@ class newTaskController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
             self.listPatients.removeAll()
             for t in snapshot.children.allObjects as![DataSnapshot]{
                 let patientObject = t.value as? [String: AnyObject]
-                var patientID = String()
+                var patientID = String() //find a way for ID to get here
+                var patientName = String() //this is where the patient name actually goes
                 var fName = String()
                 var lName = String()
                 var fullName = String()
@@ -215,16 +216,17 @@ class newTaskController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
             return
         }
         
-        let theTeam = "No Team"
+        let theTeam = ""
         passMe?.setValue(["date":inputDate.text!,
                           "notify":"yes",
-                          "patientID":inputPatient.text!,
+                          "patientID":inputPatient.text!, //find a way to get patientID instead
+                          "patientName":inputPatient.text!,
                           "priority":inputPriority.text!,
-                          "teamID":0,
+                          "teamID": "",
                           "taskDescription":inputDesc.text!,
                           "taskID":passMe?.key!,
                           "taskTitle":inputTitle.text!,
-                          "teamName":"No Team",
+                          "teamName":"",
                           "time":inputTime.text!,
                           "taskOwner":myUID,
                           ])

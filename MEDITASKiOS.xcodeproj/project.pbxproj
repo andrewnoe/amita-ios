@@ -47,6 +47,8 @@
 		A02ACA2F238E02DE00FA362D /* TeamUserCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02ACA2E238E02DE00FA362D /* TeamUserCellView.swift */; };
 		A0370EBC23973C74004A9632 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0370EBB23973C74004A9632 /* Task.swift */; };
 		A0370EBE23973CCA004A9632 /* TaskStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0370EBD23973CCA004A9632 /* TaskStore.swift */; };
+		A0370EC023974E14004A9632 /* TaskMemberController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0370EBF23974E13004A9632 /* TaskMemberController.swift */; };
+		A0370EC223974F10004A9632 /* taskEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0370EC123974F10004A9632 /* taskEditViewController.swift */; };
 		A058C8F223590E2F00789A01 /* Notify.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A058C8F123590E2F00789A01 /* Notify.storyboard */; };
 		A058C8F4235944D000789A01 /* Chat.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A058C8F3235944D000789A01 /* Chat.storyboard */; };
 		A058C8F623594A4E00789A01 /* Task.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A058C8F523594A4E00789A01 /* Task.storyboard */; };
@@ -134,6 +136,8 @@
 		A02ACA2E238E02DE00FA362D /* TeamUserCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamUserCellView.swift; sourceTree = "<group>"; };
 		A0370EBB23973C74004A9632 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		A0370EBD23973CCA004A9632 /* TaskStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskStore.swift; sourceTree = "<group>"; };
+		A0370EBF23974E13004A9632 /* TaskMemberController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskMemberController.swift; sourceTree = "<group>"; };
+		A0370EC123974F10004A9632 /* taskEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = taskEditViewController.swift; sourceTree = "<group>"; };
 		A058C8F123590E2F00789A01 /* Notify.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Notify.storyboard; sourceTree = "<group>"; };
 		A058C8F3235944D000789A01 /* Chat.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Chat.storyboard; sourceTree = "<group>"; };
 		A058C8F523594A4E00789A01 /* Task.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Task.storyboard; sourceTree = "<group>"; };
@@ -198,6 +202,8 @@
 		47012EE922ADE7CE008E9AF9 /* tasks */ = {
 			isa = PBXGroup;
 			children = (
+				A0370EC123974F10004A9632 /* taskEditViewController.swift */,
+				A0370EBF23974E13004A9632 /* TaskMemberController.swift */,
 				A0370EBA23973C5A004A9632 /* models */,
 				4746C00122A0E0860081ACD2 /* TasksViewController.swift */,
 				47012EEA22ADF719008E9AF9 /* taskCell.swift */,
@@ -611,6 +617,7 @@
 				ED56DD1322EA4DC200EF77C9 /* SearchController.swift in Sources */,
 				ED33C3D322FDE14E00800F6D /* TabBarController.swift in Sources */,
 				47678B6322BDBDB300622DA6 /* documentEditorController.swift in Sources */,
+				A0370EC223974F10004A9632 /* taskEditViewController.swift in Sources */,
 				ED33C3C622FA74FF00800F6D /* CreateTaskChooserController.swift in Sources */,
 				A0D3A1BA23554CD100E21551 /* NotificationStore.swift in Sources */,
 				A0FD25A02356A83D00B952C7 /* patientDetailController.swift in Sources */,
@@ -619,6 +626,7 @@
 				A0DDB6F7233ABC8B00CEAB12 /* Lorem.swift in Sources */,
 				47678B6722BEF11E00622DA6 /* taskDetailedViewController.swift in Sources */,
 				4746C00222A0E0860081ACD2 /* TasksViewController.swift in Sources */,
+				A0370EC023974E14004A9632 /* TaskMemberController.swift in Sources */,
 				A0DDB6EF233ABC5F00CEAB12 /* MockSocket.swift in Sources */,
 				470CCEC722A1DD0D00E1DB01 /* PatientController.swift in Sources */,
 				A08D58A323483CED0068AE52 /* Notification.swift in Sources */,

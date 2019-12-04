@@ -9,6 +9,13 @@
 import UIKit
 import Firebase
 
+/*-----patientEditorController-----
+ *
+ * This controller manages the Patient Editor view
+ *
+ *@param(kinda) var catch_____ - a variable that recieves data from the Patient Detail Controller
+ *
+ */
 class patientEditorController: UIViewController {
     
     
@@ -44,22 +51,22 @@ class patientEditorController: UIViewController {
         self.healthField.text = catchHist
         self.statusField.text = catchStatus
         
-        /*let tapAway = UITapGestureRecognizer(target: self, action: #selector(patientEditorController.viewTapped(gestureRecognizer: )))
-         view.addGestureRecognizer(tapAway)
-         let dateFormatter = DateFormatter()
-         dateFormatter.dateFormat = "MM/dd/yyyy"
-         datePicker = UIDatePicker()
-         let toolBar = UIToolbar()
-         toolBar.barStyle = UIBarStyle.default
-         toolBar.isTranslucent = true
-         toolBar.sizeToFit()
-         let doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItem.Style.plain, target: self, action: #selector(newPatientController.doneSelector))
-         toolBar.setItems([doneButton], animated: false)
-         toolBar.isUserInteractionEnabled = true
-         datePicker?.datePickerMode = .date
-         datePicker?.addTarget(self, action: #selector(patientEditorController.dateChanged(datePicker:)), for: .valueChanged)
-         dobField.inputAccessoryView = toolBar
-         dobField.inputView = datePicker*/
+        let tapAway = UITapGestureRecognizer(target: self, action: #selector(patientEditorController.keyboardWillHide(notification:)))
+        view.addGestureRecognizer(tapAway)
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM/dd/yyyy"
+        datePicker = UIDatePicker()
+        let toolBar = UIToolbar()
+        toolBar.barStyle = UIBarStyle.default
+        toolBar.isTranslucent = true
+        toolBar.sizeToFit()
+        let doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItem.Style.plain, target: self, action: #selector(newPatientController.doneSelector))
+        toolBar.setItems([doneButton], animated: false)
+        toolBar.isUserInteractionEnabled = true
+        datePicker?.datePickerMode = .date
+        datePicker?.addTarget(self, action: #selector(patientEditorController.dateChanged(datePicker:)), for: .valueChanged)
+        dobField.inputAccessoryView = toolBar
+        dobField.inputView = datePicker
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
@@ -69,6 +76,26 @@ class patientEditorController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    @objc func viewTapped(gestureRecognizer: UITapGestureRecognizer){
+        view.endEditing(true)
+    }
+    @objc func doneSelector(){
+        view.endEditing(true)
+    }
+    @objc func dateChanged( datePicker: UIDatePicker){
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM/dd/yyyy"
+        
+        dobField.text = dateFormatter.string(from: datePicker.date)
+        //view.endEditing(true)
+    }
+    
+    /*-----saveToDB-----
+     *
+     * This function takes the text in the textFields at the time of the button press
+     * and updates the respective fields in the database.
+     *
+     */
     @IBAction func saveToDB(sender: UIBarButtonItem) {
         let passfName = fNameField.text!
         let passlName = lNameField.text!
@@ -100,9 +127,14 @@ class patientEditorController: UIViewController {
         
         ref?.updateChildValues(dataToDB)
         
-        
     }
     
+    /*-----prepare-----
+     *
+     * This prepare function sends the potentially updated data back
+     * to the detail view.
+     *
+     */
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         saveToDB(sender: saveBarButton)
         let toDocView = segue.destination as! patientDetailController

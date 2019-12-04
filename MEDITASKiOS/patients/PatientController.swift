@@ -47,10 +47,14 @@ class PatientController: UIViewController, UITableViewDataSource, UITableViewDel
     var teamStore : TeamStore!
     let refTask = Database.database().reference().child("Task")
     var taskStore : TaskStore!
-
+    var myPatients = [String]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        teamStore = TeamStore()
+        taskStore = TaskStore()
+        
         self.navigationItem.title = "No Team"
         let nib = UINib(nibName: "patientCell", bundle: nil)
         patientTable.register(nib, forCellReuseIdentifier: "eachPatientCell")
@@ -83,7 +87,7 @@ class PatientController: UIViewController, UITableViewDataSource, UITableViewDel
                 self.sampleEMR.removeAll()
                 self.sampleKey.removeAll()
                 self.sampleStatus.removeAll()
-                
+
                 for patients in snapshot.children.allObjects as![DataSnapshot]{
                     /*
                      let patientObject = patients.value as? [String: AnyObject]
@@ -142,13 +146,22 @@ class PatientController: UIViewController, UITableViewDataSource, UITableViewDel
                     
                     let mix = lName + ", " + (fName as! String)
                     
-                    self.samplePatients.append(mix)
-                    self.sampleDOB.append(getDOB)
-                    self.sampleDesc.append(getDesc)
-                    self.sampleEMR.append(getEMR)
-                    self.sampleHistory.append(getHist)
-                    self.sampleKey.append(getKey)
-                    self.sampleStatus.append(getStatus)
+                    // iterate over our teams to determine if this is our task
+                    for myPatientId in self.myPatients {
+                        
+                        //print("\(myPatientId) : \(getKey)")
+                        
+                        if myPatientId == getKey {
+
+                            self.samplePatients.append(mix)
+                            self.sampleDOB.append(getDOB)
+                            self.sampleDesc.append(getDesc)
+                            self.sampleEMR.append(getEMR)
+                            self.sampleHistory.append(getHist)
+                            self.sampleKey.append(getKey)
+                            self.sampleStatus.append(getStatus)
+                        }
+                    }
                 }
             }
             self.unfilteredData = self.samplePatients
@@ -258,20 +271,27 @@ class PatientController: UIViewController, UITableViewDataSource, UITableViewDel
     }
 
     func getTaskDict() {
-        let queryTask = self.refTask.queryOrdered(byChild: "taskID")
+        let queryTask = self.refTask.queryOrdered(byChild: "taskDescription")
         queryTask.observe(DataEventType.value, with: { (snapshot) in
             self.taskStore.removeAll()
+            self.myPatients.removeAll()
             for task in snapshot.children.allObjects as! [DataSnapshot] {
                 guard let taskInfo = task.value as? [String: Any]
                     else {
                         return
                 }
-                let teamId = taskInfo["teamId"] as? String
+               //print("\(taskInfo)")
+                
+                let teamId = taskInfo["teamID"] as? String
+                let patientId = taskInfo["patientID"] as? String
+                
                 // iterate over our teams to determine if this is our task
                 for team in self.teamStore.teams {
+                    //print("\(task.key) : \(teamId)")
                     let task = Task(taskId: task.key, teamId: teamId!)
                     if teamId == team.teamId {
                         self.taskStore.addTask(task: task)
+                        self.myPatients.append(patientId!)
                     }
                 }
             }
@@ -295,7 +315,7 @@ extension PatientController:  UISearchResultsUpdating {
                 
             }
             
-            print(filteredData)
+            //print(filteredData)
             
         } else {
             filteredData = unfilteredData
