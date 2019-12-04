@@ -45,6 +45,8 @@ class PatientController: UIViewController, UITableViewDataSource, UITableViewDel
     let currentUId = Auth.auth().currentUser!.uid
     let refTeam = Database.database().reference().child("Team")
     var teamStore : TeamStore!
+    let refTask = Database.database().reference().child("Task")
+    var taskStore : TaskStore!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,6 +69,7 @@ class PatientController: UIViewController, UITableViewDataSource, UITableViewDel
         getTeamDict()
 
         // get and observe my tasks
+        getTaskDict()
         
         // get and observe patients that belong to my tasks
         refPatients = Database.database().reference().child("Patient")
@@ -207,7 +210,7 @@ class PatientController: UIViewController, UITableViewDataSource, UITableViewDel
         
     }
     
-    func getTeamDict(){
+    func getTeamDict() {
         let queryTeam = self.refTeam.queryOrdered(byChild: "teamName")
         queryTeam.observe(DataEventType.value, with: { (snapshot) in
             self.teamStore.removeAll()
@@ -254,6 +257,28 @@ class PatientController: UIViewController, UITableViewDataSource, UITableViewDel
         })
     }
 
+    func getTaskDict() {
+        let queryTask = self.refTask.queryOrdered(byChild: "taskID")
+        queryTask.observe(DataEventType.value, with: { (snapshot) in
+            self.taskStore.removeAll()
+            for task in snapshot.children.allObjects as! [DataSnapshot] {
+                guard let taskInfo = task.value as? [String: Any]
+                    else {
+                        return
+                }
+                let teamId = taskInfo["teamId"] as? String
+                // iterate over our teams to determine if this is our task
+                for team in self.teamStore.teams {
+                    let task = Task(taskId: task.key, teamId: teamId!)
+                    if teamId == team.teamId {
+                        self.taskStore.addTask(task: task)
+                    }
+                }
+            }
+            // as soon as we are done fetching, tell the table to refresh
+            //self.loadTaskData()
+        })
+    }
 }
 extension PatientController:  UISearchResultsUpdating {
     

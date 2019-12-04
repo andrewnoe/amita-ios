@@ -129,7 +129,6 @@ class TasksViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     @IBAction func didTapSearch(_ sender: Any) {
-        print("asddasd")
         navigationItem.searchController = searchController
         searchController.isActive = true
         searchController.searchBar.isHidden = false

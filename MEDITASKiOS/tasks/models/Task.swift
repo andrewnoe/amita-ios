@@ -10,11 +10,11 @@ import Foundation
 
 internal class Task: NSObject {
     var taskId: String
-    var taskName: String
+    var teamId: String
     
-    init(taskId: String, taskName: String) {
+    init(taskId: String, teamId: String) {
         self.taskId = taskId
-        self.taskName = taskName
+        self.teamId = teamId
         
         super.init()
     }
