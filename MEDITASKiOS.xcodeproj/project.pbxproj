@@ -45,6 +45,8 @@
 		A02ACA29238DD69300FA362D /* TeamStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02ACA28238DD69300FA362D /* TeamStore.swift */; };
 		A02ACA2D238DF0AE00FA362D /* TeamUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02ACA2C238DF0AE00FA362D /* TeamUser.swift */; };
 		A02ACA2F238E02DE00FA362D /* TeamUserCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02ACA2E238E02DE00FA362D /* TeamUserCellView.swift */; };
+		A0370EBC23973C74004A9632 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0370EBB23973C74004A9632 /* Task.swift */; };
+		A0370EBE23973CCA004A9632 /* TaskStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0370EBD23973CCA004A9632 /* TaskStore.swift */; };
 		A058C8F223590E2F00789A01 /* Notify.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A058C8F123590E2F00789A01 /* Notify.storyboard */; };
 		A058C8F4235944D000789A01 /* Chat.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A058C8F3235944D000789A01 /* Chat.storyboard */; };
 		A058C8F623594A4E00789A01 /* Task.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A058C8F523594A4E00789A01 /* Task.storyboard */; };
@@ -130,6 +132,8 @@
 		A02ACA28238DD69300FA362D /* TeamStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamStore.swift; sourceTree = "<group>"; };
 		A02ACA2C238DF0AE00FA362D /* TeamUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamUser.swift; sourceTree = "<group>"; };
 		A02ACA2E238E02DE00FA362D /* TeamUserCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamUserCellView.swift; sourceTree = "<group>"; };
+		A0370EBB23973C74004A9632 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		A0370EBD23973CCA004A9632 /* TaskStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskStore.swift; sourceTree = "<group>"; };
 		A058C8F123590E2F00789A01 /* Notify.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Notify.storyboard; sourceTree = "<group>"; };
 		A058C8F3235944D000789A01 /* Chat.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Chat.storyboard; sourceTree = "<group>"; };
 		A058C8F523594A4E00789A01 /* Task.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Task.storyboard; sourceTree = "<group>"; };
@@ -194,6 +198,7 @@
 		47012EE922ADE7CE008E9AF9 /* tasks */ = {
 			isa = PBXGroup;
 			children = (
+				A0370EBA23973C5A004A9632 /* models */,
 				4746C00122A0E0860081ACD2 /* TasksViewController.swift */,
 				47012EEA22ADF719008E9AF9 /* taskCell.swift */,
 				47012EEB22ADF719008E9AF9 /* taskCell.xib */,
@@ -334,6 +339,15 @@
 				A02ACA26238DD68900FA362D /* Team.swift */,
 				A02ACA28238DD69300FA362D /* TeamStore.swift */,
 				A02ACA2C238DF0AE00FA362D /* TeamUser.swift */,
+			);
+			path = models;
+			sourceTree = "<group>";
+		};
+		A0370EBA23973C5A004A9632 /* models */ = {
+			isa = PBXGroup;
+			children = (
+				A0370EBB23973C74004A9632 /* Task.swift */,
+				A0370EBD23973CCA004A9632 /* TaskStore.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -562,6 +576,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0370EBE23973CCA004A9632 /* TaskStore.swift in Sources */,
 				474BBDFC22A0AC59000410AB /* AppDelegate.swift in Sources */,
 				A02ACA2D238DF0AE00FA362D /* TeamUser.swift in Sources */,
 				A0DDB6FD233ABD5E00CEAB12 /* UIColor+Extensions.swift in Sources */,
@@ -581,6 +596,7 @@
 				47EC901422B4ED2B009F5F94 /* taskCellSelect.swift in Sources */,
 				A0DDB6F0233ABC5F00CEAB12 /* MockUser.swift in Sources */,
 				A0DDB6EB233ABC1900CEAB12 /* ChatViewController.swift in Sources */,
+				A0370EBC23973C74004A9632 /* Task.swift in Sources */,
 				A0DDB6F3233ABC7000CEAB12 /* BasicAudioController.swift in Sources */,
 				ED1E72D922C422E4000B657C /* newDocumentController.swift in Sources */,
 				ED56DCF222CD4D1400EF77C9 /* TaskDetailsController.swift in Sources */,

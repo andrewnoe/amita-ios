@@ -42,9 +42,13 @@ class PatientController: UIViewController, UITableViewDataSource, UITableViewDel
     var passKey: String!
     var passStatus: String!
     
+    let currentUId = Auth.auth().currentUser!.uid
+    let refTeam = Database.database().reference().child("Team")
+    var teamStore : TeamStore!
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         self.navigationItem.title = "No Team"
         let nib = UINib(nibName: "patientCell", bundle: nil)
         patientTable.register(nib, forCellReuseIdentifier: "eachPatientCell")
@@ -58,7 +62,13 @@ class PatientController: UIViewController, UITableViewDataSource, UITableViewDel
         self.navigationItem.searchController = nil
         self.view.setNeedsLayout()
         searchController.searchBar.isHidden = true
+
+        // get and observe my teams
+        getTeamDict()
+
+        // get and observe my tasks
         
+        // get and observe patients that belong to my tasks
         refPatients = Database.database().reference().child("Patient")
         refPatients.observe(DataEventType.value) { (snapshot) in
             if snapshot.childrenCount > 0 {
@@ -197,6 +207,53 @@ class PatientController: UIViewController, UITableViewDataSource, UITableViewDel
         
     }
     
+    func getTeamDict(){
+        let queryTeam = self.refTeam.queryOrdered(byChild: "teamName")
+        queryTeam.observe(DataEventType.value, with: { (snapshot) in
+            self.teamStore.removeAll()
+            for team in snapshot.children.allObjects as! [DataSnapshot] {
+                guard let teamInfo = team.value as? [String: Any]
+                    else {
+                        return
+                }
+                let teamName = teamInfo["teamName"] as? String
+                let team = Team(teamId: team.key, teamName: teamName!)
+                
+                // iterate over the userIDs to determine if we are included as a member
+                if let userDict = teamInfo["userIDs"] as? [String:AnyObject] {
+                    var inTeam = false
+                    for (userId, teamOptions) in userDict {
+                        if(userId == self.currentUId) {
+                            inTeam = true
+                            if let optionsDict = teamOptions as? [String:Bool] {
+                                let teamUser = TeamUser(userId: userId
+                                    , dayShift: optionsDict["day_shift"]!
+                                    , nightShift: optionsDict["night_shift"]!
+                                    , filterOn: optionsDict["filter_on"]!)
+                                team.addTeamUser(teamUser: teamUser)
+                            }
+                        }
+                    }
+                    if(!inTeam) {
+                        // add me to team but set day, night, and filter to false
+                        self.refTeam.child(team.teamId).child("userIDs").child(self.currentUId).setValue(["filter_on": false, "day_shift": false, "night_shift": false])
+                        
+                        let teamUser = TeamUser(userId: self.currentUId
+                            , dayShift: false
+                            , nightShift: false
+                            , filterOn: false)
+                        team.addTeamUser(teamUser: teamUser)
+                    }
+                }
+                
+                
+                self.teamStore.addTeam(team: team)
+            }
+            // as soon as we are done fetching, tell the table to refresh
+            //self.loadTaskData()
+        })
+    }
+
 }
 extension PatientController:  UISearchResultsUpdating {
     
