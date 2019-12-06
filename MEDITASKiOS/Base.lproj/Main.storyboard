@@ -247,7 +247,11 @@
                         <viewLayoutGuide key="safeArea" id="IMY-Vl-yew"/>
                     </view>
                     <navigationItem key="navigationItem" title="Edit Task" id="zX5-VJ-Nib">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="3p3-ly-1rW"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="3p3-ly-1rW">
+                            <connections>
+                                <action selector="saveToDB:" destination="pAi-jW-jPO" id="xhd-3w-Hq2"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="dateField" destination="xdh-qM-0KZ" id="ahM-dU-Exx"/>

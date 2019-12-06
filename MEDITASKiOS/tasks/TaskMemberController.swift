@@ -12,6 +12,8 @@ import Firebase
 
 class TaskMemberController: UIViewController {
     
+    var ref: DatabaseReference?
+    
     @IBOutlet var memberTable: UITableView!
     
 }
