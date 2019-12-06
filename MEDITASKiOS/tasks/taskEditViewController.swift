@@ -37,8 +37,8 @@ class taskEditViewController: UIViewController {
         self.descField.text = catchDesc
         self.priorityField.text = catchUrgency
         
-        let tapAway = UITapGestureRecognizer(target: self, action: #selector(patientEditorController.keyboardWillHide(notification:)))
-        view.addGestureRecognizer(tapAway)
+        //let tapAway = UITapGestureRecognizer(target: self, action: #selector(patientEditorController.keyboardWillHide(notification:)))
+        //view.addGestureRecognizer(tapAway)
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MM/dd/yyyy"
         datePicker = UIDatePicker()
@@ -89,6 +89,9 @@ class taskEditViewController: UIViewController {
                                                    "time":passTime,
                                                    "taskDescription":passDesc,
                                                    "priority":passPriority])
+        
+        self.navigationController?.popViewController(animated: true)
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
