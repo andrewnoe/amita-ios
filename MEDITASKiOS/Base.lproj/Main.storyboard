@@ -1118,7 +1118,7 @@
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" title="Button" image="pencil_edit_icon.png"/>
                                                 <connections>
-                                                    <segue destination="pAi-jW-jPO" kind="show" id="bXN-tD-zyN"/>
+                                                    <segue destination="pAi-jW-jPO" kind="show" identifier="taskEditSegue" id="bXN-tD-zyN"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j8p-zu-3nr">

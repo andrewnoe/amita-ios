@@ -33,7 +33,6 @@ class PatientController: UIViewController, UITableViewDataSource, UITableViewDel
         searchController.searchBar.isHidden = false
     }
     
-    var refPatients: DatabaseReference!
     var passName: String!
     var passEmr: String!
     var passDOB: String!
@@ -41,7 +40,9 @@ class PatientController: UIViewController, UITableViewDataSource, UITableViewDel
     var passHistory: String!
     var passKey: String!
     var passStatus: String!
-    
+
+    let refPatients = Database.database().reference().child("Patient")
+
     let currentUId = Auth.auth().currentUser!.uid
     let refTeam = Database.database().reference().child("Team")
     var teamStore : TeamStore!
@@ -72,11 +73,9 @@ class PatientController: UIViewController, UITableViewDataSource, UITableViewDel
         // get and observe my teams
         getTeamDict()
 
-        // get and observe my tasks
-        getTaskDict()
-        
-        // get and observe patients that belong to my tasks
-        refPatients = Database.database().reference().child("Patient")
+    }
+    
+    func getPatientDict() {
         refPatients.observe(DataEventType.value) { (snapshot) in
             if snapshot.childrenCount > 0 {
                 self.samplePatients.removeAll()
@@ -87,7 +86,7 @@ class PatientController: UIViewController, UITableViewDataSource, UITableViewDel
                 self.sampleEMR.removeAll()
                 self.sampleKey.removeAll()
                 self.sampleStatus.removeAll()
-
+                
                 for patients in snapshot.children.allObjects as![DataSnapshot]{
                     /*
                      let patientObject = patients.value as? [String: AnyObject]
@@ -152,7 +151,7 @@ class PatientController: UIViewController, UITableViewDataSource, UITableViewDel
                         //print("\(myPatientId) : \(getKey)")
                         
                         if myPatientId == getKey {
-
+                            
                             self.samplePatients.append(mix)
                             self.sampleDOB.append(getDOB)
                             self.sampleDesc.append(getDesc)
@@ -165,11 +164,11 @@ class PatientController: UIViewController, UITableViewDataSource, UITableViewDel
                 }
             }
             self.unfilteredData = self.samplePatients
-
+            
             self.patientTable.reloadData()
         }
-        
     }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return samplePatients.count
     }
@@ -267,6 +266,10 @@ class PatientController: UIViewController, UITableViewDataSource, UITableViewDel
             }
             // as soon as we are done fetching, tell the table to refresh
             //self.loadTaskData()
+            
+            // get and observe my tasks
+            self.getTaskDict()
+
         })
     }
 
@@ -297,6 +300,10 @@ class PatientController: UIViewController, UITableViewDataSource, UITableViewDel
             }
             // as soon as we are done fetching, tell the table to refresh
             //self.loadTaskData()
+
+            // get and observe patients that belong to my tasks
+            self.getPatientDict()
+
         })
     }
 }
