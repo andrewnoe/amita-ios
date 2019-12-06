@@ -76,7 +76,7 @@ class taskEditViewController: UIViewController {
         //view.endEditing(true)
     }
     
-    @IBAction func saveToDB(sender: UIBarButtonItem) {
+    @IBAction func saveToDB(_ sender: Any) {
         let passTitle = titleField.text!
         let passDate = dateField.text!
         let passTime = timeField.text!
@@ -85,13 +85,10 @@ class taskEditViewController: UIViewController {
         self.ref = Database.database().reference().child("Task")
         
         ref?.child(catchTaskID).updateChildValues(["taskTitle":passTitle,
-                                                        "date":passDate,
-                                                        "time":passTime,
-                                                        "taskDescription":passDesc,
-                                                        "priority":passPriority])
-        
-        print("***END DB FUNC***")
-        
+                                                   "date":passDate,
+                                                   "time":passTime,
+                                                   "taskDescription":passDesc,
+                                                   "priority":passPriority])
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
