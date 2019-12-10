@@ -51,8 +51,8 @@ class patientEditorController: UIViewController {
         self.healthField.text = catchHist
         self.statusField.text = catchStatus
         
-        let tapAway = UITapGestureRecognizer(target: self, action: #selector(patientEditorController.keyboardWillHide(notification:)))
-        view.addGestureRecognizer(tapAway)
+        //let tapAway = UITapGestureRecognizer(target: self, action: #selector(patientEditorController.keyboardWillHide(notification:)))
+        //view.addGestureRecognizer(tapAway)
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MM/dd/yyyy"
         datePicker = UIDatePicker()
@@ -68,8 +68,8 @@ class patientEditorController: UIViewController {
         dobField.inputAccessoryView = toolBar
         dobField.inputView = datePicker
         
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        /*NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)*/
         
         
         
@@ -96,7 +96,7 @@ class patientEditorController: UIViewController {
      * and updates the respective fields in the database.
      *
      */
-    @IBAction func saveToDB(sender: UIBarButtonItem) {
+    @IBAction func saveToDB(_ sender: Any) {
         let passfName = fNameField.text!
         let passlName = lNameField.text!
         let passDOB = dobField.text!
@@ -126,7 +126,7 @@ class patientEditorController: UIViewController {
             "status":passStatus]
         
         ref?.updateChildValues(dataToDB)
-        
+        self.navigationController?.popViewController(animated: true)
     }
     
     /*-----prepare-----
@@ -136,7 +136,7 @@ class patientEditorController: UIViewController {
      *
      */
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        saveToDB(sender: saveBarButton)
+        saveToDB(saveBarButton)
         let toDocView = segue.destination as! patientDetailController
         
         toDocView.catchName = catchFName + " " + catchLName
@@ -147,7 +147,7 @@ class patientEditorController: UIViewController {
         toDocView.catchKey = catchKey
     }
     
-    @objc func keyboardWillShow(notification: NSNotification) {
+   /* @objc func keyboardWillShow(notification: NSNotification) {
         if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
             if self.view.frame.origin.y == 0 {
                 self.view.frame.origin.y -= keyboardSize.height
@@ -159,7 +159,7 @@ class patientEditorController: UIViewController {
         if self.view.frame.origin.y != 0 {
             self.view.frame.origin.y = 0
         }
-    }
+    }*/
     
     /*
      // MARK: - Navigation

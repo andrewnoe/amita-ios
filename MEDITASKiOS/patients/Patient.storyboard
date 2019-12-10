@@ -304,7 +304,7 @@
                     <navigationItem key="navigationItem" title="Edit Patient" id="cHf-Ie-PIe">
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="vd0-fG-VRc">
                             <connections>
-                                <action selector="saveToDBWithSender:" destination="L32-AO-lmv" id="7lk-Qn-24X"/>
+                                <action selector="saveToDB:" destination="L32-AO-lmv" id="RxV-A4-3GU"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

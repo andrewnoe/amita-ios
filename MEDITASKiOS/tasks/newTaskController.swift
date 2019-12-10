@@ -19,6 +19,8 @@ class newTaskController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
     var priorityPicker: UIPickerView?
     var patientPicker: UIPickerView?
     var selectedField: UITextField!
+    let currentUId = Auth.auth().currentUser!.uid
+
 
     //these are all the fields the  user can input  information via keyboard or picker view
     @IBOutlet weak var requiredTitle: UILabel!
@@ -232,8 +234,11 @@ class newTaskController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
                           ])
         
 
-
-//        _ = navigationController?.popViewController(animated: true)
+        if inputPriority.text == "Urgent" || inputPriority.text == "Critical"{
+            DispatchQueue.global(qos: .default).async {
+                NotifyGateway.shared.addNotification(forUserId: self.currentUId, message: "SAM IS GOOD AT PROGRAMMING")
+            }
+        }
         dismiss(animated: true)
  
     }
