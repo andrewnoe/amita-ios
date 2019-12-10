@@ -32,7 +32,8 @@ class JoinTeamTableViewController : UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "joinTeamTableCell", for: indexPath) as! TeamUserCellView
         let team = teamStore.getTeam(index: indexPath.item)
-        cell.textLabel?.text = team.teamName
+        //cell.textLabel?.text = team.teamName
+        cell.teamName.text = team.teamName
         cell.dayShift.setOn(team.getTeamUser(index: 0).dayShift, animated: true)
         cell.nightShift.setOn(team.getTeamUser(index: 0).nightShift, animated: true)
         cell.teamId.text = team.teamId
