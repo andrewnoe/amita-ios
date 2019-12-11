@@ -236,7 +236,7 @@ class newTaskController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
 
         if inputPriority.text == "Urgent" || inputPriority.text == "Critical"{
             DispatchQueue.global(qos: .default).async {
-                NotifyGateway.shared.addNotification(forUserId: self.currentUId, message: "SAM IS GOOD AT PROGRAMMING")
+                NotifyGateway.shared.addNotification(forUserId: self.currentUId, message: self.inputTime.text! + ": " + self.inputTitle.text! + " - " + self.inputPriority.text!)
             }
         }
         dismiss(animated: true)
