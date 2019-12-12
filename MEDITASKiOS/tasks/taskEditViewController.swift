@@ -93,8 +93,10 @@ class taskEditViewController: UIViewController {
             selectTeamList.isHidden = true
             isShowingTeamList = false
         } else {
+            //selectTeamList.hid
             selectTeamList.isHidden = false
             isShowingTeamList = true
+            
         }
     }
     
