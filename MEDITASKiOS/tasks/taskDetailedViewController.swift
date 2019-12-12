@@ -201,7 +201,8 @@ class taskDetailedViewController: UIViewController {
         }
         
         if(segue.identifier == "taskMemberSegue"){
-            //send members
+            let toTaskMemberView = segue.destination as! TaskMemberController
+            //toTaskMemberView.catch
         }
         
     }

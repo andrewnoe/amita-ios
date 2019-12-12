@@ -53,7 +53,7 @@ class TasksViewController: UIViewController, UITableViewDelegate, UITableViewDat
 
     var teamStore : TeamStore!
     var currentTeam : Team!
-
+    
     let refTeam = Database.database().reference().child("Team")
     let currentUId = Auth.auth().currentUser!.uid
 
@@ -457,7 +457,7 @@ class TasksViewController: UIViewController, UITableViewDelegate, UITableViewDat
             passTaskName = selectedCell.tielCell.text
             passPriority = selectedCell.myPriority
             passTaskDesc = selectedCell.myDesc
-    
+
             passPatientID = selectedCell.patientName.text
             passDate = selectedCell.myDate
             passTime = selectedCell.timeCell.text
@@ -482,6 +482,14 @@ class TasksViewController: UIViewController, UITableViewDelegate, UITableViewDat
             toTaskView.catchTaskID = passTaskID
 
         }
+        
+        if (segue.identifier == "memberSegue"){
+            let toTaskView = segue.destination as! TaskMemberController
+            toTaskView.catchTaskID = passTaskID
+            //toTaskView.catchTeamID = passTeamID
+            
+        }
+        
     }
     
  }

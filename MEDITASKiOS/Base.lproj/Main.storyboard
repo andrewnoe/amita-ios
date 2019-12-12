@@ -512,17 +512,17 @@
         <scene sceneID="jou-7r-her">
             <objects>
                 <viewController storyboardIdentifier="newTaskController" id="cdU-m6-pOk" customClass="newTaskController" customModule="MEDITASKiOS" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="UaJ-Sv-bQL">
+                    <view key="view" contentMode="scaleToFill" id="UaJ-Sv-bQL">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="1200"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="avj-TP-mwr">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="avj-TP-mwr">
                                 <rect key="frame" x="151" y="1291" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cfg-dq-e9M">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cfg-dq-e9M">
                                 <rect key="frame" x="0.0" y="82" width="375" height="1118"/>
                             </scrollView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YhP-7F-yjf">
@@ -1146,7 +1146,7 @@
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" title="Button" image="NEW_STAR.png"/>
                                                 <connections>
-                                                    <segue destination="ijG-QZ-u3e" kind="show" id="ymE-ul-tWZ"/>
+                                                    <segue destination="ijG-QZ-u3e" kind="show" identifier="memberSegue" id="ymE-ul-tWZ"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -1260,16 +1260,50 @@
         <scene sceneID="IPa-g0-AN7">
             <objects>
                 <viewController title="Task Members" id="ijG-QZ-u3e" customClass="TaskMemberController" customModule="MEDITASKiOS" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="WBG-tj-Egx">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="C3J-zL-eiU" userLabel="memberView">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="641"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="eFb-ZA-7SW"/>
-                    </view>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="pz9-MA-fFP" userLabel="memberTableCell">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="pz9-MA-fFP" id="ZFD-ko-Q0N">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MRm-qZ-kXT" userLabel="assignedOnOff">
+                                            <rect key="frame" x="300" y="6" width="51" height="31"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </switch>
+                                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="memberName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Em8-0s-mvZ">
+                                            <rect key="frame" x="25" y="11" width="109" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Manage Members" id="csc-e3-7qk" userLabel="Manage Members">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="g61-40-icl" userLabel="Cancel"/>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="IGf-De-DTn" userLabel="Save"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="assignedSwitch" destination="MRm-qZ-kXT" id="rrj-CI-zvt"/>
+                        <outlet property="cancelButton" destination="g61-40-icl" id="skO-bm-jAJ"/>
+                        <outlet property="memberName" destination="Em8-0s-mvZ" id="QlI-YC-vIs"/>
+                        <outlet property="memberTableCell" destination="pz9-MA-fFP" id="Ce3-sH-xPC"/>
+                        <outlet property="memberView" destination="C3J-zL-eiU" id="Edn-FE-fes"/>
+                        <outlet property="saveMember" destination="IGf-De-DTn" id="gRz-cO-2sV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nVV-ZO-GX4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2565" y="1573"/>
+            <point key="canvasLocation" x="2564" y="1572.4137931034484"/>
         </scene>
         <!--Individual Document View Controller-->
         <scene sceneID="3H1-eP-bQb">
