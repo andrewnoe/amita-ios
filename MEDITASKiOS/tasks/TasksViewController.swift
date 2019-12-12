@@ -42,7 +42,7 @@ struct accordionCells{
     var sectionTaskTitle = [String]()
     var sectionTeamName = [String]()
     var sectionTime = [String]()
-    
+    var sectionTeamId = [String]()
     
 }
 
@@ -72,6 +72,7 @@ class TasksViewController: UIViewController, UITableViewDelegate, UITableViewDat
     var todaysPriorities = [String]()
     var todaysDescs = [String]()
     var todaysTeam = String()
+    var todaysTeamId = String()
     var todaysPatients = [String]()
     var todaysDates = [String]()
     var todaysTimes = [String]()
@@ -93,7 +94,8 @@ class TasksViewController: UIViewController, UITableViewDelegate, UITableViewDat
     var passPriority : String!
     var passTaskDesc : String!
     var passTeamName : String!
-    var passPatientID :  String!
+    var passTeamId : String!
+    var passPatientID : String!
     var passDate : String!
     var passTime : String!
     var passTaskID : String!
@@ -186,7 +188,7 @@ class TasksViewController: UIViewController, UITableViewDelegate, UITableViewDat
         //currentTeam = myTeams[0]
         //}
         currentTeam = teamStore.getTeam(index: 0)
-        self.navigationItem.title = currentTeam.teamName
+        //self.navigationItem.title = currentTeam.teamName
         
         // --- Get Date ---  //
         let date = Date()
@@ -194,7 +196,7 @@ class TasksViewController: UIViewController, UITableViewDelegate, UITableViewDat
         format.dateFormat = "LLLL-dd"
         let todaysDate = format.string(from: date)
         
-        tableViewData = [accordionCells(isActive: true, accordianName: "All Tasks", sectionDate: [todaysDate], sectionMembers: todaysMembers, sectionNotify: todaysNotify, sectionPatient: todaysPatients, sectionPriority: todaysPriorities, sectionDesc: todaysDescs, sectionTaskID: todaysTaskIDs, sectionTaskTitle: todaysTaskTitles, sectionTeamName: [todaysTeam], sectionTime: todaysTimes)]
+        tableViewData = [accordionCells(isActive: true, accordianName: "All Tasks", sectionDate: [todaysDate], sectionMembers: todaysMembers, sectionNotify: todaysNotify, sectionPatient: todaysPatients, sectionPriority: todaysPriorities, sectionDesc: todaysDescs, sectionTaskID: todaysTaskIDs, sectionTaskTitle: todaysTaskTitles, sectionTeamName: [todaysTeam], sectionTime: todaysTimes, sectionTeamId: [todaysTeamId])]
         
         let nib = UINib(nibName: "taskCell", bundle: nil)
         let nib2 = UINib(nibName: "taskCellSelect", bundle: nil)
@@ -217,11 +219,14 @@ class TasksViewController: UIViewController, UITableViewDelegate, UITableViewDat
                 self.tableViewData[0].sectionTime.removeAll()
                 self.tableViewData[0].sectionTaskID.removeAll()
                 self.tableViewData[0].sectionNotify.removeAll()
+                self.tableViewData[0].sectionTeamName.removeAll()
+                self.tableViewData[0].sectionTeamId.removeAll()
                 for tasks in snapshot.children.allObjects as![DataSnapshot]{
                     let taskObject = tasks.value as? [String: AnyObject]
                     var priority = String()
                     var taskDesc = String()
                     var teamName = String()
+                    var teamId = String()
                     var patientID =  String()
                     var date = String()
                     var taskMembers = String()
@@ -286,7 +291,18 @@ class TasksViewController: UIViewController, UITableViewDelegate, UITableViewDat
                     } else {
                         taskID = "taskID not given"
                     }
-                    if (taskObject?["teamID"] as? String != self.currentTeam.teamId){
+                    var isTeamTask = false
+                    for team in self.teamStore.teams {
+                        if (taskObject?["teamID"] as? String == team.teamId) {
+                            // its a task for me only if I am on AM or PM shift
+                            for teamUser in team.userIds {
+                                if teamUser.dayShift || teamUser.nightShift {
+                                    isTeamTask = true
+                                }
+                            }
+                        }
+                    }
+                    if !isTeamTask {
                         continue
                     }
                     
@@ -318,11 +334,16 @@ class TasksViewController: UIViewController, UITableViewDelegate, UITableViewDat
                     
                     
                     if taskObject?["teamName"] != nil {
-                        teamName = "\(taskObject!["teamName"] ?? "teamName not given" as AnyObject)"
+                        teamName = taskObject!["teamName"] as! String
                     } else {
                         teamName = "teamName not given"
                     }
-                    
+                    if taskObject?["teamID"] != nil {
+                        teamId = taskObject!["teamID"] as! String
+                    } else {
+                        teamId = ""
+                    }
+
                     if taskObject?["time"] != nil {
                         time = "\(taskObject!["time"] ?? "time not given" as AnyObject)"
                     } else {
@@ -341,6 +362,7 @@ class TasksViewController: UIViewController, UITableViewDelegate, UITableViewDat
                     self.tableViewData[0].sectionTaskID.append(taskID)
                     self.tableViewData[0].sectionNotify.append(notify)
                     self.tableViewData[0].sectionTeamName.append(teamName)
+                    self.tableViewData[0].sectionTeamId.append(teamId)
                 }
                 
             }
@@ -429,8 +451,12 @@ class TasksViewController: UIViewController, UITableViewDelegate, UITableViewDat
             let initTime = tableViewData[indexPath.section].sectionTime[indexPath.row - 1]
             let initTaskID = tableViewData[indexPath.section].sectionTaskID[indexPath.row - 1]
             let initNotify = tableViewData[indexPath.section].sectionNotify[indexPath.row - 1]
+            let teamId = tableViewData[indexPath.section].sectionTeamId[indexPath.row - 1]
+            let teamName = tableViewData[indexPath.section].sectionTeamName[indexPath.row - 1]
             
             cell.customInit(title: initTitle, priority: initPriority, description: initDesc,  patient: initPatient, date: initDate, timeText: initTime, taskID: initTaskID, roomIn: initNotify )
+            cell.teamId.text = teamId
+            cell.teamName.text = teamName
             //self.tableTasks?.rowHeight = 69
             return cell
         }
@@ -463,6 +489,8 @@ class TasksViewController: UIViewController, UITableViewDelegate, UITableViewDat
             passTime = selectedCell.timeCell.text
             passTaskID = selectedCell.myTaskID
             passNotify = selectedCell.roomNum.text
+            passTeamName = selectedCell.teamName.text
+            passTeamId = selectedCell.teamId.text
             self.performSegue(withIdentifier: "taskSegue", sender: self)
         }
         tableView.deselectRow(at: indexPath, animated: true)
@@ -480,7 +508,8 @@ class TasksViewController: UIViewController, UITableViewDelegate, UITableViewDat
             toTaskView.catchDate  = passDate
             toTaskView.catchTime = passTime
             toTaskView.catchTaskID = passTaskID
-
+            toTaskView.catchTeamId = passTeamId
+            toTaskView.catchTeamName = passTeamName
         }
     }
     

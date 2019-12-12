@@ -22,6 +22,8 @@ class taskDetailedViewController: UIViewController {
     var catchTaskID: String!
     var catchKey: String!
     var catchRef: DatabaseReference!
+    var catchTeamId: String!
+    var catchTeamName: String!
     var refTasks: DatabaseReference!
     var refPatients: DatabaseReference!
     @IBOutlet weak var editButton: UIButton!
@@ -51,31 +53,37 @@ class taskDetailedViewController: UIViewController {
     @IBOutlet weak var navBar: UINavigationItem!
     override func viewDidLoad() {
         super.viewDidLoad()
-        navBar.title = catchTitle
         navBar.titleView?.tintColor = UIColor.white
         
-        self.showTaskTitle.text = catchTitle
-        self.showPatient.text = catchPatient
+        refreshGUIText()
+        
         self.showPatient.isUserInteractionEnabled = false
         self.showPatient.backgroundColor = UIColor.black
-        self.showAge.text = "-not found-"
         self.showAge.isUserInteractionEnabled = false
         self.showAge.backgroundColor = UIColor.black
-        self.showDate.text = catchDate
         self.showDate.isUserInteractionEnabled = false
         self.showDate.backgroundColor = UIColor.black
-        self.showPriority.text = catchPriority
         self.showPriority.isUserInteractionEnabled = false
         self.showPriority.backgroundColor = UIColor.black
-        self.showTime.text = catchTime
         self.showTime.isUserInteractionEnabled = false
         self.showTime.backgroundColor = UIColor.black
-        self.showDescription.text = catchDesc
         self.showDescription.isUserInteractionEnabled = false
         self.showDescription.backgroundColor = UIColor.black
         // Do any additional setup after loading the view.
         
         chatStackView.isHidden = true
+    }
+    
+    func refreshGUIText() {
+        navBar.title = catchTitle
+        self.showTaskTitle.text = catchTitle
+        self.showPatient.text = catchPatient
+        self.showAge.text = "-not found-"
+        self.showDate.text = catchDate
+        self.showPriority.text = catchPriority
+        self.showTime.text = catchTime
+        self.showDescription.text = catchDesc
+
     }
     
     @IBAction func deleteTask(_ sender: Any) {
@@ -198,6 +206,11 @@ class taskDetailedViewController: UIViewController {
             toTaskEditView.catchTime = catchTime
             toTaskEditView.catchTaskID = catchTaskID
             toTaskEditView.catchUrgency = catchPriority
+            toTaskEditView.catchTeamId = catchTeamId
+            toTaskEditView.catchTeamName = catchTeamName
+            
+            toTaskEditView.taskDetailController = self
+            //print("is this being called? \(catchTeamId) \(catchTeamName)")
         }
         
         if(segue.identifier == "taskMemberSegue"){

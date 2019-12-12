@@ -19,6 +19,21 @@ class taskEditViewController: UIViewController {
     var catchDesc: String!
     var catchTaskID: String!
     var catchUrgency: String!
+    var catchTeamName: String!
+    var catchTeamId: String!
+    
+    var selectedTeamId: String!
+    var myTeams: TeamStore!
+    let refTeam = Database.database().reference().child("Team")
+    let currentUId = Auth.auth().currentUser!.uid
+    var teamDDLBController = TeamDDLBController()
+    var isShowingTeamList: Bool!
+    
+    var taskDetailController: taskDetailedViewController!
+    
+    @IBOutlet weak var selectTeamButton: UIButton!
+    
+    @IBOutlet weak var selectTeamList: UITableView!
     
     @IBOutlet weak var titleField: UITextField!
     
@@ -31,12 +46,24 @@ class taskEditViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        myTeams = TeamStore()
+        teamDDLBController.teamStore = myTeams
+        teamDDLBController.taskEditController = self
+        selectTeamList.dataSource = teamDDLBController
+        selectTeamList.delegate = teamDDLBController
+        isShowingTeamList = false
+        selectTeamList.isHidden = true
+        
         self.titleField.text = catchTitle
         self.dateField.text = catchDate
         self.timeField.text = catchTime
         self.descField.text = catchDesc
         self.priorityField.text = catchUrgency
         
+        selectTeamButton.setTitle(catchTeamName, for: .normal)
+        selectedTeamId = catchTeamId
+
         //let tapAway = UITapGestureRecognizer(target: self, action: #selector(patientEditorController.keyboardWillHide(notification:)))
         //view.addGestureRecognizer(tapAway)
         let dateFormatter = DateFormatter()
@@ -57,9 +84,25 @@ class taskEditViewController: UIViewController {
         /*NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)*/
         
-        
-        
-        // Do any additional setup after loading the view.
+        getTeamDict()
+
+    }
+    
+    @IBAction func onSelectTeam(_ sender: Any) {
+        if isShowingTeamList {
+            selectTeamList.isHidden = true
+            isShowingTeamList = false
+        } else {
+            selectTeamList.isHidden = false
+            isShowingTeamList = true
+        }
+    }
+    
+    func selectTeam(team : Team) {
+        selectTeamButton.setTitle(team.teamName, for: .normal)
+        selectedTeamId = team.teamId
+        selectTeamList.isHidden = true
+        isShowingTeamList = false
     }
     
     @objc func viewTapped(gestureRecognizer: UITapGestureRecognizer){
@@ -82,19 +125,81 @@ class taskEditViewController: UIViewController {
         let passTime = timeField.text!
         let passDesc = descField.text!
         let passPriority = priorityField.text!
+        let passTeamId = selectedTeamId
+        let passTeamName = selectTeamButton.title(for: .normal)
+        
         self.ref = Database.database().reference().child("Task")
         
         ref?.child(catchTaskID).updateChildValues(["taskTitle":passTitle,
                                                    "date":passDate,
                                                    "time":passTime,
                                                    "taskDescription":passDesc,
-                                                   "priority":passPriority])
+                                                   "priority":passPriority,
+                                                   "teamID":passTeamId!,
+                                                   "teamName":passTeamName!])
+        
+        taskDetailController.catchTitle = passTitle
+        taskDetailController.catchDate = passDate
+        taskDetailController.catchDesc = passDesc
+        taskDetailController.catchTime = passTime
+        taskDetailController.catchPriority = passPriority
+        taskDetailController.catchTeamId = selectedTeamId
+        taskDetailController.catchTeamName = selectTeamButton.title(for: .normal)
+        taskDetailController.refreshGUIText()
         
         self.navigationController?.popViewController(animated: true)
         
     }
     
+    func getTeamDict() {
+        let queryTeam = self.refTeam.queryOrdered(byChild: "teamName")
+        queryTeam.observe(DataEventType.value, with: { (snapshot) in
+            self.myTeams.removeAll()
+            for team in snapshot.children.allObjects as! [DataSnapshot] {
+                guard let teamInfo = team.value as? [String: Any]
+                    else {
+                        return
+                }
+                let teamName = teamInfo["teamName"] as? String
+                let team = Team(teamId: team.key, teamName: teamName!)
+                
+                // iterate over the userIDs to determine if we are included as a member
+                if let userDict = teamInfo["userIDs"] as? [String:AnyObject] {
+                    var inTeam = false
+                    for (userId, teamOptions) in userDict {
+                        if(userId == self.currentUId) {
+                            inTeam = true
+                            if let optionsDict = teamOptions as? [String:Bool] {
+                                let teamUser = TeamUser(userId: userId
+                                    , dayShift: optionsDict["day_shift"]!
+                                    , nightShift: optionsDict["night_shift"]!
+                                    , filterOn: optionsDict["filter_on"]!)
+                                team.addTeamUser(teamUser: teamUser)
+                            }
+                        }
+                    }
+                    if(!inTeam) {
+                        // add me to team but set day, night, and filter to false
+                        self.refTeam.child(team.teamId).child("userIDs").child(self.currentUId).setValue(["filter_on": false, "day_shift": false, "night_shift": false])
+                        
+                        let teamUser = TeamUser(userId: self.currentUId
+                            , dayShift: false
+                            , nightShift: false
+                            , filterOn: false)
+                        team.addTeamUser(teamUser: teamUser)
+                    }
+                }
+                
+                
+                self.myTeams.addTeam(team: team)
+            }
+            self.selectTeamList.reloadData()
+        })
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        print("*** is this being called?")
+        
         let toDetailView = segue.destination as! taskDetailedViewController
         
         toDetailView.catchTitle = catchTitle
@@ -102,6 +207,9 @@ class taskEditViewController: UIViewController {
         toDetailView.catchDesc = catchDesc
         toDetailView.catchTime = catchTime
         toDetailView.catchPriority = catchUrgency
+        toDetailView.catchTeamId = selectedTeamId
+        toDetailView.catchTeamName = selectTeamButton.title(for: .normal)
+        
     }
     
     /*@objc func keyboardWillShow(notification: NSNotification) {
