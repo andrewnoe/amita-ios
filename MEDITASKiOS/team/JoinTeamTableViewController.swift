@@ -34,8 +34,13 @@ class JoinTeamTableViewController : UITableViewController {
         let team = teamStore.getTeam(index: indexPath.item)
         //cell.textLabel?.text = team.teamName
         cell.teamName.text = team.teamName
-        cell.dayShift.setOn(team.getTeamUser(index: 0).dayShift, animated: true)
-        cell.nightShift.setOn(team.getTeamUser(index: 0).nightShift, animated: true)
+        if team.userIds.count > 0 {
+            cell.dayShift.setOn(team.getTeamUser(index: 0).dayShift, animated: true)
+            cell.nightShift.setOn(team.getTeamUser(index: 0).nightShift, animated: true)
+        } else {
+            cell.dayShift.setOn(false, animated: true)
+            cell.nightShift.setOn(false, animated: true)
+        }
         cell.teamId.text = team.teamId
         
         return cell

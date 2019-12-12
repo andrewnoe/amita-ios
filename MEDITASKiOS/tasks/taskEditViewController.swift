@@ -168,30 +168,22 @@ class taskEditViewController: UIViewController {
                     var inTeam = false
                     for (userId, teamOptions) in userDict {
                         if(userId == self.currentUId) {
-                            inTeam = true
                             if let optionsDict = teamOptions as? [String:Bool] {
-                                let teamUser = TeamUser(userId: userId
-                                    , dayShift: optionsDict["day_shift"]!
-                                    , nightShift: optionsDict["night_shift"]!
-                                    , filterOn: optionsDict["filter_on"]!)
-                                team.addTeamUser(teamUser: teamUser)
+                                if optionsDict["day_shift"]! || optionsDict["night_shift"]! {
+                                    inTeam = true
+                                    let teamUser = TeamUser(userId: userId
+                                        , dayShift: optionsDict["day_shift"]!
+                                        , nightShift: optionsDict["night_shift"]!
+                                        , filterOn: optionsDict["filter_on"]!)
+                                    team.addTeamUser(teamUser: teamUser)
+                                }
                             }
                         }
                     }
-                    if(!inTeam) {
-                        // add me to team but set day, night, and filter to false
-                        self.refTeam.child(team.teamId).child("userIDs").child(self.currentUId).setValue(["filter_on": false, "day_shift": false, "night_shift": false])
-                        
-                        let teamUser = TeamUser(userId: self.currentUId
-                            , dayShift: false
-                            , nightShift: false
-                            , filterOn: false)
-                        team.addTeamUser(teamUser: teamUser)
+                    if(inTeam) {
+                        self.myTeams.addTeam(team: team)
                     }
                 }
-                
-                
-                self.myTeams.addTeam(team: team)
             }
             self.selectTeamList.reloadData()
         })
