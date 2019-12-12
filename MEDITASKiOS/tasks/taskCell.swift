@@ -21,6 +21,8 @@ class taskCell: UITableViewCell{
     @IBOutlet weak var roomNum: UILabel!
     @IBOutlet weak var imageCell: UIImageView!
     
+    @IBOutlet weak var teamName: UILabel!
+    @IBOutlet weak var teamId: UILabel!
     
     override func awakeFromNib(){
         super.awakeFromNib()

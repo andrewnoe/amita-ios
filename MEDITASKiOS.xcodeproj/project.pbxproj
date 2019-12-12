@@ -53,6 +53,8 @@
 		A058C8F4235944D000789A01 /* Chat.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A058C8F3235944D000789A01 /* Chat.storyboard */; };
 		A058C8F623594A4E00789A01 /* Task.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A058C8F523594A4E00789A01 /* Task.storyboard */; };
 		A058C8F823594ADD00789A01 /* Patient.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A058C8F723594ADD00789A01 /* Patient.storyboard */; };
+		A05BC88F23A289C800F1B20E /* TeamGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05BC88E23A289C800F1B20E /* TeamGateway.swift */; };
+		A05BC89123A297FC00F1B20E /* TeamDDLBController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05BC89023A297FC00F1B20E /* TeamDDLBController.swift */; };
 		A0639D10238655C900A773F9 /* JoinTeamTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0639D0F238655C900A773F9 /* JoinTeamTableViewController.swift */; };
 		A0639D1223873C4800A773F9 /* Team.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0639D1123873C4800A773F9 /* Team.storyboard */; };
 		A0834B0823565A2A007A92B4 /* NotifyGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0834B0723565A2A007A92B4 /* NotifyGateway.swift */; };
@@ -142,6 +144,8 @@
 		A058C8F3235944D000789A01 /* Chat.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Chat.storyboard; sourceTree = "<group>"; };
 		A058C8F523594A4E00789A01 /* Task.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Task.storyboard; sourceTree = "<group>"; };
 		A058C8F723594ADD00789A01 /* Patient.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Patient.storyboard; sourceTree = "<group>"; };
+		A05BC88E23A289C800F1B20E /* TeamGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamGateway.swift; sourceTree = "<group>"; };
+		A05BC89023A297FC00F1B20E /* TeamDDLBController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamDDLBController.swift; sourceTree = "<group>"; };
 		A0639D0F238655C900A773F9 /* JoinTeamTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinTeamTableViewController.swift; sourceTree = "<group>"; };
 		A0639D1123873C4800A773F9 /* Team.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Team.storyboard; sourceTree = "<group>"; };
 		A0834B0723565A2A007A92B4 /* NotifyGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotifyGateway.swift; sourceTree = "<group>"; };
@@ -383,7 +387,9 @@
 				A02ACA25238DD66900FA362D /* models */,
 				A0639D0F238655C900A773F9 /* JoinTeamTableViewController.swift */,
 				A0639D1123873C4800A773F9 /* Team.storyboard */,
+				A05BC89023A297FC00F1B20E /* TeamDDLBController.swift */,
 				A02ACA2E238E02DE00FA362D /* TeamUserCellView.swift */,
+				A05BC88E23A289C800F1B20E /* TeamGateway.swift */,
 			);
 			path = team;
 			sourceTree = "<group>";
@@ -608,6 +614,7 @@
 				ED56DCF222CD4D1400EF77C9 /* TaskDetailsController.swift in Sources */,
 				47984F4A22A71FB6009FBA69 /* DocumentController.swift in Sources */,
 				47012EEC22ADF719008E9AF9 /* taskCell.swift in Sources */,
+				A05BC88F23A289C800F1B20E /* TeamGateway.swift in Sources */,
 				ED1E72D722C42211000B657C /* individualDocumentViewController.swift in Sources */,
 				A0DDB6F6233ABC8B00CEAB12 /* SampleData.swift in Sources */,
 				47566E2E22A70963005553E6 /* LogInController.swift in Sources */,
@@ -631,6 +638,7 @@
 				470CCEC722A1DD0D00E1DB01 /* PatientController.swift in Sources */,
 				A08D58A323483CED0068AE52 /* Notification.swift in Sources */,
 				4749282B22C2CAE600D3E803 /* newPatientController.swift in Sources */,
+				A05BC89123A297FC00F1B20E /* TeamDDLBController.swift in Sources */,
 				A0D3A1B82351722500E21551 /* NotifyTableViewController.swift in Sources */,
 				A02ACA29238DD69300FA362D /* TeamStore.swift in Sources */,
 				A0DDB6E9233A885B00CEAB12 /* Constants.swift in Sources */,
