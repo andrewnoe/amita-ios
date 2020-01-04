@@ -56,7 +56,7 @@ class PatientController: UIViewController, UITableViewDataSource, UITableViewDel
         teamStore = TeamStore()
         taskStore = TaskStore()
         
-        self.navigationItem.title = "No Team"
+        self.navigationItem.title = "Patients"
         let nib = UINib(nibName: "patientCell", bundle: nil)
         patientTable.register(nib, forCellReuseIdentifier: "eachPatientCell")
         
@@ -71,11 +71,12 @@ class PatientController: UIViewController, UITableViewDataSource, UITableViewDel
         searchController.searchBar.isHidden = true
 
         // get and observe my teams
-        getTeamDict()
-
+        //getTeamDict()//start here
+        self.getTaskDict()
     }
     
     func getPatientDict() {
+        
         refPatients.observe(DataEventType.value) { (snapshot) in
             if snapshot.childrenCount > 0 {
                 self.samplePatients.removeAll()
@@ -146,6 +147,7 @@ class PatientController: UIViewController, UITableViewDataSource, UITableViewDel
                     let mix = lName + ", " + (fName as! String)
                     
                     // iterate over our teams to determine if this is our task
+                    /*
                     for myPatientId in self.myPatients {
                         
                         //print("\(myPatientId) : \(getKey)")
@@ -161,6 +163,14 @@ class PatientController: UIViewController, UITableViewDataSource, UITableViewDel
                             self.sampleStatus.append(getStatus)
                         }
                     }
+                    */
+                    self.samplePatients.append(mix)
+                    self.sampleDOB.append(getDOB)
+                    self.sampleDesc.append(getDesc)
+                    self.sampleEMR.append(getEMR)
+                    self.sampleHistory.append(getHist)
+                    self.sampleKey.append(getKey)
+                    self.sampleStatus.append(getStatus)
                 }
             }
             self.unfilteredData = self.samplePatients
@@ -223,6 +233,7 @@ class PatientController: UIViewController, UITableViewDataSource, UITableViewDel
     }
     
     func getTeamDict() {
+        /*
         let queryTeam = self.refTeam.queryOrdered(byChild: "teamName")
         queryTeam.observe(DataEventType.value, with: { (snapshot) in
             self.teamStore.removeAll()
@@ -271,6 +282,8 @@ class PatientController: UIViewController, UITableViewDataSource, UITableViewDel
             self.getTaskDict()
 
         })
+        */
+        
     }
 
     func getTaskDict() {

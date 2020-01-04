@@ -189,7 +189,7 @@ class newTaskController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
             if pickerView == patientPicker {
                 inputPatient.text = listPatients[row]
             }
-            inputPriority.text = priorities[row]
+            //inputPriority.text = priorities[row]
     }
     @IBAction func createTask(_ sender: Any) {
         
@@ -224,11 +224,11 @@ class newTaskController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
                           "patientID":inputPatient.text!, //find a way to get patientID instead
                           "patientName":inputPatient.text!,
                           "priority":inputPriority.text!,
-                          "teamID": "",
+                          "teamID": "TeamID3",
                           "taskDescription":inputDesc.text!,
                           "taskID":passMe?.key!,
                           "taskTitle":inputTitle.text!,
-                          "teamName":"",
+                          "teamName":"Angry Doctors",
                           "time":inputTime.text!,
                           "taskOwner":myUID,
                           ])

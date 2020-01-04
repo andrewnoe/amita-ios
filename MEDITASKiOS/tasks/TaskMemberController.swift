@@ -17,14 +17,14 @@ class TaskMemberController: UIViewController {
     var catchRef: DatabaseReference!
     var catchTaskID: String!
     var teamID: String!
-    let currentUId = Auth.auth().currentUser!.uid
+    var memberTableCell: TaskMemberCellView!
     
-
-    @IBOutlet weak var assignedSwitch: UISwitch!
+    let members = ["Gene", "Andrew", "Jamie", "Sam"]
+    let currentUId = Auth.auth().currentUser!.uid
+    let cellReuseIdentifier = "cell"
+    
     @IBOutlet var memberView: UITableView!
     @IBOutlet weak var cancelButton: UIBarButtonItem!
-    @IBOutlet weak var memberTableCell: UITableViewCell!
-    @IBOutlet weak var memberName: UILabel!
     @IBOutlet weak var saveMember: UIBarButtonItem!
     
     override func viewDidLoad() {
@@ -33,22 +33,19 @@ class TaskMemberController: UIViewController {
         
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return teamStore.getCount()
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return members.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "joinTeamTableCell", for: indexPath) as! TeamUserCellView
-        let team = teamStore.getTeam(index: indexPath.item)
-        cell.textLabel?.text = team.teamName
-        cell.dayShift.setOn(team.getTeamUser(index: 0).dayShift, animated: true)
-        cell.nightShift.setOn(team.getTeamUser(index: 0).nightShift, animated: true)
-        cell.teamId.text = team.teamId
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell:UITableViewCell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier) as UITableViewCell!
+        
+        cell.textLabel?.text = members[indexPath.row]
         
         return cell
     }
     
-    @IBAction func cancelAction(_ sender: Any) {
+    @IBAction func cancelTapped(_ sender: Any) {
         closeThisView();
     }
     

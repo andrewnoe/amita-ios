@@ -29,7 +29,7 @@ class taskDetailedViewController: UIViewController {
     @IBOutlet weak var editButton: UIButton!
     @IBOutlet weak var showTaskTitle: UILabel!
     @IBOutlet weak var showPatient: UITextField!
-    @IBOutlet weak var showAge: UITextField!
+   // @IBOutlet weak var showAge: UITextField!
     @IBOutlet weak var showDate: UITextField!
     @IBOutlet weak var showPriority: UITextField!
     @IBOutlet weak var showTime: UITextField!
@@ -61,8 +61,8 @@ class taskDetailedViewController: UIViewController {
         
         self.showPatient.isUserInteractionEnabled = false
         self.showPatient.backgroundColor = UIColor.black
-        self.showAge.isUserInteractionEnabled = false
-        self.showAge.backgroundColor = UIColor.black
+       // self.showAge.isUserInteractionEnabled = false
+        //self.showAge.backgroundColor = UIColor.black
         self.showDate.isUserInteractionEnabled = false
         self.showDate.backgroundColor = UIColor.black
         self.showPriority.isUserInteractionEnabled = false
@@ -80,7 +80,7 @@ class taskDetailedViewController: UIViewController {
         navBar.title = catchTitle
         self.showTaskTitle.text = catchTitle
         self.showPatient.text = catchPatient
-        self.showAge.text = "-not found-"
+        //self.showAge.text = "-not found-"
         self.showDate.text = catchDate
         self.showPriority.text = catchPriority
         self.showTime.text = catchTime

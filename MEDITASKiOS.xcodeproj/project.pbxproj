@@ -41,6 +41,7 @@
 		47EC901422B4ED2B009F5F94 /* taskCellSelect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47EC901222B4ED2B009F5F94 /* taskCellSelect.swift */; };
 		47EC901522B4ED2B009F5F94 /* taskCellSelect.xib in Resources */ = {isa = PBXBuildFile; fileRef = 47EC901322B4ED2B009F5F94 /* taskCellSelect.xib */; };
 		47F31A4722BB0960003D1BAE /* newTaskController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F31A4622BB0960003D1BAE /* newTaskController.swift */; };
+		7E473DAA23A2F7D0008932E3 /* TaskMemberCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E473DA923A2F7D0008932E3 /* TaskMemberCellView.swift */; };
 		A02ACA27238DD68900FA362D /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02ACA26238DD68900FA362D /* Team.swift */; };
 		A02ACA29238DD69300FA362D /* TeamStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02ACA28238DD69300FA362D /* TeamStore.swift */; };
 		A02ACA2D238DF0AE00FA362D /* TeamUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02ACA2C238DF0AE00FA362D /* TeamUser.swift */; };
@@ -132,6 +133,7 @@
 		47EC901322B4ED2B009F5F94 /* taskCellSelect.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = taskCellSelect.xib; sourceTree = "<group>"; };
 		47F31A4622BB0960003D1BAE /* newTaskController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = newTaskController.swift; sourceTree = "<group>"; };
 		746EA071BF06BD9D12EB2832 /* Pods-MEDITASKiOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MEDITASKiOS.release.xcconfig"; path = "Target Support Files/Pods-MEDITASKiOS/Pods-MEDITASKiOS.release.xcconfig"; sourceTree = "<group>"; };
+		7E473DA923A2F7D0008932E3 /* TaskMemberCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskMemberCellView.swift; sourceTree = "<group>"; };
 		A02ACA26238DD68900FA362D /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
 		A02ACA28238DD69300FA362D /* TeamStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamStore.swift; sourceTree = "<group>"; };
 		A02ACA2C238DF0AE00FA362D /* TeamUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamUser.swift; sourceTree = "<group>"; };
@@ -219,6 +221,7 @@
 				47678B6622BEF11E00622DA6 /* taskDetailedViewController.swift */,
 				ED33C3C522FA74FF00800F6D /* CreateTaskChooserController.swift */,
 				A058C8F523594A4E00789A01 /* Task.storyboard */,
+				7E473DA923A2F7D0008932E3 /* TaskMemberCellView.swift */,
 			);
 			path = tasks;
 			sourceTree = "<group>";
@@ -599,6 +602,7 @@
 				ED56DD0D22E94C6900EF77C9 /* MenuViewController.swift in Sources */,
 				A02ACA27238DD68900FA362D /* Team.swift in Sources */,
 				A0834B0823565A2A007A92B4 /* NotifyGateway.swift in Sources */,
+				7E473DAA23A2F7D0008932E3 /* TaskMemberCellView.swift in Sources */,
 				47678B6522BDC02B00622DA6 /* patientEditorController.swift in Sources */,
 				47012EF122AE0660008E9AF9 /* patientCell.swift in Sources */,
 				470CCEC522A1C09700E1DB01 /* DashboardController.swift in Sources */,
