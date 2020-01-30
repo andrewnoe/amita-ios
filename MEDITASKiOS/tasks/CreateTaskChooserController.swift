@@ -8,6 +8,7 @@
 
 import UIKit
 
+//Controller class for Task Creation Templates
 class CreateTaskChooserController: UIViewController {
     var thisTaskType = ""
     @IBAction func emptyTask(_ sender: Any) {

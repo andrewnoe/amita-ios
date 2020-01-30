@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import Firebase
 
+//Controller Class for the Task Member screen: Not quite sure whats all going on
 class TaskMemberController: UIViewController {
     
     var teamStore : TeamStore!

@@ -14,6 +14,7 @@ enum MenuType: Int{
     case home
 }
 
+//Controller class for Hamburger Menu
 class MenuViewController: UITableViewController {
      var didTapMenuType: ((MenuType) -> Void)?
     

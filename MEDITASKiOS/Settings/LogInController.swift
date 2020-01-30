@@ -10,8 +10,10 @@ import UIKit
 import Foundation
 import Firebase
 
+//Controller class for Login screen
 class LogInController: UIViewController {
-
+    
+    //vars for UI elements
     @IBOutlet weak var errorLabel: UILabel!
     @IBOutlet var Icon: UIImageView!
     @IBOutlet var LogInBar: UIView!
@@ -21,6 +23,7 @@ class LogInController: UIViewController {
     @IBOutlet weak var message: UILabel!
     @IBOutlet weak var version: UILabel!
     @IBOutlet var EntireView: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         EmailLogIn.autocorrectionType = .no
@@ -69,7 +72,8 @@ class LogInController: UIViewController {
         }
         
     }
-
+    
+    //Takes user input data and attempts to authenticate
     @IBAction func verifyLogin(_ sender: Any) {
         guard let email = EmailLogIn.text else {return}
         guard let password = PasswordLogIn.text else {return}

@@ -9,7 +9,10 @@
 import UIKit
 import Firebase
 
+//Controller class for Patient detail view
 class patientDetailController: UIViewController {
+    
+    //Vars for catching data from previous views
     var catchName: String!
     var catchDOB: String!
     var catchDesc: String!
@@ -20,8 +23,9 @@ class patientDetailController: UIViewController {
     
  
     //passing the patientcell because I cant figure out how to pass the db ref
-
     var catchPatient: patientCell!
+    
+    //Vars for UI elements
     @IBOutlet weak var patientNameView: UITextField!
     @IBOutlet weak var showDOB: UITextField!
     @IBOutlet weak var showEMR: UITextField!

@@ -46,26 +46,25 @@ struct accordionCells{
     
 }
 
-
+//Controller Class for the Task list view
 class TasksViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate {
     var refTasks: DatabaseReference!
     // var refTeams: DatabaseReference!
 
     var teamStore : TeamStore!
     var currentTeam : Team!
-    
     let refTeam = Database.database().reference().child("Team")
     let currentUId = Auth.auth().currentUser!.uid
 
+    //Vars for UI elements
     @IBOutlet weak var tableTasks: UITableView!
-
     @IBOutlet weak var calenderView: UIView!
     @IBOutlet weak var taskTab: UISegmentedControl!
     let transition = SlideInTransition()
     var topView: UIView?
-    
     @IBOutlet weak var tableTasksHeight: NSLayoutConstraint!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
+    
     var sectionTeamname = String()
     //this is the current task, the important stuff
     var todaysTaskTitles = [String]()
@@ -90,6 +89,8 @@ class TasksViewController: UIViewController, UITableViewDelegate, UITableViewDat
     var countMany = 0
     var filteredData: [String]?
     var unfilteredData = [String]()
+    
+    //Vars for passing data to the next view
     var passTaskName : String!
     var passPriority : String!
     var passTaskDesc : String!
@@ -102,7 +103,9 @@ class TasksViewController: UIViewController, UITableViewDelegate, UITableViewDat
     var passNotify : String!
     
     var tableViewData = [accordionCells]()
-     let searchController = UISearchController(searchResultsController: nil)
+    let searchController = UISearchController(searchResultsController: nil)
+    
+    //Function for when the view loads
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -183,6 +186,7 @@ class TasksViewController: UIViewController, UITableViewDelegate, UITableViewDat
         })
     }
     
+    //Function for loading Task data into the scrollable list
     func loadTaskData() {
         //if (currentTeam.name == ""){
         //currentTeam = myTeams[0]
@@ -497,6 +501,8 @@ class TasksViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         
     }
+    
+    //Function for sending data and changing screens
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if (segue.identifier == "taskSegue"){

@@ -11,6 +11,7 @@ import Firebase
 import MobileCoreServices
 import WebKit
 
+//Controller for adding new Document view
 class newDocumentController: UIViewController {
     @IBOutlet weak var displayedFileName: UILabel!
     var currfileName:String = ""

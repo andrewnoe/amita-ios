@@ -8,6 +8,7 @@
 
 import UIKit
 
+//Controller for (not quite sure what)
 class individualDocumentViewController: UIViewController {
 
     override func viewDidLoad() {

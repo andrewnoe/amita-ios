@@ -9,10 +9,12 @@
 import UIKit
 import Firebase
 
+//Controller Class for Task Detail view
 class taskDetailedViewController: UIViewController {
     
     var editState = 0
     
+    //Vars for data to be caught from previous view
     var catchTitle: String!
     var catchPriority: String!
     var catchDesc: String!
@@ -24,21 +26,24 @@ class taskDetailedViewController: UIViewController {
     var catchRef: DatabaseReference!
     var catchTeamId: String!
     var catchTeamName: String!
+    
     var refTasks: DatabaseReference!
     var refPatients: DatabaseReference!
+    
+    //Vars for UI Elements
     @IBOutlet weak var editButton: UIButton!
     @IBOutlet weak var showTaskTitle: UILabel!
     @IBOutlet weak var showPatient: UITextField!
-   // @IBOutlet weak var showAge: UITextField!
     @IBOutlet weak var showDate: UITextField!
     @IBOutlet weak var showPriority: UITextField!
     @IBOutlet weak var showTime: UITextField!
     @IBOutlet weak var showDescription: UITextView!
-    
     @IBOutlet weak var detailStackView: UIStackView!
+    @IBOutlet weak var navBar: UINavigationItem!
     // @IBOutlet weak var chatStackView: UIStackView!
     // @IBOutlet weak var chatHistoryView: UITableView!
-
+    // @IBOutlet weak var showAge: UITextField!
+    
     var priorities = ["Critical","Urgent","Routine"]
     var myPatients = [String]()
     
@@ -52,7 +57,6 @@ class taskDetailedViewController: UIViewController {
     }
     */
     
-    @IBOutlet weak var navBar: UINavigationItem!
     override func viewDidLoad() {
         super.viewDidLoad()
         navBar.titleView?.tintColor = UIColor.white
@@ -87,6 +91,7 @@ class taskDetailedViewController: UIViewController {
         self.showDescription.text = catchDesc
     }
     
+    //Function for deleting a task (not sure if you can do this from detail view)
     @IBAction func deleteTask(_ sender: Any) {
         let alert = UIAlertController(title: "Delete " + catchTitle + "?", message: "Are you sure you want to delete " + catchTitle + "?", preferredStyle: .alert)
         
@@ -96,12 +101,8 @@ class taskDetailedViewController: UIViewController {
             self.refTasks = Database.database().reference().child("Task")
             self.refTasks.child(self.catchTaskID).removeValue()
             _ = self.navigationController?.popViewController(animated: true)
-       
-            
             
         }
-        
-        
         
         alert.addAction(selectDelete)
         alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
@@ -191,6 +192,7 @@ class taskDetailedViewController: UIViewController {
         }
     }*/
     
+    //Function for moving data when changing views
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "taskChatSegue"){
             let toTaskChatView = segue.destination as! TaskChatViewController

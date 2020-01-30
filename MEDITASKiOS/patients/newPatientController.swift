@@ -9,8 +9,12 @@
 import UIKit
 import Firebase
 
+//Controller for adding new patient View
 class newPatientController: UIViewController {
+    
     var referenceDB:DatabaseReference?
+    
+    //Vars for UI elements
     private var datePicker: UIDatePicker?
     @IBOutlet weak var inputfName: UITextField!
     @IBOutlet weak var inputLname: UITextField!
@@ -18,9 +22,10 @@ class newPatientController: UIViewController {
     @IBOutlet weak var inputEMR: UITextField!
     @IBOutlet weak var inputDesc: UITextView!
     @IBOutlet weak var inputMedic: UITextView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        let tapAway = UITapGestureRecognizer(target: self, action: #selector(newTaskController.vewTapped(gestureRecognizer: )))
+        let tapAway = UITapGestureRecognizer(target: self, action: #selector(newTaskController.viewTapped(gestureRecognizer: )))
         view.addGestureRecognizer(tapAway)
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MM/dd/yyyy"
@@ -41,12 +46,15 @@ class newPatientController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         // Do any additional setup after loading the view.
     }
+    
     @objc func vewTapped(gestureRecognizer: UITapGestureRecognizer){
         view.endEditing(true)
     }
+    
     @objc func doneSelector(){
         view.endEditing(true)
     }
+    
     @objc func dateChanged( datePicker: UIDatePicker){
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MM/dd/yyyy"
@@ -54,6 +62,7 @@ class newPatientController: UIViewController {
         inputDOB.text = dateFormatter.string(from: datePicker.date)
         //view.endEditing(true)
     }
+    
     @IBAction func saveToDB(_ sender: Any) {
         referenceDB = Database.database().reference()
         print("reached")
@@ -79,8 +88,8 @@ class newPatientController: UIViewController {
             "provider": ""])
         _ = navigationController?.popViewController(animated: true)
         
-        
     }
+    
     @objc func keyboardWillShow(notification: NSNotification) {
         if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
             if self.view.frame.origin.y == 0 {

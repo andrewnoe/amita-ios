@@ -8,6 +8,7 @@
 
 import UIKit
 
+//Controller for Calendar widget
 class CalendarController: UIViewController {
 
     @IBOutlet weak var day1: UIButton!

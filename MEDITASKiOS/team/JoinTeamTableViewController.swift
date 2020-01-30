@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import Firebase
 
+//Controller Class for joining a team
 class JoinTeamTableViewController : UITableViewController {
     var teamStore : TeamStore!
     
@@ -46,6 +47,7 @@ class JoinTeamTableViewController : UITableViewController {
         return cell
     }
     
+    //Function for fetching team data
     func fetchTeams() {
         let queryTeam = self.refTeam.queryOrdered(byChild: "teamName")
         queryTeam.observe(DataEventType.value, with: { (snapshot) in

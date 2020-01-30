@@ -8,11 +8,15 @@
 
 import UIKit
 import Firebase
+
+//Controller class for patients view
 class PatientController: UIViewController, UITableViewDataSource, UITableViewDelegate  {
     
     @IBOutlet weak var patientTable: UITableView!
     let  cellTitle =  "Cell  Title"
     //CellTitle will change "Hello Patients"
+    
+    //Vars for dummy data
     var samplePatients = [String]()
     var sampleDOB = [String]()
     var sampleDesc = [String]()
@@ -33,6 +37,7 @@ class PatientController: UIViewController, UITableViewDataSource, UITableViewDel
         searchController.searchBar.isHidden = false
     }
     
+    //Vars for data to be passed to the next view
     var passName: String!
     var passEmr: String!
     var passDOB: String!
@@ -75,6 +80,7 @@ class PatientController: UIViewController, UITableViewDataSource, UITableViewDel
         self.getTaskDict()
     }
     
+    //Function for getting dictionary of Patients
     func getPatientDict() {
         
         refPatients.observe(DataEventType.value) { (snapshot) in

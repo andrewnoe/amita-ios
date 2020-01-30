@@ -9,7 +9,7 @@
 import UIKit
 import WebKit
 
-
+//Controller for opened document Screen
 class openedDocumentControllerViewController: UIViewController, WKUIDelegate{
     var webView: WKWebView!
     var openurl = URL(string: "")

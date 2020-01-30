@@ -9,7 +9,10 @@
 import UIKit
 import Firebase
 import QuickLook
+
+//Controller for Document browser
 class DocumentController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    
     var filteredData: [String]?
     var unfilteredData = [String]()
     let searchController = UISearchController(searchResultsController: nil)

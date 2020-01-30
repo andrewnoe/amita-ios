@@ -8,18 +8,23 @@
 
 import UIKit
 import Firebase
+
+//Controller Class for creating a new task
 class newTaskController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     //this  reference just lets me  connect to the databse that my project is associated with
     var taskType = ""
     var refCreateTask:DatabaseReference?
     var refPatients:DatabaseReference?
+    let currentUId = Auth.auth().currentUser!.uid
+    
+    //Vars for UI elements
     var myButton = UIButton()
     private var datePicker: UIDatePicker?
     private var timePicker: UIDatePicker?
     var priorityPicker: UIPickerView?
     var patientPicker: UIPickerView?
     var selectedField: UITextField!
-    let currentUId = Auth.auth().currentUser!.uid
+    
 
 
     //these are all the fields the  user can input  information via keyboard or picker view
@@ -38,6 +43,8 @@ class newTaskController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
     var listPatients = [String]()
     
     var selectedStatus: String?
+    
+    //Function for view loading
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -69,7 +76,7 @@ class newTaskController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
         timeFormatter.dateFormat = "HH:mm"
         let getTodaysDay = dateFormatter.string(from: todaysDate)
         let getTodaysTime = timeFormatter.string(from: todaysDate)
-        let tapAway = UITapGestureRecognizer(target: self, action: #selector(newTaskController.vewTapped(gestureRecognizer: )))
+        let tapAway = UITapGestureRecognizer(target: self, action: #selector(newTaskController.viewTapped(gestureRecognizer: )))
         view.addGestureRecognizer(tapAway)
         inputDate.text = getTodaysDay
         inputTime.text = getTodaysTime
@@ -140,7 +147,8 @@ class newTaskController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
         }
     }
     
-    @objc func vewTapped(gestureRecognizer: UITapGestureRecognizer){
+    //Was previously named vewTapped: Might cause error
+    @objc func viewTapped(gestureRecognizer: UITapGestureRecognizer){
         view.endEditing(true)
     }
     @objc func doneSelector(){
@@ -191,6 +199,8 @@ class newTaskController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
             }
             //inputPriority.text = priorities[row]
     }
+    
+    //Function for creating a new task
     @IBAction func createTask(_ sender: Any) {
         
         // **  to do ** check for

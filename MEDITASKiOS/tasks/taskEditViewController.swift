@@ -9,10 +9,13 @@
 import UIKit
 import Firebase
 
+//Controller Class of the Task Editor screen
 class taskEditViewController: UIViewController {
     
     var ref: DatabaseReference?
     private var datePicker: UIDatePicker?
+    
+    //These vars catch data from the previous screen
     var catchTitle: String!
     var catchDate: String!
     var catchTime: String!
@@ -21,29 +24,26 @@ class taskEditViewController: UIViewController {
     var catchUrgency: String!
     var catchTeamName: String!
     var catchTeamId: String!
-    
     var selectedTeamId: String!
+    
     var myTeams: TeamStore!
     let refTeam = Database.database().reference().child("Team")
     let currentUId = Auth.auth().currentUser!.uid
     var teamDDLBController = TeamDDLBController()
     var isShowingTeamList: Bool!
-    
     var taskDetailController: taskDetailedViewController!
     
+    //These vars are outlets for on-screen UI elements
     @IBOutlet weak var selectTeamButton: UIButton!
-    
     @IBOutlet weak var selectTeamList: UITableView!
-    
     @IBOutlet weak var titleField: UITextField!
-    
     @IBOutlet weak var dateField: UITextField!
     @IBOutlet weak var descField: UITextField!
     @IBOutlet weak var priorityField: UITextField!
     @IBOutlet weak var timeField: UITextField!
-
     @IBOutlet weak var saveButton: UIBarButtonItem!
     
+    //Function calls when view loads
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -88,6 +88,7 @@ class taskEditViewController: UIViewController {
 
     }
     
+    //Function calls on selecting the team changing drop down
     @IBAction func onSelectTeam(_ sender: Any) {
         if isShowingTeamList {
             selectTeamList.isHidden = true
@@ -121,6 +122,7 @@ class taskEditViewController: UIViewController {
         //view.endEditing(true)
     }
     
+    //Function calls when save is pressed; updates data on DB
     @IBAction func saveToDB(_ sender: Any) {
         let passTitle = titleField.text!
         let passDate = dateField.text!
@@ -153,6 +155,7 @@ class taskEditViewController: UIViewController {
         
     }
     
+    //Function loads dictionary of all teams
     func getTeamDict() {
         let queryTeam = self.refTeam.queryOrdered(byChild: "teamName")
         queryTeam.observe(DataEventType.value, with: { (snapshot) in

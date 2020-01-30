@@ -84,7 +84,6 @@
 		ED1E72D922C422E4000B657C /* newDocumentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1E72D822C422E4000B657C /* newDocumentController.swift */; };
 		ED33C3C622FA74FF00800F6D /* CreateTaskChooserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED33C3C522FA74FF00800F6D /* CreateTaskChooserController.swift */; };
 		ED33C3D322FDE14E00800F6D /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED33C3D222FDE14E00800F6D /* TabBarController.swift */; };
-		ED56DCF222CD4D1400EF77C9 /* TaskDetailsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED56DCF122CD4D1400EF77C9 /* TaskDetailsController.swift */; };
 		ED56DD0D22E94C6900EF77C9 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED56DD0C22E94C6900EF77C9 /* MenuViewController.swift */; };
 		ED56DD0F22E95A9C00EF77C9 /* SlideInTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED56DD0E22E95A9C00EF77C9 /* SlideInTransition.swift */; };
 		ED56DD1322EA4DC200EF77C9 /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED56DD1222EA4DC200EF77C9 /* SearchController.swift */; };
@@ -175,7 +174,6 @@
 		ED1E72D822C422E4000B657C /* newDocumentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = newDocumentController.swift; sourceTree = "<group>"; };
 		ED33C3C522FA74FF00800F6D /* CreateTaskChooserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTaskChooserController.swift; sourceTree = "<group>"; };
 		ED33C3D222FDE14E00800F6D /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
-		ED56DCF122CD4D1400EF77C9 /* TaskDetailsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailsController.swift; sourceTree = "<group>"; };
 		ED56DD0C22E94C6900EF77C9 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		ED56DD0E22E95A9C00EF77C9 /* SlideInTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideInTransition.swift; sourceTree = "<group>"; };
 		ED56DD1222EA4DC200EF77C9 /* SearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
@@ -214,7 +212,6 @@
 				4746C00122A0E0860081ACD2 /* TasksViewController.swift */,
 				47012EEA22ADF719008E9AF9 /* taskCell.swift */,
 				47012EEB22ADF719008E9AF9 /* taskCell.xib */,
-				ED56DCF122CD4D1400EF77C9 /* TaskDetailsController.swift */,
 				47EC901222B4ED2B009F5F94 /* taskCellSelect.swift */,
 				47EC901322B4ED2B009F5F94 /* taskCellSelect.xib */,
 				47F31A4622BB0960003D1BAE /* newTaskController.swift */,
@@ -615,7 +612,6 @@
 				A0370EBC23973C74004A9632 /* Task.swift in Sources */,
 				A0DDB6F3233ABC7000CEAB12 /* BasicAudioController.swift in Sources */,
 				ED1E72D922C422E4000B657C /* newDocumentController.swift in Sources */,
-				ED56DCF222CD4D1400EF77C9 /* TaskDetailsController.swift in Sources */,
 				47984F4A22A71FB6009FBA69 /* DocumentController.swift in Sources */,
 				47012EEC22ADF719008E9AF9 /* taskCell.swift in Sources */,
 				A05BC88F23A289C800F1B20E /* TeamGateway.swift in Sources */,
