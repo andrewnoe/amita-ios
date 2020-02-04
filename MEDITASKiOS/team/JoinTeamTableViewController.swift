@@ -12,10 +12,10 @@ import Firebase
 
 //Controller Class for joining a team
 class JoinTeamTableViewController : UITableViewController {
-    var teamStore : TeamStore!
+    var teamStore : TeamStore! //variable holding information pertaining to TeamStore
     
-    let refTeam = Database.database().reference().child("Team")
-    let currentUId = Auth.auth().currentUser!.uid
+    let refTeam = Database.database().reference().child("Team") //immutable variable that gains information from the Database "Team"
+    let currentUId = Auth.auth().currentUser!.uid //the users uniqued user id
     
     // need this outlet because we have to programmatically reload the table
     // after the firebase fetch (it is asynchronously fetching)
