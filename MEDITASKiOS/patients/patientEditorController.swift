@@ -16,7 +16,7 @@ import Firebase
  *@param(kinda) var catch_____ - a variable that recieves data from the Patient Detail Controller
  *
  */
-class patientEditorController: UIViewController {
+class patientEditorController: UIViewController, UITextFieldDelegate {
     
     
     var ref: DatabaseReference?
@@ -41,6 +41,8 @@ class patientEditorController: UIViewController {
     @IBOutlet weak var saveBarButton: UIBarButtonItem!
     @IBOutlet weak var statusField: UITextField!
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.fNameField.text = catchFName
@@ -50,6 +52,13 @@ class patientEditorController: UIViewController {
         self.descField.text = catchDesc
         self.healthField.text = catchHist
         self.statusField.text = catchStatus
+        self.fNameField.delegate = self
+        self.lNameField.delegate = self
+        self.dobField.delegate = self
+        self.emrField.delegate = self
+        self.descField.delegate = self
+        self.healthField.delegate = self
+        self.statusField.delegate = self
         
         //let tapAway = UITapGestureRecognizer(target: self, action: #selector(patientEditorController.keyboardWillHide(notification:)))
         //view.addGestureRecognizer(tapAway)
@@ -68,8 +77,8 @@ class patientEditorController: UIViewController {
         dobField.inputAccessoryView = toolBar
         dobField.inputView = datePicker
         
-        /*NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)*/
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        /*NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)*/
         
         
         
@@ -77,6 +86,7 @@ class patientEditorController: UIViewController {
     }
     
     @objc func viewTapped(gestureRecognizer: UITapGestureRecognizer){
+        
         view.endEditing(true)
     }
     @objc func doneSelector(){
@@ -147,7 +157,7 @@ class patientEditorController: UIViewController {
         toDocView.catchKey = catchKey
     }
     
-   /* @objc func keyboardWillShow(notification: NSNotification) {
+    @objc func keyboardWillShow(notification: NSNotification) {
         if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
             if self.view.frame.origin.y == 0 {
                 self.view.frame.origin.y -= keyboardSize.height
@@ -159,7 +169,12 @@ class patientEditorController: UIViewController {
         if self.view.frame.origin.y != 0 {
             self.view.frame.origin.y = 0
         }
-    }*/
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
     
     /*
      // MARK: - Navigation

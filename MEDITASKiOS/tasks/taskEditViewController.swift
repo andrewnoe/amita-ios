@@ -38,7 +38,7 @@ class taskEditViewController: UIViewController {
     @IBOutlet weak var selectTeamList: UITableView!
     @IBOutlet weak var titleField: UITextField!
     @IBOutlet weak var dateField: UITextField!
-    @IBOutlet weak var descField: UITextField!
+    @IBOutlet weak var descField: UITextView!
     @IBOutlet weak var priorityField: UITextField!
     @IBOutlet weak var timeField: UITextField!
     @IBOutlet weak var saveButton: UIBarButtonItem!
