@@ -9,7 +9,7 @@
 import Foundation
 
 class TeamStore {
-    var teams = [Team]()
+    var teams = [Team]() //list of all teams
     
     init() {
     }

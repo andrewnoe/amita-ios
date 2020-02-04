@@ -9,10 +9,10 @@
 import Foundation
 
 internal class TeamUser: NSObject {
-    var userId: String
-    var dayShift: Bool
-    var nightShift: Bool
-    var filterOn: Bool
+    var userId: String //users unique id
+    var dayShift: Bool //Boolean that assigns you to day team
+    var nightShift: Bool //Boolean that assigns you to team and assigns all tasks of said team to you
+    var filterOn: Bool //in case of multiple teams, filters available tasks based on Boolean value (Currently unused)
     
     init(userId: String, dayShift: Bool, nightShift: Bool, filterOn: Bool) {
         self.userId = userId

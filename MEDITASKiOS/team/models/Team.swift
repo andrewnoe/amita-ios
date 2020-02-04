@@ -9,9 +9,9 @@
 import Foundation
 
 internal class Team: NSObject {
-    var teamId: String
-    var teamName: String
-    var userIds: [TeamUser]
+    var teamId: String //unique id assigned to the created team
+    var teamName: String //name of the team
+    var userIds: [TeamUser] //list of TeamUsers
     
     init(teamId: String, teamName: String) {
         self.teamId = teamId
