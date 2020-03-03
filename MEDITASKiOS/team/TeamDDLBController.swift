@@ -10,7 +10,7 @@ import UIKit
 
 class TeamDDLBController: NSObject, UITableViewDelegate, UITableViewDataSource {
     
-    var teamStore = TeamStore()
+    var teamStore = TeamStore() //variable holding information pertaining to TeamStore
     var taskEditController : taskEditViewController!
     
     override init() {
