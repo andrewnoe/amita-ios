@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 
 //Controller Class of the Task Editor screen
-class taskEditViewController: UIViewController {
+class taskEditViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate {
     
     var ref: DatabaseReference?
     private var datePicker: UIDatePicker?
@@ -61,9 +61,17 @@ class taskEditViewController: UIViewController {
         self.descField.text = catchDesc
         self.priorityField.text = catchUrgency
         
+        self.titleField.delegate = self
+        self.dateField.delegate = self
+        self.timeField.delegate = self
+        self.descField.delegate = self
+        self.priorityField.delegate = self
+        
         selectTeamButton.setTitle(catchTeamName, for: .normal)
         selectedTeamId = catchTeamId
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
 
+        
         //let tapAway = UITapGestureRecognizer(target: self, action: #selector(patientEditorController.keyboardWillHide(notification:)))
         //view.addGestureRecognizer(tapAway)
         let dateFormatter = DateFormatter()
@@ -84,6 +92,8 @@ class taskEditViewController: UIViewController {
         /*NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)*/
         
+        //left off here. Hides keyboard on tap
+        view.addGestureRecognizer(tap)
         getTeamDict()
 
     }
@@ -120,6 +130,21 @@ class taskEditViewController: UIViewController {
         
         dateField.text = dateFormatter.string(from: datePicker.date)
         //view.endEditing(true)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    func textViewShouldReturn(_ textView: UITextView) -> Bool {
+        textView.resignFirstResponder()
+        return true
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
     }
     
     //Function calls when save is pressed; updates data on DB
@@ -192,6 +217,10 @@ class taskEditViewController: UIViewController {
             }
             self.selectTeamList.reloadData()
         })
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

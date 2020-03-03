@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import Firebase
 
-//Controller Class for the Task Member screen: Not quite sure whats all going on
+//Controller Class for the Task Member screen: Not quite sure whats all going on: Left off here 2/6
 class TaskMemberController: UIViewController {
     
     var teamStore : TeamStore!
@@ -39,7 +39,7 @@ class TaskMemberController: UIViewController {
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell:UITableViewCell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier) as UITableViewCell!
+        let cell:UITableViewCell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier) as! UITableViewCell
         
         cell.textLabel?.text = members[indexPath.row]
         

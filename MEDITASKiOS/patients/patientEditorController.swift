@@ -16,8 +16,7 @@ import Firebase
  *@param(kinda) var catch_____ - a variable that recieves data from the Patient Detail Controller
  *
  */
-class patientEditorController: UIViewController, UITextFieldDelegate {
-    
+class patientEditorController: UIViewController, UITextFieldDelegate{
     
     var ref: DatabaseReference?
     private var datePicker: UIDatePicker?
@@ -29,6 +28,7 @@ class patientEditorController: UIViewController, UITextFieldDelegate {
     var catchEMR: String!
     var catchKey: String!
     var catchStatus: String!
+    var patDetailController: patientDetailController!
     
     
     
@@ -45,13 +45,13 @@ class patientEditorController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.fNameField.text = catchFName
-        self.lNameField.text = catchLName
-        self.dobField.text = catchDOB
-        self.emrField.text = catchEMR
-        self.descField.text = catchDesc
-        self.healthField.text = catchHist
-        self.statusField.text = catchStatus
+        self.fNameField.text = catchFName!
+        self.lNameField.text = catchLName!
+        self.dobField.text = catchDOB!
+        self.emrField.text = catchEMR!
+        self.descField.text = catchDesc!
+        self.healthField.text = catchHist!
+        self.statusField.text = catchStatus!
         self.fNameField.delegate = self
         self.lNameField.delegate = self
         self.dobField.delegate = self
@@ -135,6 +135,16 @@ class patientEditorController: UIViewController, UITextFieldDelegate {
             "provider": "",
             "status":passStatus]
         
+        print("Made it to catch block")
+        print(patDetailController)
+        patDetailController.catchName = passfName + " " + passlName
+        patDetailController.catchDOB = passDOB
+        patDetailController.catchDesc = passDesc
+        patDetailController.catchHist = passMedic
+        patDetailController.catchEMR = passEMR
+        patDetailController.catchKey = catchKey
+        patDetailController.refreshGUIText()
+        
         ref?.updateChildValues(dataToDB)
         self.navigationController?.popViewController(animated: true)
     }
@@ -146,15 +156,17 @@ class patientEditorController: UIViewController, UITextFieldDelegate {
      *
      */
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        saveToDB(saveBarButton)
-        let toDocView = segue.destination as! patientDetailController
+        print("IS THIS BEING CALLLED?")
+        let toDetailView = segue.destination as! patientDetailController
+       
+        toDetailView.catchName = fNameField.text! + " " + lNameField.text!
+        toDetailView.catchDOB = dobField.text!
+        toDetailView.catchDesc = descField.text!
+        toDetailView.catchHist = healthField.text!
+        toDetailView.catchEMR = emrField.text!
+        toDetailView.catchKey = catchKey
         
-        toDocView.catchName = catchFName + " " + catchLName
-        toDocView.catchDOB = catchDOB
-        toDocView.catchDesc = catchDesc
-        toDocView.catchHist = catchHist
-        toDocView.catchEMR = catchEMR
-        toDocView.catchKey = catchKey
+        
     }
     
     @objc func keyboardWillShow(notification: NSNotification) {
@@ -174,6 +186,11 @@ class patientEditorController: UIViewController, UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
     }
     
     /*

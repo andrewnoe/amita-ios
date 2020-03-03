@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 
 //Controller Class for creating a new task
-class newTaskController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class newTaskController: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
     //this  reference just lets me  connect to the databse that my project is associated with
     var taskType = ""
     var refCreateTask:DatabaseReference?
@@ -36,7 +36,7 @@ class newTaskController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
     @IBOutlet weak var inputPriority: UITextField!
     @IBOutlet weak var inputPatient: UITextField!
     @IBOutlet weak var inputNotify: UISwitch!
-    @IBOutlet weak var inputMembers: UITextView!
+    //@IBOutlet weak var inputMembers: UITextView!
     @IBOutlet weak var inputDesc: UITextView!
     //let padding = UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 0)
     var priorities = ["Critical","Urgent","Routine"]
@@ -67,6 +67,13 @@ class newTaskController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
             }
             
         }
+        
+        self.inputTitle.delegate = self
+        self.inputDate.delegate = self
+        self.inputTime.delegate = self
+        self.inputPriority.delegate = self
+        self.inputPatient.delegate = self
+        self.inputDesc.delegate = self
         
         self.title = taskType
         let todaysDate = Date()
@@ -170,6 +177,21 @@ class newTaskController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
     }
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    func textViewShouldReturn(_ textView: UITextView) -> Bool {
+        textView.resignFirstResponder()
+        return true
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {

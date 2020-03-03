@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 
 //Controller for adding new patient View
-class newPatientController: UIViewController {
+class newPatientController: UIViewController, UITextFieldDelegate, UITextViewDelegate {
     
     var referenceDB:DatabaseReference?
     
@@ -25,6 +25,14 @@ class newPatientController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.inputfName.delegate = self
+        self.inputLname.delegate = self
+        self.inputDOB.delegate = self
+        self.inputEMR.delegate = self
+        self.inputDesc.delegate = self
+        self.inputMedic.delegate = self
+        
         let tapAway = UITapGestureRecognizer(target: self, action: #selector(newTaskController.viewTapped(gestureRecognizer: )))
         view.addGestureRecognizer(tapAway)
         let dateFormatter = DateFormatter()
@@ -104,7 +112,21 @@ class newPatientController: UIViewController {
         }
     }
     
-
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    func textViewShouldReturn(_ textView: UITextView) -> Bool {
+        textView.resignFirstResponder()
+        return true
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
     /*
     // MARK: - Navigation
 
