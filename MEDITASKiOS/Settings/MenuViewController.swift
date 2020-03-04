@@ -35,6 +35,8 @@ class MenuViewController: UITableViewController {
                 self?.didTapMenuType?(menuType)
             }
         }
+        
+        self.navigationController?.popViewController(animated: true)
     }
     
 }

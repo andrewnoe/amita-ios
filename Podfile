@@ -4,7 +4,8 @@ platform :ios, "11.0"
 
 target 'MEDITASKiOS' do
   
-  pod 'MessageKit'
+  pod 'MessageKit', '~> 2.0.0'
+  pod 'MessageInputBar', '~> 0.4.1'
   pod 'Firebase/Auth'
   pod 'Firebase/Storage'
   pod 'Firebase/Database'

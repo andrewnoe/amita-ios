@@ -91,5 +91,14 @@ class LogInController: UIViewController {
         }
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        print("*** is this being called?")
+        
+        /*if(segue.identifier == "mainSegue"){ LEFT OFF HERE TUESDAY
+            let toMainView = segue.destination as! MenuViewController
+        }*/
+        
+    }
+    
 
 }

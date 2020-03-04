@@ -105,6 +105,10 @@ class TasksViewController: UIViewController, UITableViewDelegate, UITableViewDat
     var tableViewData = [accordionCells]()
     let searchController = UISearchController(searchResultsController: nil)
     
+    // 3/3/2020 CHANGE THIS FOR DISAPPEARING HAMBURGER
+    var menuShowing = false
+    var menuViewController : MenuViewController!;
+    
     //Function for when the view loads
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -398,13 +402,19 @@ class TasksViewController: UIViewController, UITableViewDelegate, UITableViewDat
    
     
     @IBAction func didTapMenu(_ sender: Any) {
-        guard let menuViewController = storyboard?.instantiateViewController(withIdentifier: "MenuViewController") as? MenuViewController else { return }
-        menuViewController.didTapMenuType = { menuType in
-            self.transitionToNew(menuType)
-        }
-        menuViewController.modalPresentationStyle = .overCurrentContext
-        menuViewController.transitioningDelegate = self as! UIViewControllerTransitioningDelegate
-        present(menuViewController, animated: true)
+            if(menuShowing) {
+                menuViewController.dismiss(animated: true, completion: nil)
+                menuShowing = false;
+            } else {
+                menuViewController = storyboard?.instantiateViewController(withIdentifier: "MenuViewController") as? MenuViewController
+                menuViewController.didTapMenuType = { menuType in
+                    self.transitionToNew(menuType)
+                }
+                menuViewController.modalPresentationStyle = .overCurrentContext
+                menuViewController.transitioningDelegate = self as! UIViewControllerTransitioningDelegate
+                present(menuViewController, animated: true)
+                menuShowing = true;
+            }
     }
     
     @IBAction func taskSeperator(_ sender: Any) {
